@@ -18,11 +18,8 @@ func _process(event):
 
 
 func _physics_process(delta):
-	if direction == Vector3.ZERO:
-		return
-	
-
-	look_at(get_global_transform().origin + direction, Vector3.UP)
+	if direction != Vector3.ZERO:
+		look_at(get_global_transform().origin + direction, Vector3.UP)
 	
 	move_and_slide(direction.normalized() * speed)
 

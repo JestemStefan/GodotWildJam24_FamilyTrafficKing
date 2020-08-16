@@ -4,7 +4,8 @@
 
 [sub_resource type="BoxShape" id=2]
 
-[node name="StaticBody" type="StaticBody"]
+[node name="Path" type="StaticBody"]
+collision_layer = 8
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 0 )

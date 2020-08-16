@@ -1,6 +1,6 @@
 extends Area
 
-export(float) var bark_duration = 0.5
+export(float) var bark_duration = 0.25
 
 onready var _timer: Timer = $Timer
 onready var _woof_text: RichTextLabel = $WoofText
@@ -28,4 +28,4 @@ func _on_Timer_timeout():
 
 func _on_BarkArea_body_entered(body):
 	# TODO
-	print("%s detected")
+	print("%s detected" % body)
