@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/lane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/family_member.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/dog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/dog/dog.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/car.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/path.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.950391, 0.984381, 0.0397818, 0, 0, 0, 0, 0, 0, -0.990783, 0.988855, 0.0144668 ),
+"tilts": PoolRealArray( 0, 0 )
+}
 
 [node name="TestingLevel" type="Node"]
 
@@ -15,10 +22,15 @@ collision_mask = 2147483651
 transform = Transform( -0.135436, 0, -1.99995, 0, 1, 0, 19.9995, 0, -0.0135436, -5.26649, -1, 0 )
 collision_mask = 0
 
-[node name="Path" parent="." instance=ExtResource( 1 )]
-transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 3, 0, -1, 0 )
-collision_mask = 2
+[node name="Path" type="Path" parent="Lane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93373e-05, 4.76837e-07, -0.0213223 )
+curve = SubResource( 1 )
 
 [node name="Car" parent="." instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 3, -5.21385, 2, -6.31404 )
+
+[node name="StaticBody" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 0.786141, 0, 0 )
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 0.0429327 )

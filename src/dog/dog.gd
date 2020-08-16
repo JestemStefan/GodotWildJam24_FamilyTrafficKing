@@ -21,9 +21,10 @@ func _physics_process(delta):
 	if direction == Vector3.ZERO:
 		return
 	
-	look_at(direction, Vector3.UP)
+
+	look_at(get_global_transform().origin + direction, Vector3.UP)
 	
-	move_and_slide(direction * speed)
+	move_and_slide(direction.normalized() * speed)
 
 
 

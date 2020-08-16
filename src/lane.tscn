@@ -5,7 +5,7 @@
 [sub_resource type="CubeMesh" id=2]
 
 [node name="Lane" type="StaticBody"]
-transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 2, -0.0307465, -1, -0.0255728 )
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 3, -0.0307465, -1, -0.0255728 )
 collision_layer = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

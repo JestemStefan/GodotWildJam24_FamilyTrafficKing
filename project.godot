@@ -19,6 +19,10 @@ config/name="GWJ 24"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://sprites/icon.png"
 
+[autoload]
+
+NodeFinder="*res://src/node_finder.gd"
+
 [input]
 
 move_up={

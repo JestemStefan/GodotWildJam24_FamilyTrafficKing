@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/dog/dog.gd" type="Script" id=1]
+[ext_resource path="res://src/dog/bark_area.gd" type="Script" id=2]
+[ext_resource path="res://src/dog/woof_text.gd" type="Script" id=3]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.5, 0.5, 1.5 )
+
+[sub_resource type="SphereShape" id=3]
+
+[sub_resource type="SphereShape" id=4]
+radius = 3.0
+
+[sub_resource type="ConvexPolygonShape" id=5]
+points = PoolVector3Array( 0, 0, 0, 6, 2, -10, -6, 2, -10, -6, -1, -10, 6, -1, 10 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "slide_up_n_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.0 ]
+}
+
+[node name="Dog" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.037 )
+collision_mask = 7
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0175759, 0.00703239, -1.48465 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="BarkArea" type="Area" parent="."]
+input_ray_pickable = false
+monitoring = false
+monitorable = false
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Circle" type="CollisionShape" parent="BarkArea"]
+shape = SubResource( 4 )
+
+[node name="Cone" type="CollisionShape" parent="BarkArea"]
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="BarkArea"]
+
+[node name="WoofText" type="RichTextLabel" parent="BarkArea"]
+visible = false
+anchor_top = 0.1
+anchor_bottom = 0.1
+margin_top = -60.0
+margin_right = 40.0
+margin_bottom = -40.0
+text = "Woof!"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BarkArea/WoofText"]
+anims/slide_up_n_fade = SubResource( 6 )
+[connection signal="body_entered" from="BarkArea" to="BarkArea" method="_on_BarkArea_body_entered"]
+[connection signal="timeout" from="BarkArea/Timer" to="BarkArea" method="_on_Timer_timeout"]
