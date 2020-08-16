@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/dog.gd" type="Script" id=1]
+[ext_resource path="res://src/BarkArea.gd" type="Script" id=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SphereShape" id=2]
+
+[sub_resource type="SphereShape" id=3]
+radius = 3.0
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( 0, 0, 0, 10, 2, 6, 10, 2, -6, 10, -1, -6, 10, -1, 6 )
+
+[node name="Dog" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.037 )
+collision_mask = 7
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="BarkArea" type="Area" parent="."]
+input_ray_pickable = false
+monitoring = false
+monitorable = false
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Circle" type="CollisionShape" parent="BarkArea"]
+shape = SubResource( 3 )
+
+[node name="Cone" type="CollisionShape" parent="BarkArea"]
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="BarkArea"]
+[connection signal="body_entered" from="BarkArea" to="BarkArea" method="_on_BarkArea_body_entered"]
+[connection signal="timeout" from="BarkArea/Timer" to="BarkArea" method="_on_Timer_timeout"]

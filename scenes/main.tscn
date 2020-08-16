@@ -7,4 +7,4 @@
 [node name="TestingLevel" parent="." instance=ExtResource( 1 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.932002, 0.213664, -0.292781, 0, 0.807774, 0.589492, 0.362454, -0.549408, 0.752847, -10.87, 8.52838, 7.37217 )
+transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0.36165, 8.52838, 10.3372 )
