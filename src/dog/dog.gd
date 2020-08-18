@@ -6,8 +6,8 @@ export var speed = 10
 var direction: Vector3 = Vector3()
 
 
-onready var _bark_area: Area = $BarkArea
-onready var _timer: Timer = $BarkArea/Timer
+onready var _bark_area: Area = $DogAnimated/BarkArea
+onready var _timer: Timer = $DogAnimated/BarkArea/Timer
 
 func _process(event):
 	# reset the direction vector state

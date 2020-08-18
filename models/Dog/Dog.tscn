@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://models/Dog/Dog_Material.tres" type="Material" id=1]
+[ext_resource path="res://scenes/BarkArea.tscn" type="PackedScene" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Dog1"
@@ -874,6 +875,7 @@ node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 
 [node name="DogAnimated" type="Spatial"]
 
 [node name="Armature" type="Spatial" parent="."]
+transform = Transform( -1.5, 0, -4.88762e-07, 0, 1.5, 0, 4.88762e-07, 0, -1.5, 0, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Armature"]
 bones/0/name = "back_foot_control_l"
@@ -1133,3 +1135,6 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Blend2/blend_amount = 0.0
 parameters/TimeScale/scale = 2.0
+
+[node name="BarkArea" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2989, 0 )
