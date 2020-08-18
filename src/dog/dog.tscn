@@ -14,6 +14,9 @@ script = ExtResource( 1 )
 [node name="DogAnimated" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02382, 0 )
 
+[node name="AnimationTree" parent="DogAnimated" index="2"]
+parameters/movement/blend_amount = 0
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.542735, 0 )
 shape = SubResource( 1 )

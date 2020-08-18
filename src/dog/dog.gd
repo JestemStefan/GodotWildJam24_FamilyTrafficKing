@@ -8,6 +8,7 @@ var direction: Vector3 = Vector3()
 
 onready var _bark_area: Area = $DogAnimated/BarkArea
 onready var _timer: Timer = $DogAnimated/BarkArea/Timer
+onready var _anim_tree: AnimationTree = $DogAnimated/AnimationTree
 
 func _process(event):
 	# reset the direction vector state
@@ -20,7 +21,10 @@ func _process(event):
 func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		look_at(get_global_transform().origin + direction, Vector3.UP)
-	
+		_anim_tree["parameters/movement/blend_amount"] = 1.0
+	elif direction == Vector3.ZERO:
+		_anim_tree["parameters/movement/blend_amount"] = 0.0
+		
 	move_and_slide(direction.normalized() * speed)
 
 

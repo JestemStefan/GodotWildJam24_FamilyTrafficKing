@@ -854,23 +854,23 @@ animation = "RunCycle"
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Idle"
 
+[sub_resource type="AnimationNodeTimeScale" id=8]
+
 [sub_resource type="AnimationNodeBlend2" id=7]
 sync = true
 
-[sub_resource type="AnimationNodeTimeScale" id=8]
-
 [sub_resource type="AnimationNodeBlendTree" id=9]
-graph_offset = Vector2( -108, -94.75 )
+graph_offset = Vector2( 162, -96 )
 nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( 320, 20 )
 "nodes/Animation 2/node" = SubResource( 5 )
 "nodes/Animation 2/position" = Vector2( 200, 160 )
-nodes/Blend2/node = SubResource( 7 )
-nodes/Blend2/position = Vector2( 640, 100 )
 nodes/TimeScale/node = SubResource( 8 )
 nodes/TimeScale/position = Vector2( 400, 160 )
+nodes/movement/node = SubResource( 7 )
+nodes/movement/position = Vector2( 640, 100 )
 nodes/output/position = Vector2( 900, 120 )
-node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "TimeScale", "TimeScale", 0, "Animation 2" ]
+node_connections = [ "output", 0, "movement", "TimeScale", 0, "Animation 2", "movement", 0, "Animation", "movement", 1, "TimeScale" ]
 
 [node name="DogAnimated" type="Spatial"]
 
@@ -1133,8 +1133,8 @@ anims/RunCycle = SubResource( 4 )
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Blend2/blend_amount = 0.0
 parameters/TimeScale/scale = 2.0
+parameters/movement/blend_amount = 0.0
 
 [node name="BarkArea" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2989, 0 )
