@@ -5,6 +5,3 @@
 [node name="Main" type="Node"]
 
 [node name="TestingLevel" parent="." instance=ExtResource( 1 )]
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 20, 20 )

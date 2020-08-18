@@ -33,7 +33,5 @@ func _on_BarkArea_body_entered(body):
 
 
 func _on_BarkArea_body_exited(body):
-	var body_index = detected_fams.find(body)
-	if body_index >= 0:
-		detected_fams.remove(body_index)
-		print("%s undetected" % body)
+	detected_fams.erase(body)
+	print("%s undetected" % body)
