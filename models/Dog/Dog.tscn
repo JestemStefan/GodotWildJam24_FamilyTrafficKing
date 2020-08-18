@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://models/Dog/Dog_Material.tres" type="Material" id=1]
 
@@ -847,6 +847,30 @@ tracks/47/imported = true
 tracks/47/enabled = true
 tracks/47/keys = PoolRealArray( 0, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.666667, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.791667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.916667, 1, 0.000324756, 0.475563, 0.105162, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.04167, 1, 0.000478193, 0.512224, 0.154848, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.16667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.29167, 1, 6.50883e-05, 0.413522, 0.0210802, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.54167, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1 )
 
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "RunCycle"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeBlend2" id=7]
+sync = true
+
+[sub_resource type="AnimationNodeTimeScale" id=8]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+graph_offset = Vector2( -108, -94.75 )
+nodes/Animation/node = SubResource( 6 )
+nodes/Animation/position = Vector2( 320, 20 )
+"nodes/Animation 2/node" = SubResource( 5 )
+"nodes/Animation 2/position" = Vector2( 200, 160 )
+nodes/Blend2/node = SubResource( 7 )
+nodes/Blend2/position = Vector2( 640, 100 )
+nodes/TimeScale/node = SubResource( 8 )
+nodes/TimeScale/position = Vector2( 400, 160 )
+nodes/output/position = Vector2( 900, 120 )
+node_connections = [ "output", 0, "Blend2", "Blend2", 0, "Animation", "Blend2", 1, "TimeScale", "TimeScale", 0, "Animation 2" ]
+
 [node name="DogAnimated" type="Spatial"]
 
 [node name="Armature" type="Spatial" parent="."]
@@ -1102,3 +1126,10 @@ material/0 = ExtResource( 1 )
 playback_speed = 1.5
 anims/Idle = SubResource( 3 )
 anims/RunCycle = SubResource( 4 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Blend2/blend_amount = 0.0
+parameters/TimeScale/scale = 2.0
