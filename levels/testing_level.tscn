@@ -15,7 +15,7 @@ _data = {
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.00476982, 2.99071, -11.517, 0, 0, 0, 0, 0, 0, 0.0108464, 3.10913, 5.25162 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.00213762, 2.99071, -10.0466, 0, 0, 0, 0, 0, 0, 0.00468447, 2.83583, 9.51319 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -34,7 +34,6 @@ rotation_mode = 1
 
 [node name="Car" parent="Lane/Path/PathFollow" instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
-speed = 10
 
 [node name="Path" parent="." instance=ExtResource( 5 )]
 transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 0.786141, 0, 0 )
