@@ -132,10 +132,10 @@ tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
 
 [sub_resource type="BoxShape" id=20]
-extents = Vector3( 1, 2.68973, 3.93644 )
+extents = Vector3( 1, 2.36602, 3.93644 )
 
 [sub_resource type="BoxShape" id=21]
-extents = Vector3( 3.18115, 1.39071, 3.81029 )
+extents = Vector3( 3.18115, 0.966596, 3.81029 )
 
 [node name="Car" type="KinematicBody"]
 collision_layer = 4
@@ -182,7 +182,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape" type="CollisionShape" parent="PeopleDetector"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38888, -8.42801 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82382, -8.42801 )
 shape = SubResource( 21 )
 [connection signal="animation_finished" from="Car/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="PeopleDetector" to="." method="_on_PeopleDetector_body_entered"]
