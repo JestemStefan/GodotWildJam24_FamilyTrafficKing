@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "FamilyMember",
+"class": "Child",
+"language": "GDScript",
+"path": "res://src/family/child.gd"
+}, {
 "base": "KinematicBody",
 "class": "Dog",
 "language": "GDScript",
@@ -17,17 +22,24 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "FamilyMember",
 "language": "GDScript",
-"path": "res://src/family_member.gd"
+"path": "res://src/family/family_member.gd"
+}, {
+"base": "FamilyMember",
+"class": "OldPerson",
+"language": "GDScript",
+"path": "res://src/family/old_person.gd"
 } ]
 _global_script_class_icons={
+"Child": "",
 "Dog": "",
-"FamilyMember": ""
+"FamilyMember": "",
+"OldPerson": ""
 }
 
 [application]
 
 config/name="GWJ 24"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://levels/main.tscn"
 config/icon="res://sprites/icon.png"
 
 [autoload]

@@ -13,7 +13,7 @@ func _physics_process(delta):
 
 func _on_PeopleDetector_body_entered(body):
 	# should not be needed but why not 
-	if body is FamilyMember or body is Dog:
+	if body is Dog or body is FamilyMember:
 		detected_fams_or_dog.append(body)
 		print("car %s detected %s" % [self, body])
 

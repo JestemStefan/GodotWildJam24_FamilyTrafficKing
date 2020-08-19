@@ -26,10 +26,8 @@ func _bark():
 
 
 func _on_BarkArea_body_entered(body):
-	# actually not needed but why not for safety
-	if body is FamilyMember:
-		detected_fams.append(body)
-		print("%s detected" % body)
+	detected_fams.append(body)
+	print("%s detected" % body)
 
 
 func _on_BarkArea_body_exited(body):
