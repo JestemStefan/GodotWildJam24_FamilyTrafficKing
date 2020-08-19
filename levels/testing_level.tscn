@@ -8,13 +8,13 @@
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.885755, 2.97425, -0.00960088, 0, 0, 0, 0, 0, 0, 0.912876, 3.02781, 0.0441709 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0395694, 0.868306, -0.0850873, 0, 0, 0, 0, 0, 0, 1.89765, 0.845584, -0.0630217 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.00476982, 2.99071, -11.517, 0, 0, 0, 0, 0, 0, 0.0108464, 3.10913, 5.25162 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0225531, 1.16213, -0.0558434, 0, 0, 0, 0, 0, 0, 0.00893582, 0.901153, 18.6868 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -26,27 +26,28 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="Path" type="Path" parent="Lane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985801, 0, 0.0167491 )
 curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow" parent="Lane/Path"]
 rotation_mode = 1
 
 [node name="Car" parent="Lane/Path/PathFollow" instance=ExtResource( 4 )]
-transform = Transform( -1.62917e-07, 0, -0.15034, 0, 2, 0, 0.999979, 0, -2.44936e-08, 0, 0, 0 )
+transform = Transform( -1.62981e-07, 0, -0.15034, 0, 2, 0, 0.999979, 0, -2.79397e-08, 0, 3, 0 )
 
 [node name="Path" parent="." instance=ExtResource( 5 )]
 transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 0.786141, 0, 0 )
 collision_mask = 0
 
 [node name="Path2" type="Path" parent="."]
-transform = Transform( -0.135436, 0, -1.99995, 0, 1, 0, 19.9995, 0, -0.0135436, -5.2665, -1, 1.13687e-12 )
+transform = Transform( -0.135436, 0, -1.99995, 0, 1, 0, 19.9995, 0, -0.0135436, 18.836, -1, 1.13687e-12 )
 curve = SubResource( 2 )
 
 [node name="PathFollow" type="PathFollow" parent="Path2"]
 rotation_mode = 1
 
 [node name="Child" parent="Path2/PathFollow" instance=ExtResource( 2 )]
-transform = Transform( -0.049999, 0, -0.000338599, 0, 1, 0, 0.00338599, 0, -0.49999, 0, 0, 0 )
+transform = Transform( -0.049999, 0, -0.000338599, 0, 1, 0, 0.00338599, 0, -0.49999, 0, 2.5, 0 )
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 0.0429327 )

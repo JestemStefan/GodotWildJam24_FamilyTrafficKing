@@ -7,8 +7,6 @@ export var speed = 10
 var direction: Vector3 = Vector3()
 
 
-onready var _bark_area: Area = $DogAnimated/BarkArea
-onready var _timer: Timer = $DogAnimated/BarkArea/Timer
 onready var _anim_tree: AnimationTree = $DogAnimated/AnimationTree
 
 func _process(_delta):
