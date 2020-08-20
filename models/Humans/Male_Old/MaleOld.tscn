@@ -16,7 +16,7 @@ surfaces/0 = {
 "vertex_count": 9382
 }
 
-[sub_resource type="Skin" id=2]
+[sub_resource type="Skin" id=7]
 resource_name = "Skin"
 bind_count = 34
 bind/0/name = "elbow_pole_l"
@@ -610,6 +610,7 @@ tracks/33/keys = PoolRealArray( 0, 1, 2.38419e-07, 0, 7.15256e-07, 1.42109e-14, 
 [sub_resource type="Animation" id=5]
 resource_name = "OldManWalk"
 length = 1.66667
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("HumanArmature/Skeleton:elbow_pole_l")
 tracks/0/interp = 1
@@ -1269,7 +1270,7 @@ bones/33/bound_children = [  ]
 
 [node name="OldMan" type="MeshInstance" parent="HumanArmature/Skeleton"]
 mesh = SubResource( 1 )
-skin = SubResource( 2 )
+skin = SubResource( 7 )
 material/0 = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

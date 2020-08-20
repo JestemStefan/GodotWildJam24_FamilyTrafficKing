@@ -78,7 +78,7 @@ curve = SubResource( 2 )
 rotation_mode = 1
 
 [node name="OldPerson" parent="Path2/Path2/PathFollow" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00644, 0 )
+_animationSpeed = 1.5
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 5.72468 )
