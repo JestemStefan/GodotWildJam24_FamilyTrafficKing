@@ -25,3 +25,4 @@ shape = SubResource( 2 )
 one_shot = true
 
 [node name="CarDetector" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.82989 )

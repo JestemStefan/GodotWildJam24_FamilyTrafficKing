@@ -1,17 +1,19 @@
 [gd_scene load_steps=3 format=2]
 
 [sub_resource type="CubeMesh" id=1]
+size = Vector3( 6, 2, 60 )
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 3, 1, 30 )
 
 [node name="Path" type="StaticBody"]
 collision_layer = 8
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 2 )

@@ -1,28 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/objects/lane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/family/child.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/dog/dog.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/objects/car.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/path.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/old_person.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve3D" id=1]
 bake_interval = 1.0
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.37839, 1.03226, -0.0957026, 0, 0, 0, 0, 0, 0, 34.6272, 0.991395, 0.0858073 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -13.1824, 1.03226, -0.0286651, 0, 0, 0, 0, 0, 0, 44.1837, 0.991394, 0.0766206 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.00563032, 0.168657, -0.062006, 0, 0, 0, 0, 0, 0, 0.014317, 0.0745504, 19.0555 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.165739, 0.168655, -10.3241, 0, 0, 0, 0, 0, 0, 0.072554, 0.0745544, 37.9269 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [node name="TestingLevel" type="Node"]
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.26696, -1, 0.0282192 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 5.58256, -1, 0.028 )
 collision_layer = 8
 collision_mask = 0
 
@@ -36,22 +37,51 @@ rotation_mode = 1
 [node name="Car" parent="Lane/Path/PathFollow" instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 1, 0 )
 
+[node name="Lane2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -9.58996, -1, 0.028 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="Path" type="Path" parent="Lane2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2407, 0, 0.0167513 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="Lane2/Path"]
+rotation_mode = 1
+
+[node name="Car" parent="Lane2/Path/PathFollow" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 1, 0 )
+
 [node name="Path" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1.62921e-07, 0, 2, 0, 1, 0, -1, 0, -3.25841e-07, 0.786141, 0, 0 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.786141, 0, 0 )
 collision_mask = 0
 
 [node name="Path2" type="Path" parent="Path"]
-transform = Transform( -19.9995, 0, 0.0135439, 0, 1, 0, -0.0677196, 0, -0.999975, 0, 0, 9.025 )
+transform = Transform( -0.999994, 0, 0.00338593, 0, 1, 0, -0.00338593, 0, -0.999994, 0, 0, 9.025 )
 curve = SubResource( 2 )
 
 [node name="PathFollow" type="PathFollow" parent="Path/Path2"]
 rotation_mode = 1
 
 [node name="Child" parent="Path/Path2/PathFollow" instance=ExtResource( 2 )]
-transform = Transform( -0.049999, 0, -0.000338599, 0, 1, 0, 0.00338599, 0, -0.49999, 0, 1.5, 0 )
+transform = Transform( -0.997715, 0, -0.0675663, 0, 1, 0, 0.0675663, 0, -0.997715, 0, 1.5, 0 )
+
+[node name="Path2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 11.187 )
+collision_mask = 0
+
+[node name="Path2" type="Path" parent="Path2"]
+transform = Transform( -0.999994, 0, 0.00338593, 0, 1, 0, -0.00338593, 0, -0.999994, 0, 0, 9.025 )
+curve = SubResource( 2 )
+
+[node name="PathFollow" type="PathFollow" parent="Path2/Path2"]
+rotation_mode = 1
+
+[node name="OldPerson" parent="Path2/Path2/PathFollow" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00644, 0 )
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 0.0429327 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 5.72468 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 2.49064, 20, 20 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 1, 20, 22.4081 )
