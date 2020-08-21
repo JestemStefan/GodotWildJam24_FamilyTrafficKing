@@ -1127,7 +1127,7 @@ one_shot = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.83 )
 
 [node name="MaleOld" type="Spatial" parent="."]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+transform = Transform( -0.7, 0, -2.28089e-07, 0, 0.7, 0, 2.28089e-07, 0, -0.7, 0, 0, 0 )
 
 [node name="HumanArmature" type="Spatial" parent="MaleOld"]
 
