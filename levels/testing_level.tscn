@@ -36,15 +36,12 @@ rotation_mode = 1
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 1, 0 )
 
 [node name="Pathway" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.777976, 0, 0 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -4.78476, 0, 0 )
 collision_mask = 0
 
 [node name="Path" type="Path" parent="Pathway"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52651e-14, 0, 9.025 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.26326e-13, 0, 9.025 )
 curve = SubResource( 2 )
-
-[node name="PathFollow" type="PathFollow" parent="Pathway/Path"]
-rotation_mode = 1
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 0.0429327 )

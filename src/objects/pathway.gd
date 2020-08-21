@@ -3,11 +3,10 @@ extends StaticBody
 export var spawn_frequency_seconds = 10
 export var spawn_limit_simultaneously = 5
 
-var Child = preload("res://src/family/child.tscn")
-var OldPerson = preload("res://src/family/old_person.tscn")
+var Child = load("res://src/family/child.tscn")
+var OldPerson = load("res://src/family/old_person.tscn")
 
 onready var _path: Path = get_node("Path")
-onready var _path_follow: PathFollow = get_node("Path/PathFollow")
 onready var _spawn_timer: Timer = $SpawnTimer
 
 var _current_people_count = 0
@@ -24,22 +23,22 @@ func _add_person(is_old: bool):
 		return
 	
 	var new_person = Child.instance() if is_old else OldPerson.instance()
-	# set the position of the new instance to the beginning of the path, otherwise shit happens
-	var position = _path.curve.get_point_position(0)
-	position.y = 1.5# TODO: remove when Stefan adds model
-	new_person.set_translation(position)
 	
-	_path_follow.add_child(new_person)
+	var path_follow = PathFollow.new()
+	path_follow.add_child(new_person)
+	
+	_path.add_child(path_follow)
 	
 	_current_people_count += 1
 	_spawn_timer.start(spawn_frequency_seconds)
 	
-	print("spawned %s at position %s, is_old=%s, " % [new_person, position, is_old])
+	print("spawned %s is_old=%s, " % [new_person, is_old])
 
 
 func _remove_person(person):
 	_current_people_count -= 1
-	person.queue_free()
+	# delete the PathFollow which is the parent of person
+	person.get_parent().queue_free()
 	print("person %s has arrived at goal, removing" % person)
 
 
