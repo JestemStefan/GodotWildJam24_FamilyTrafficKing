@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Human_run_road.wav-c404c56eb19315aab07dd0ccd3eeb099.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Human_run_road.wav"
+dest_files=[ "res://.import/Human_run_road.wav-c404c56eb19315aab07dd0ccd3eeb099.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

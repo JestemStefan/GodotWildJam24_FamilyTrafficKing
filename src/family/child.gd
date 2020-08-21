@@ -1,8 +1,8 @@
 extends FamilyMember
 class_name Child
 
-var _speed: float = 6.0
-var _bark_stun_duration: float = 2.0
+var _speed: float = 8.0
+var _bark_stun_duration: float = 1.1
 
 onready var _stun_timer: Timer = $StunTimer
 

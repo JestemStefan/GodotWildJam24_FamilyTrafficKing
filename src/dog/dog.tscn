@@ -11,6 +11,7 @@ extents = Vector3( 0.806623, 1.51955, 1.84502 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.037 )
 collision_mask = 7
 script = ExtResource( 1 )
+speed = 20
 
 [node name="DogAnimated" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02382, 0 )

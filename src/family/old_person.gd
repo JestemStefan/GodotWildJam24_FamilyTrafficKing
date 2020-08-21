@@ -8,8 +8,8 @@ export var _animationSpeed: float = 1.0
 var total_speed: float
 
 # the speed_boost will be added to speed 
-export var _speed_boost: float = 3.0
-var _speed_boost_duration: float = 2.0
+export var _speed_boost: float = 2.4
+var _speed_boost_duration: float = 1.2
 
 onready var _speed_boost_timer: Timer = $SpeedTimer
 onready var animplayer: AnimationPlayer = $MaleOld/AnimationPlayer
