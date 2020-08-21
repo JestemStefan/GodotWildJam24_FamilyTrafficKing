@@ -8,35 +8,35 @@
 [sub_resource type="Curve3D" id=1]
 bake_interval = 1.0
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.37839, 1.03226, -0.0957026, 0, 0, 0, 0, 0, 0, 34.6272, 0.991395, 0.0858073 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0248718, 0.00255746, -49.2512, 0, 0, 0, 0, 0, 0, -0.0140076, 0.149382, 50.6652 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0707931, -0.0602352, 0.915175, 0, 0, 0, 0, 0, 0, -0.04733, -0.0906278, -18.4551 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0550371, 0.0314362, 10.8671, 0, 0, 0, 0, 0, 0, 0.0550436, 0.0632873, -29.1243 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [node name="TestingLevel" type="Node"]
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.26696, -1, 0.0282192 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 8
 collision_mask = 0
 
 [node name="Path" type="Path" parent="Lane"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2407, 0, 0.0167513 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.1195 )
 curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow" parent="Lane/Path"]
 rotation_mode = 1
 
 [node name="Car" parent="Lane/Path/PathFollow" instance=ExtResource( 4 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 1, 0 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="Pathway" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -4.78476, 0, 0 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
 collision_mask = 0
 
 [node name="Path" type="Path" parent="Pathway"]
@@ -44,7 +44,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0043316, 9.53674e-07, 8.9756
 curve = SubResource( 2 )
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 0.0429327 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 2.49064, 20, 20 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.9339, 22.8403 )
