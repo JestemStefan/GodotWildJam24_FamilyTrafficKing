@@ -4,8 +4,8 @@ class_name OldPerson
 var _speed: float = 3.0
 
 # the speed_boost will be added to speed 
-var _speed_boost: float = 3.0
-var _speed_boost_duration: float = 2.0
+var _speed_boost: float = 6.0
+var _speed_boost_duration: float = 1.4
 
 onready var _speed_boost_timer: Timer = $SpeedTimer
 

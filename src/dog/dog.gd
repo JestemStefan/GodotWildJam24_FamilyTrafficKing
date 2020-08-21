@@ -1,7 +1,7 @@
 extends KinematicBody
 class_name Dog
 
-export var speed = 10
+export var speed = 20
 
 
 var direction: Vector3 = Vector3()

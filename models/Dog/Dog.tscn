@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://models/Dog/Dog_Material.tres" type="Material" id=1]
+[ext_resource path="res://audio/WAVS/Dog_walk_road_shorter_3.wav" type="AudioStream" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Dog1"
@@ -846,6 +847,18 @@ tracks/47/loop_wrap = true
 tracks/47/imported = true
 tracks/47/enabled = true
 tracks/47/keys = PoolRealArray( 0, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.666667, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.791667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.916667, 1, 0.000324756, 0.475563, 0.105162, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.04167, 1, 0.000478193, 0.512224, 0.154848, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.16667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.29167, 1, 6.50883e-05, 0.413522, 0.0210802, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.54167, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1 )
+tracks/48/type = "value"
+tracks/48/path = NodePath("DogMoveSound:playing")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "RunCycle"
@@ -1134,3 +1147,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/TimeScale/scale = 2.0
 parameters/movement/blend_amount = 0.0
+
+[node name="DogMoveSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
+unit_db = 18.0

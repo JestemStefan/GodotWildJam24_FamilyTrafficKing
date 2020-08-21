@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Human_walk_road.wav-1c326406ca9f53c162a7abcf7f12af9c.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Human_walk_road.wav"
+dest_files=[ "res://.import/Human_walk_road.wav-1c326406ca9f53c162a7abcf7f12af9c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

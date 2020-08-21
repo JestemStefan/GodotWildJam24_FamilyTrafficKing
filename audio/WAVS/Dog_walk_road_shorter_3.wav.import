@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dog_walk_road_shorter_3.wav-7f75960fa346bd2aa7a0639945196676.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Dog_walk_road_shorter_3.wav"
+dest_files=[ "res://.import/Dog_walk_road_shorter_3.wav-7f75960fa346bd2aa7a0639945196676.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

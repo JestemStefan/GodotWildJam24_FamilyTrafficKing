@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://models/Car/Car_Red.jpg" type="Texture" id=1]
 [ext_resource path="res://models/Car/Car_AO.jpg" type="Texture" id=2]
 [ext_resource path="res://models/Car/Car_Roughness.jpg" type="Texture" id=3]
+[ext_resource path="res://audio/WAVS/Car_drive.wav" type="AudioStream" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Car"
@@ -28,7 +29,7 @@ bind/1/name = "wheels"
 bind/1/bone = -1
 bind/1/pose = Transform( -0.00622501, 0.999981, -4.66546e-06, -0.999981, -0.00622487, 9.00453e-08, 5.98884e-08, 4.66732e-06, 1, 1.20161, 0.892304, 5.36768e-06 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 1 )
 roughness_texture = ExtResource( 3 )
 ao_enabled = true
@@ -37,8 +38,7 @@ ao_texture = ExtResource( 2 )
 ao_on_uv2 = false
 ao_texture_channel = 0
 
-[sub_resource type="Animation" id=3]
-resource_name = "Braking"
+[sub_resource type="Animation" id=4]
 length = 1.70833
 tracks/0/type = "transform"
 tracks/0/path = NodePath("CarArmature/Skeleton:car")
@@ -55,8 +55,7 @@ tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.70833, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "Driving"
+[sub_resource type="Animation" id=5]
 length = 1.375
 loop = true
 tracks/0/type = "transform"
@@ -73,28 +72,20 @@ tracks/1/loop_wrap = true
 tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.375, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
-
-[sub_resource type="Animation" id=5]
-resource_name = "Honking"
-length = 1.04167
-loop = true
-tracks/0/type = "transform"
-tracks/0/path = NodePath("CarArmature/Skeleton:car")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, -3.55271e-15, 2.22045e-16, 2.22671e-16, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, -3.55271e-15, 2.22045e-16, 2.22671e-16, 1, 1, 1, 1, 0.0833333, 1, 0, 0, 0, 0.000287127, -2.88693e-05, -0.000563874, 1, 1, 1, 1, 0.125, 1, 0, 0, 0, 0.00105664, -0.000106241, -0.00207506, 0.999997, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0.00731609, -0.0007356, -0.0143684, 0.99987, 1, 1, 1, 0.375, 1, 0, 0, 0, 0.00808549, -0.00081296, -0.0158799, 0.999841, 1, 1, 1, 0.416667, 1, 9.31323e-10, 0, 3.76157e-10, 0.00837257, -0.000841824, -0.0164442, 0.999829, 1, 1, 1, 0.5, 1, 9.31323e-10, 0, -2.062e-10, -0.00589872, 0.000593094, -0.0164449, 0.999847, 1, 1, 1, 0.583333, 1, 9.31323e-10, 0, 3.07274e-10, 0.00706012, -0.000709862, -0.0164446, 0.99984, 1, 1, 1, 0.666667, 1, 9.31323e-10, 0, -3.891e-10, -0.0119716, 0.0012037, -0.0164439, 0.999792, 1, 1, 1, 0.75, 1, 9.31323e-10, 0, 0, 3.46723e-10, 4.35135e-09, -0.0164448, 0.999865, 1, 1, 1, 0.791667, 1, 9.31323e-10, 0, 0, 3.47082e-10, 4.33964e-09, -0.0155333, 0.999879, 1, 1, 1, 0.833333, 1, 9.31323e-10, 0, 0, 3.47929e-10, 4.30983e-09, -0.0131841, 0.999913, 1, 1, 1, 0.958333, 1, 9.31323e-10, 0, 0, 3.50017e-10, 4.18399e-09, -0.00326017, 0.999995, 1, 1, 1, 1, 1, 9.31323e-10, 0, 0, 3.50149e-10, 4.15414e-09, -0.000910942, 1, 1, 1, 1, 1.04167, 1, 0, 0, 0, -3.55271e-15, 2.22045e-16, 2.22671e-16, 1, 1, 1, 1 )
-tracks/1/type = "transform"
-tracks/1/path = NodePath("CarArmature/Skeleton:wheels")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("CarMoveSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 2,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=6]
-resource_name = "Honking2"
 length = 1.04167
 loop = true
 tracks/0/type = "transform"
@@ -113,7 +104,24 @@ tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=7]
-resource_name = "SpeedingUp"
+length = 1.04167
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("CarArmature/Skeleton:car")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, -3.55271e-15, 2.22045e-16, 2.22671e-16, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, -3.55271e-15, 2.22045e-16, 2.22671e-16, 1, 1, 1, 1, 0.0833333, 1, 0, 0, 0, 0.000287127, -2.88693e-05, -0.000563874, 1, 1, 1, 1, 0.125, 1, 0, 0, 0, 0.00105664, -0.000106241, -0.00207506, 0.999997, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0.00731609, -0.0007356, -0.0143684, 0.99987, 1, 1, 1, 0.375, 1, 0, 0, 0, 0.00808549, -0.00081296, -0.0158799, 0.999841, 1, 1, 1, 0.416667, 1, 9.31323e-10, 0, 3.76157e-10, 0.00837257, -0.000841824, -0.0164442, 0.999829, 1, 1, 1, 0.5, 1, 9.31323e-10, 0, -2.062e-10, -0.00589872, 0.000593094, -0.0164449, 0.999847, 1, 1, 1, 0.583333, 1, 9.31323e-10, 0, 3.07274e-10, 0.00706012, -0.000709862, -0.0164446, 0.99984, 1, 1, 1, 0.666667, 1, 9.31323e-10, 0, -3.891e-10, -0.0119716, 0.0012037, -0.0164439, 0.999792, 1, 1, 1, 0.75, 1, 9.31323e-10, 0, 0, 3.46723e-10, 4.35135e-09, -0.0164448, 0.999865, 1, 1, 1, 0.791667, 1, 9.31323e-10, 0, 0, 3.47082e-10, 4.33964e-09, -0.0155333, 0.999879, 1, 1, 1, 0.833333, 1, 9.31323e-10, 0, 0, 3.47929e-10, 4.30983e-09, -0.0131841, 0.999913, 1, 1, 1, 0.958333, 1, 9.31323e-10, 0, 0, 3.50017e-10, 4.18399e-09, -0.00326017, 0.999995, 1, 1, 1, 1, 1, 9.31323e-10, 0, 0, 3.50149e-10, 4.15414e-09, -0.000910942, 1, 1, 1, 1, 1.04167, 1, 0, 0, 0, -3.55271e-15, 2.22045e-16, 2.22671e-16, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("CarArmature/Skeleton:wheels")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=8]
 length = 1.04167
 tracks/0/type = "transform"
 tracks/0/path = NodePath("CarArmature/Skeleton:car")
@@ -130,32 +138,32 @@ tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "SpeedingUp"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Braking"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Driving"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Honking"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=19]
-blend_point_0/node = SubResource( 15 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=13]
+blend_point_0/node = SubResource( 9 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 16 )
+blend_point_1/node = SubResource( 10 )
 blend_point_1/pos = Vector2( 0, -1 )
-blend_point_2/node = SubResource( 17 )
+blend_point_2/node = SubResource( 11 )
 blend_point_2/pos = Vector2( 0, 0 )
-blend_point_3/node = SubResource( 18 )
+blend_point_3/node = SubResource( 12 )
 blend_point_3/pos = Vector2( -1, 0 )
 
 [sub_resource type="AnimationNodeBlendTree" id=14]
 graph_offset = Vector2( 825.178, -24 )
 nodes/output/position = Vector2( 1380, 200 )
-nodes/tree/node = SubResource( 19 )
+nodes/tree/node = SubResource( 13 )
 nodes/tree/position = Vector2( 860, 160 )
 node_connections = [ "output", 0, "tree" ]
 
@@ -179,17 +187,22 @@ bones/1/bound_children = [  ]
 [node name="Car" type="MeshInstance" parent="CarArmature/Skeleton"]
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
-material/0 = SubResource( 8 )
+material/0 = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Braking = SubResource( 3 )
-anims/Driving = SubResource( 4 )
-anims/Honking = SubResource( 5 )
-anims/Honking2 = SubResource( 6 )
-anims/SpeedingUp = SubResource( 7 )
+anims/Braking = SubResource( 4 )
+anims/Driving = SubResource( 5 )
+anims/Honking = SubResource( 6 )
+anims/Honking2 = SubResource( 7 )
+anims/SpeedingUp = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 14 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/tree/blend_position = Vector2( 0, 0 )
+
+[node name="CarMoveSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = -6.0
+pitch_scale = 2.0
