@@ -127,7 +127,7 @@ tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 1, 2.36602, 3.93644 )
+extents = Vector3( 1, 2.36602, 3.04907 )
 
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 3.18876, 0.966596, 2.22723 )
@@ -169,7 +169,7 @@ anims/Honking2 = SubResource( 7 )
 anims/SpeedingUp = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 2.15492, 0, 0, 0, 1, 0, 0, 0, 1.16428, 0, 2.68653, -0.280522 )
+transform = Transform( 2.15492, 0, 0, 0, 1, 0, 0, 0, 1.16428, 0, 2.68653, 0.0597323 )
 shape = SubResource( 9 )
 
 [node name="PeopleDetector" type="Area" parent="."]

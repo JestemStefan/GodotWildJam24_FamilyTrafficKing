@@ -22,7 +22,7 @@ func _physics_process(delta):
 		canDrive = 1
 	else:
 		canDrive = 0
-
+	print(detected_fams_or_dog.size())
 	if isWaiting == false:
 		driveSpeed = lerp(driveSpeed, canDrive * speed, 0.075)
 		
@@ -50,8 +50,8 @@ func _on_PeopleDetector_body_exited(body):
 		detected_fams_or_dog.erase(body)
 		print("car %s undetected %s" % [self, body])
 
-		if detected_fams_or_dog.size()  <= 0:
-			_car_animplayer.play("SpeedingUp")
+	if detected_fams_or_dog.size()  <= 0:
+		_car_animplayer.play("SpeedingUp")
 
 	
 
