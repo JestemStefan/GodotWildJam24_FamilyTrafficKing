@@ -4,6 +4,7 @@
 extents = Vector3( 0.209164, 1, 0.2 )
 
 [node name="CarDetector" type="Area"]
+monitorable = false
 collision_layer = 0
 collision_mask = 4
 
