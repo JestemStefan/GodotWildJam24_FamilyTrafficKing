@@ -1,0 +1,37 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=2]
+
+[sub_resource type="AudioEffectDistortion" id=1]
+resource_name = "Distortion"
+mode = 2
+drive = 0.28
+
+[sub_resource type="AudioEffectEQ10" id=2]
+resource_name = "EQ10"
+band_db/500_hz = -43.3
+band_db/1000_hz = -22.9
+band_db/2000_hz = -60.0
+band_db/4000_hz = -3.5
+band_db/8000_hz = -28.0
+band_db/16000_hz = -29.7
+
+[sub_resource type="AudioEffectReverb" id=3]
+resource_name = "Reverb"
+room_size = 1.0
+damping = 0.25
+hipass = 0.5
+wet = 0.79
+
+[resource]
+bus/0/volume_db = -0.526013
+bus/1/name = "CarTestBus"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -2.3125
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 1 )
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource( 2 )
+bus/1/effect/1/enabled = false
+bus/1/effect/2/effect = SubResource( 3 )
+bus/1/effect/2/enabled = true

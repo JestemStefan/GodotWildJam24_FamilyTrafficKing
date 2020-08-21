@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dog_run_road.wav-636546d2f814e7b73d3de34a4ed4e351.sample"
+
+[deps]
+
+source_file="res://audio/wavs/Dog_run_road.wav"
+dest_files=[ "res://.import/Dog_run_road.wav-636546d2f814e7b73d3de34a4ed4e351.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

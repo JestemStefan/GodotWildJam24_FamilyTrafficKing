@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Human_run_grass.wav-d048f39164dd032cf71c577e78719b99.sample"
+
+[deps]
+
+source_file="res://audio/wavs/Human_run_grass.wav"
+dest_files=[ "res://.import/Human_run_grass.wav-d048f39164dd032cf71c577e78719b99.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
