@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.462582, 1, 2 )
+extents = Vector3( 0.30118, 1, 2 )
 
 [node name="CarDetector" type="Area"]
 monitorable = false
@@ -9,5 +9,5 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -0.00478566, 1.01185, 0.198122 )
 shape = SubResource( 1 )
