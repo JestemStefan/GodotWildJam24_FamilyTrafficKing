@@ -9,6 +9,7 @@ var direction: Vector3 = Vector3()
 
 onready var _anim_tree: AnimationTree = $DogAnimated/AnimationTree
 
+
 func _process(_delta):
 	# reset the direction vector state
 	direction = Vector3()

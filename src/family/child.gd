@@ -1,10 +1,11 @@
 extends FamilyMember
 class_name Child
 
-var _speed: float = 5.0
+var _speed: float = 6.0
 var _bark_stun_duration: float = 2.0
 
 onready var _stun_timer: Timer = $StunTimer
+
 
 func _physics_process(delta: float):
 	if _stun_timer.is_stopped():
