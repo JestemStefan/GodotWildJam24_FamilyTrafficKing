@@ -34,7 +34,7 @@ func _add_person(is_old: bool):
 	_current_people_count += 1
 	_spawn_timer.start(spawn_frequency_seconds)
 	
-	print("spawned %s" % new_person)
+	print("spawned %s at position %s, is_old=%s, " % [new_person, position, is_old])
 
 
 func _remove_person(person):
