@@ -1,10 +1,12 @@
 extends StaticBody
 
+const HAPPINESS_GAIN_ON_GOAL = 30
+
 export var spawn_frequency_seconds = 10
 export var spawn_limit_simultaneously = 5
 
-var Child = load("res://src/family/child.tscn")
-var OldPerson = load("res://src/family/old_person.tscn")
+const Child = preload("res://src/family/child.tscn")
+const OldPerson = preload("res://src/family/old_person.tscn")
 
 onready var _path: Path = get_node("Path")
 onready var _spawn_timer: Timer = $SpawnTimer
@@ -22,7 +24,7 @@ func _add_person(is_old: bool):
 	if _current_people_count >= spawn_limit_simultaneously:
 		return
 	
-	var new_person = Child.instance() if is_old else OldPerson.instance()
+	var new_person = OldPerson.instance() if is_old else Child.instance()
 	
 	var path_follow = PathFollow.new()
 	path_follow.add_child(new_person)
@@ -32,13 +34,14 @@ func _add_person(is_old: bool):
 	_current_people_count += 1
 	_spawn_timer.start(spawn_frequency_seconds)
 	
-	print("spawned %s is_old=%s, " % [new_person, is_old])
+	print("spawned %s is_old=%s " % [new_person, is_old])
 
 
 func _remove_person(person):
 	_current_people_count -= 1
 	# delete the PathFollow which is the parent of person
 	person.get_parent().queue_free()
+	HappinessManager.gain_happiness(HAPPINESS_GAIN_ON_GOAL)
 	print("person %s has arrived at goal, removing" % person)
 
 

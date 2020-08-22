@@ -3,14 +3,8 @@ extends Node
 signal happiness_updated
 
 const MAX_HAPPINESS = 100
-const MIN_HAPPINESS = 0
 
-var _current_happiness = 50
-
-
-func _ready():
-	pass # TODO: set min/max happiness range in GUI?
-
+var _current_happiness = MAX_HAPPINESS / 2
 
 func gain_happiness(amount):
 	_current_happiness = min(MAX_HAPPINESS, _current_happiness + amount)

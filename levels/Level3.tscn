@@ -20,13 +20,13 @@ _data = {
 
 [sub_resource type="Curve3D" id=3]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.406357, 0.0157013, 1.93694, 0, 0, 0, 0, 0, 0, 0.566157, 0, -67.3296 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.406357, 0.0157013, 1.93694, 0, 0, 0, 0, 0, 0, 0.437939, 0.0566339, -75.4837 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
 [sub_resource type="Curve3D" id=4]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.108047, 0, 38.1745, 0, 0, 0, 0, 0, 0, -0.0536995, 0, -28.1456 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.108047, 0, 38.1745, 0, 0, 0, 0, 0, 0, 0.0115175, 0.0800505, -39.4629 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -82,4 +82,4 @@ curve = SubResource( 4 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.867705, -0.351489, 0.351489, 0, 0.707107, 0.707107, -0.49708, -0.61356, 0.61356, 17.1445, 25.4832, 33.0963 )
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 17.1445, 25.4832, 33.0963 )

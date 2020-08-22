@@ -30,3 +30,4 @@ func _physics_process(delta: float):
 
 func hears_bark():
 	_speed_boost_timer.start(_speed_boost_duration)
+	.hears_bark()

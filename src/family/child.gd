@@ -17,3 +17,4 @@ func _physics_process(delta: float):
 func hears_bark():
 	_stun_timer.start(_bark_stun_duration)
 	_anim_player.play("Stun")
+	.hears_bark()

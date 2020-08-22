@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends Label
 
 export var y_offset = 60
 onready var _animation = $AnimationPlayer

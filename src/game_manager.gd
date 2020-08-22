@@ -5,11 +5,13 @@ onready var _main = NodeFinder.get_main()
 var _levels = ["TutorialLevel1", "Level2", "Level3"]
 var _current_lvl_idx = 0
 
-var GUI = preload("res://src/ui/GUI.tscn")
+const GUI = preload("res://src/ui/GUI.tscn")
 var _gui = null
+
 
 func _ready():
 	_load_current_level_and_UI()
+	HappinessManager.connect("happiness_updated", self, "_next_level_if_happiness_reached_max")
 
 
 func _load_level(level_name):
@@ -26,7 +28,7 @@ func _load_current_level_and_UI():
 	_gui = GUI.instance()
 	NodeFinder.update_player_camera(_current_level_name)
 	_main.add_child(_gui)
-
+	
 
 func _replace_level_with_next():
 	# remove UI to reset it
@@ -40,4 +42,9 @@ func _replace_level_with_next():
 	if _current_lvl_idx <= _levels.size():
 		_load_current_level_and_UI()
 	else:
-		_load_level("")
+		_load_level("win_screen")
+
+
+func _next_level_if_happiness_reached_max(happiness_value):
+	if happiness_value >= HappinessManager.MAX_HAPPINESS:
+		_replace_level_with_next()
