@@ -38,7 +38,7 @@ func _remove_ui_and_level():
 
 func _replace_level_with_next():
 	_remove_ui_and_level()
-		
+	HappinessManager.reset_happiness()
 	# load and instantiate next level if there is more
 	_current_lvl_idx += 1
 	if _current_lvl_idx <= _levels.size():

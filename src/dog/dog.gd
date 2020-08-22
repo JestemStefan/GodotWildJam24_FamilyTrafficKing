@@ -17,7 +17,7 @@ func _input(event):
 		_anim_player.play("Bark")
 
 
-func _process(_delta):	
+func _process(_delta):
 	# reset the direction vector state
 	direction = Vector3()
 	
