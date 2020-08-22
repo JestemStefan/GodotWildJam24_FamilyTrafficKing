@@ -2,7 +2,7 @@ extends Node
 
 onready var _main = NodeFinder.get_main()
 
-const _levels = ["TestLevelNewPavedPaths", "TutorialLevel1", "Level2", "Level3"]
+const _levels = ["Level2pavementtest1", "TutorialLevel1", "Level2", "Level3", "TestLevelNewPavedPaths"]
 var _current_lvl_idx = 0
 
 const GUI = preload("res://src/ui/GUI.tscn")

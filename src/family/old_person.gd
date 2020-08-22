@@ -23,7 +23,7 @@ const texture_yellow = preload("res://models/Humans/Male_Old/male_Old_yellow.jpg
 
 func _ready():
 	var select_texture = [texture_blue, texture_brown, texture_green, texture_red, texture_yellow]
-	var rnd = GameManager.get_rng().randi_range(0, select_texture.size())
+	var rnd = GameManager.get_rng().randi_range(0, select_texture.size()-1)
 	mesh.get_surface_material(0).albedo_texture = select_texture[rnd]
 
 func _physics_process(delta: float):

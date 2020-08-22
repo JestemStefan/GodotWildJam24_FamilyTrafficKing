@@ -17,7 +17,7 @@ const texture_PB = preload("res://models/Humans/MaleChild/M_ChildTexture_PinkBro
 func _ready():
 	randomize()
 	var select_texture = [texture_BR, texture_B, texture_BY, texture_GR, texture_PB]
-	var rnd = GameManager.get_rng().randi_range(0, select_texture.size())
+	var rnd = GameManager.get_rng().randi_range(0, select_texture.size()-1)
 	mesh.get_surface_material(0).albedo_texture = select_texture[rnd]
 
 func _physics_process(delta: float):
