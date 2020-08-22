@@ -1,6 +1,6 @@
 [gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://models/Dog/DogTexture.png" type="Texture" id=1]
+[ext_resource path="res://models/Dog/DogTextureHD.jpg" type="Texture" id=1]
 
 [resource]
 albedo_texture = ExtResource( 1 )
