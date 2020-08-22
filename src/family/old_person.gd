@@ -15,17 +15,16 @@ onready var _speed_boost_timer: Timer = $SpeedTimer
 onready var animplayer: AnimationPlayer = $MaleOld/AnimationPlayer
 onready var mesh: MeshInstance = $MaleOld/HumanArmature/Skeleton/OldMan
 
-onready var texture_blue = load("res://models/Humans/Male_Old/male_Old_blue.jpg")
-onready var texture_brown = load("res://models/Humans/Male_Old/male_Old_brown.jpg")
-onready var texture_green = load("res://models/Humans/Male_Old/male_Old_green.jpg")
-onready var texture_red = load("res://models/Humans/Male_Old/male_Old_red.jpg")
-onready var texture_yellow = load("res://models/Humans/Male_Old/male_Old_yellow.jpg")
+const texture_blue = preload("res://models/Humans/Male_Old/male_Old_blue.jpg")
+const texture_brown = preload("res://models/Humans/Male_Old/male_Old_brown.jpg")
+const texture_green = preload("res://models/Humans/Male_Old/male_Old_green.jpg")
+const texture_red = preload("res://models/Humans/Male_Old/male_Old_red.jpg")
+const texture_yellow = preload("res://models/Humans/Male_Old/male_Old_yellow.jpg")
 
 func _ready():
-	randomize()
 	var select_texture = [texture_blue, texture_brown, texture_green, texture_red, texture_yellow]
-	var randomNumber = randi() % 5
-	mesh.get_surface_material(0).albedo_texture = select_texture[randomNumber]
+	var rnd = GameManager.get_rng().randi_range(0, select_texture.size())
+	mesh.get_surface_material(0).albedo_texture = select_texture[rnd]
 
 func _physics_process(delta: float):
 	if _speed_boost_timer.is_stopped():
