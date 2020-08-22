@@ -21,7 +21,6 @@ _data = {
 [node name="TestingLevel" type="Node"]
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 8
 collision_mask = 0
 

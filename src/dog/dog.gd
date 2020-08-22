@@ -22,7 +22,7 @@ func _process(_delta):
 	direction = Vector3()
 	
 	direction.z = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	direction.x = Input.get_action_strength("move_left") - Input.get_action_strength("move_right")
+	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
 
 func _physics_process(_delta):

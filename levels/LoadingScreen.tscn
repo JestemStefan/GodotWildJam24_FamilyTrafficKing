@@ -6,7 +6,7 @@
 size = 48
 font_data = ExtResource( 1 )
 
-[node name="LoadingScreen" type="Spatial"]
+[node name="LoadingScreen" type="Node"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 394.0
