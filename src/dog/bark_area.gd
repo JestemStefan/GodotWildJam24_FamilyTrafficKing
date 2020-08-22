@@ -7,12 +7,8 @@ onready var _woof_text: RichTextLabel = $WoofText
 
 var detected_fams = []
 
-func _input(event):
-	if event is InputEventKey and Input.is_action_just_pressed("bark"):
-		_bark()
 
-
-func _bark():
+func bark():
 	if not _timer.is_stopped():
 		print("cooldown")
 		return

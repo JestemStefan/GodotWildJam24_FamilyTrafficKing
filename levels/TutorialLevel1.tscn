@@ -18,7 +18,7 @@ _data = {
 "tilts": PoolRealArray( 0, 0 )
 }
 
-[node name="TutorialLevel1Munro" type="Node"]
+[node name="TutorialLevel1" type="Node"]
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.625, 0, 0.028 )

@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/dog/bark_area.gd" type="Script" id=1]
 [ext_resource path="res://src/dog/woof_text.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 3.0
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, 0, 0, -6, -1, -10, -6, 4, -10, 6, 4, -10, 6, -1, -10 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "slide_up_n_fade"
@@ -67,12 +71,13 @@ shape = SubResource( 2 )
 one_shot = true
 
 [node name="WoofText" type="RichTextLabel" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.1
 anchor_bottom = 0.1
-margin_top = -60.0
-margin_right = 40.0
-margin_bottom = -40.0
+margin_top = -71.0
+margin_right = 90.0
+margin_bottom = -16.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Woof!"
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

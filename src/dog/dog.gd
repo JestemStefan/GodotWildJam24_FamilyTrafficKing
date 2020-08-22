@@ -8,12 +8,15 @@ var direction: Vector3 = Vector3()
 
 
 onready var _anim_player: AnimationPlayer = $DogAnimated/AnimationPlayer
-onready var bark_timer: Timer = $BarkArea/Timer
+onready var _bark_timer: Timer = $BarkArea/Timer
+onready var _bark_area = $BarkArea
 
 func _input(event):
 	if event is InputEventKey and Input.is_action_just_pressed("bark"):
 		isBarking = true
+		_bark_area.bark()
 		_anim_player.play("Bark")
+
 
 func _process(_delta):	
 	# reset the direction vector state
@@ -21,8 +24,7 @@ func _process(_delta):
 	
 	direction.z = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	direction.x = Input.get_action_strength("move_left") - Input.get_action_strength("move_right")
-	
-	
+
 
 func _physics_process(_delta):
 	if isBarking:
@@ -37,11 +39,9 @@ func _physics_process(_delta):
 	move_and_slide(direction.normalized() * speed)
 
 
-
 func pet_the_dog():
 	# TODO
 	pass
-
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
