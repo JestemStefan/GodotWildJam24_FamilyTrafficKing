@@ -2,14 +2,17 @@ extends Node
 
 onready var _main = NodeFinder.get_main()
 
-const _levels = ["TutorialLevel1", "Level2", "Level3"]
+const _levels = ["TestLevelNewPavedPaths", "TutorialLevel1", "Level2", "Level3"]
 var _current_lvl_idx = 0
 
 const GUI = preload("res://src/ui/GUI.tscn")
 var _gui = null
 
+var _rng = RandomNumberGenerator.new() setget, get_rng
 
+	
 func _ready():
+	_rng.randomize()
 	# TODO: load main menu instead
 	_load_current_level_and_UI()
 	HappinessManager.connect("happiness_updated", self, "_change_level_if_happiness_reached_threshold")
@@ -53,3 +56,7 @@ func _change_level_if_happiness_reached_threshold(happiness_value):
 	elif happiness_value <= 0:
 		_remove_ui_and_level()
 		_load_level("GameOver")
+
+
+func get_rng():
+	return _rng

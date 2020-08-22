@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/objects/path/spawner_path.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dog/dog.tscn" type="PackedScene" id=3]
+
+[node name="TestLevelNewPavedPaths" type="Node"]
+
+[node name="SpawnerPath" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="Pavement" type="Spatial" parent="SpawnerPath"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="Pavement_Square" parent="SpawnerPath/Pavement" instance=ExtResource( 2 )]
+
+[node name="Pavement_Square2" parent="SpawnerPath/Pavement" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7.14126, 8.7366 )
+
+[node name="Dog" parent="." instance=ExtResource( 3 )]
