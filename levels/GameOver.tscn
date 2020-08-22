@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="GameOver" type="Spatial"]
+[node name="GameOver" type="Node"]
 
 [node name="Label" type="Label" parent="."]
 margin_left = 336.0

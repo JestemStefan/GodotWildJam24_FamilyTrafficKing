@@ -6,7 +6,7 @@
 size = 128
 font_data = ExtResource( 1 )
 
-[node name="WinScreen" type="Spatial"]
+[node name="WinScreen" type="Node"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 299.878
