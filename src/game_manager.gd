@@ -10,16 +10,9 @@ var _gui = null
 
 
 func _ready():
+	# TODO: load main menu instead
 	_load_current_level_and_UI()
-	HappinessManager.connect("happiness_updated", self, "_next_level_if_happiness_reached_max")
-
-
-func _load_level(level_name):
-	_main.add_child(load("res://levels/%s.tscn" % level_name).instance())
-
-
-func _get_current_level_name():
-	return _levels[_current_lvl_idx]
+	HappinessManager.connect("happiness_updated", self, "_change_level_if_happiness_reached_threshold")
 
 
 func _load_current_level_and_UI():
@@ -30,21 +23,33 @@ func _load_current_level_and_UI():
 	_main.add_child(_gui)
 	
 
-func _replace_level_with_next():
-	# remove UI to reset it
+func _load_level(level_name):
+	_main.add_child(load("res://levels/%s.tscn" % level_name).instance())
+
+
+func _get_current_level_name():
+	return _levels[_current_lvl_idx]
+
+
+func _remove_ui_and_level():
 	_gui.queue_free()
-	
-	# remove current level
-	_main.get_node(_levels[_current_lvl_idx]).queue_free()
+	_main.get_node(_get_current_level_name()).queue_free()
+
+
+func _replace_level_with_next():
+	_remove_ui_and_level()
 		
 	# load and instantiate next level if there is more
 	_current_lvl_idx += 1
 	if _current_lvl_idx <= _levels.size():
 		_load_current_level_and_UI()
 	else:
-		_load_level("win_screen")
+		_load_level("WinScreen")
 
 
-func _next_level_if_happiness_reached_max(happiness_value):
+func _change_level_if_happiness_reached_threshold(happiness_value):
 	if happiness_value >= HappinessManager.MAX_HAPPINESS:
 		_replace_level_with_next()
+	elif happiness_value <= 0:
+		_remove_ui_and_level()
+		_load_level("GameOver")

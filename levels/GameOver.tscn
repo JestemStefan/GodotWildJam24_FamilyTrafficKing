@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="GameOver" type="Spatial"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 336.0
+margin_top = 166.0
+margin_right = 515.0
+margin_bottom = 256.0
+text = "LOSER! 
+PRESS ALT F4 TO RAGE QUIT,
+YOU NOOB!
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

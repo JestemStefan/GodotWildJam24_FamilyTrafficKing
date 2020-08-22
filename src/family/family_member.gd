@@ -12,6 +12,7 @@ func _ready():
 	car_detector.connect("body_entered", self, "_detect_car")
 	car_detector.connect("body_exited", self, "_undetect_car")
 
+
 func _move_on_path(speed: float, delta: float):
 	if detected_cars.empty():
 		_path.set_offset(_path.get_offset() + speed * delta)

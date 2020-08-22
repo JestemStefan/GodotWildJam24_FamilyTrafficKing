@@ -2,6 +2,8 @@ extends KinematicBody
 
 export var speed: int = 10
 
+const HAPPINESS_LOST_ON_HONK = 20
+
 onready var _path : PathFollow = get_parent()
 onready var _car_animplayer: AnimationPlayer = $Car/AnimationPlayer
 onready var _wait_time: Timer = $WaitTime
@@ -16,6 +18,7 @@ var isWaiting:bool = false
 
 func _ready():
 	_car_animplayer.play("Driving")
+
 
 func _physics_process(delta):
 	if detected_fams_or_dog.size() <= 0:
@@ -47,11 +50,14 @@ func _on_PeopleDetector_body_exited(body):
 	if detected_fams_or_dog.size()  <= 0:
 		_car_animplayer.play("SpeedingUp")
 
-	
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print("Animation " + anim_name + " finished")
 
 	match anim_name:
 		"SpeedingUp": _car_animplayer.play("Driving")
-		"Braking": _car_animplayer.play("Honking")
+		"Braking": _honk()
+
+func _honk():
+	HappinessManager.lose_happiness(HAPPINESS_LOST_ON_HONK)
+	_car_animplayer.play("Honking")
