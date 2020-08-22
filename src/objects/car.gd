@@ -22,7 +22,6 @@ func _physics_process(delta):
 		canDrive = 1
 	else:
 		canDrive = 0
-	#print(detected_fams_or_dog.size())
 	if isWaiting == false:
 		driveSpeed = lerp(driveSpeed, canDrive * speed, 0.075)
 		
@@ -30,21 +29,18 @@ func _physics_process(delta):
 
 
 func _on_PeopleDetector_body_entered(body):
-	
 	if detected_fams_or_dog.size() <= 0:
 		if driveSpeed <= 0:
 			isWaiting = true
 		_car_animplayer.play("Braking")
-	print(isWaiting)
 	
-		# should not be needed but why not 
+	# should not be needed but why not 
 	if body is Dog or body is FamilyMember:
 		detected_fams_or_dog.append(body)
 		print("car %s detected %s" % [self, body])
 
 
 func _on_PeopleDetector_body_exited(body):
-
 	detected_fams_or_dog.erase(body)
 	print("car %s undetected %s" % [self, body])
 
