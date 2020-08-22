@@ -2,7 +2,7 @@ extends Node
 
 signal happiness_updated
 
-const MAX_HAPPINESS = 100
+const MAX_HAPPINESS = 200
 
 var _current_happiness = MAX_HAPPINESS / 2
 

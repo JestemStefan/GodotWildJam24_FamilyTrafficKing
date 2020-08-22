@@ -3,4 +3,5 @@
 [ext_resource path="res://models/Humans/MaleChild/M_ChildTexture_Blue.jpg" type="Texture" id=1]
 
 [resource]
+resource_local_to_scene = true
 albedo_texture = ExtResource( 1 )
