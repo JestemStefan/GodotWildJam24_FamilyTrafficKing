@@ -1532,6 +1532,7 @@ tracks/47/keys = PoolRealArray( 0, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012
 [node name="Dog" type="KinematicBody"]
 collision_mask = 7
 script = ExtResource( 1 )
+speed = 20
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68479, 0 )

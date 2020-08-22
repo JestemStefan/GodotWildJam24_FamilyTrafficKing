@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/objects/lane.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/objects/car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/dog/dog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/objects/biggerpathway.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve3D" id=1]
+bake_interval = 1.0
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -13.8897, 1.03226, 0.270729, 0, 0, 0, 0, 0, 0, 43.4991, 0.991394, -0.137011 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.636858, 0, -2.75732, 0, 0, 0, 0, 0, 0, 0.535042, 0, -66.624 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[node name="TutorialLevel1Munro" type="Node"]
+
+[node name="Lane" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.62469, -1, 0.0282192 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="Path" type="Path" parent="Lane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2407, 0, 0.0167513 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="Lane/Path"]
+rotation_mode = 1
+
+[node name="Car" parent="Lane/Path/PathFollow" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 1, 0 )
+
+[node name="BiggerPathway" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+spawn_frequency_seconds = 4
+spawn_limit_simultaneously = 1
+
+[node name="Path" type="Path" parent="BiggerPathway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85681e-06, 0, 35.9489 )
+curve = SubResource( 2 )
+
+[node name="Dog" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.0101795, 1.03981, 0.0429327 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.867705, -0.351489, 0.351489, 0, 0.707107, 0.707107, -0.49708, -0.61356, 0.61356, 17.1445, 21.8706, 28.2054 )

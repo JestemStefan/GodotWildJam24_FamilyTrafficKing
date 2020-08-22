@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Horn4.wav-fc9a971ecef0d21ca4fc833daf96320c.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Horn4.wav"
+dest_files=[ "res://.import/Horn4.wav-fc9a971ecef0d21ca4fc833daf96320c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
