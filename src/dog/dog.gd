@@ -15,6 +15,7 @@ func _input(event):
 		isBarking = true
 		_bark_area.bark()
 		_anim_player.play("Bark")
+		_anim_player.set_speed_scale(1)
 
 
 func _process(_delta):	
@@ -32,11 +33,17 @@ func _physics_process(_delta):
 		if direction != Vector3.ZERO:
 			look_at(get_global_transform().origin + direction, Vector3.UP)
 			_anim_player.play("RunCycle")
+			
+			#sync of animation and speed
+			_anim_player.set_speed_scale(speed/6.6)
+			
 		elif direction == Vector3.ZERO:
 				_anim_player.play("Idle")
+				_anim_player.set_speed_scale(1.5)
+				
+
 		
 	move_and_slide(direction.normalized() * speed)
-
 
 func pet_the_dog():
 	# TODO
