@@ -7,6 +7,14 @@ const HAPPINESS_LOST_ON_HONK = 20
 onready var _path : PathFollow = get_parent()
 onready var _car_animplayer: AnimationPlayer = $Car/AnimationPlayer
 onready var _wait_time: Timer = $WaitTime
+onready var mesh = $Car/CarArmature/Skeleton/Car
+
+const texture_Black = preload("res://models/Car/Car_Black.jpg")
+const texture_Blue = preload("res://models/Car/Car_Blue.jpg")
+const texture_Green = preload("res://models/Car/Car_Green.jpg")
+const texture_Purple = preload("res://models/Car/Car_Purple.jpg")
+const texture_Red = preload("res://models/Car/Car_Red.jpg")
+const texture_Yellow = preload("res://models/Car/Car_Yellow.jpg")
 
 
 var detected_fams_or_dog: Array = []
@@ -17,6 +25,11 @@ var isWaiting:bool = false
 
 
 func _ready():
+	randomize()
+	var select_texture = [texture_Black, texture_Blue, texture_Green, texture_Purple, texture_Red, texture_Yellow]
+	var rnd = GameManager.get_rng().randi_range(0, select_texture.size()-1)
+	mesh.get_surface_material(0).albedo_texture = select_texture[rnd]
+	
 	_car_animplayer.play("Driving")
 
 
@@ -50,6 +63,9 @@ func _on_PeopleDetector_body_exited(body):
 	if detected_fams_or_dog.size()  <= 0:
 		_car_animplayer.play("SpeedingUp")
 
+func _on_AnimationPlayer_animation_started(anim_name):
+	if anim_name == "Honking":
+		HappinessManager.lose_happiness(HAPPINESS_LOST_ON_HONK)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print("Animation " + anim_name + " finished")
@@ -59,5 +75,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"Braking": _honk()
 
 func _honk():
-	HappinessManager.lose_happiness(HAPPINESS_LOST_ON_HONK)
 	_car_animplayer.play("Honking")
+
+
+
