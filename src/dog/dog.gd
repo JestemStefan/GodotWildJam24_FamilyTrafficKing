@@ -8,7 +8,6 @@ var direction: Vector3 = Vector3()
 
 
 onready var _anim_player: AnimationPlayer = $DogAnimated/AnimationPlayer
-onready var _bark_timer: Timer = $BarkArea/Timer
 onready var _bark_area = $BarkArea
 
 func _input(event):
