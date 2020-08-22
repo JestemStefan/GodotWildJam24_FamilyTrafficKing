@@ -2,7 +2,7 @@ extends Node
 
 onready var _main = NodeFinder.get_main()
 
-var _levels = ["TutorialLevel1", "Level2", "Level3"]
+const _levels = ["TutorialLevel1", "Level2", "Level3"]
 var _current_lvl_idx = 0
 
 const GUI = preload("res://src/ui/GUI.tscn")
