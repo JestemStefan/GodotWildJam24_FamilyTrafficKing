@@ -1,6 +1,6 @@
 extends StaticBody
 
-const HAPPINESS_GAIN_ON_GOAL = 30
+const HAPPINESS_GAIN_ON_GOAL = 0
 
 export var spawn_frequency_seconds = 10
 export var spawn_limit_simultaneously = 5

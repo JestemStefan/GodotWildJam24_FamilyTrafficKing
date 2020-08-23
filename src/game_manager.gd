@@ -1,33 +1,46 @@
 extends Node
 
-onready var _main = NodeFinder.get_main()
-
 const _levels = ["TestLevelNewPavedPaths", "TutorialLevel1", "Level2", "Level3"]
-var _current_lvl_idx = 0
 
 const GUI = preload("res://src/ui/GUI.tscn")
+
+
+onready var _main = NodeFinder.get_main()
+
+var _current_lvl_idx = 0
+
 var _gui = null
 
 var _rng = RandomNumberGenerator.new() setget, get_rng
 
-	
+var _current_level_duration = 0
+
 func _ready():
 	_rng.randomize()
+	NodeFinder.get_level_timer().connect("timeout", self, "_check_level_time_is_up")
 	# TODO: load main menu instead
 	_load_current_level_and_UI()
-	HappinessManager.connect("happiness_updated", self, "_change_level_if_happiness_reached_threshold")
 
 
 func _load_current_level_and_UI():
 	var _current_level_name = _get_current_level_name()
-	_load_level(_current_level_name)
+	var level = _load_level(_current_level_name)
+	
+	HappinessManager.set_happiness_threshold(level.happiness_threshold)
+	_current_level_duration = level.timer_duration
+	
 	_gui = GUI.instance()
-	NodeFinder.update_player_camera(_current_level_name)
 	_main.add_child(_gui)
 	
+	NodeFinder.update_player_camera(_current_level_name)
+	
+	NodeFinder.get_level_timer().start()
 
-func _load_level(level_name):
-	_main.add_child(load("res://levels/%s.tscn" % level_name).instance())
+
+func _load_level(level_name) -> LevelSettings:
+	var new_level = load("res://levels/%s.tscn" % level_name).instance()
+	_main.add_child(new_level)
+	return new_level
 
 
 func _get_current_level_name():
@@ -41,7 +54,9 @@ func _remove_ui_and_level():
 
 func _replace_level_with_next():
 	_remove_ui_and_level()
+	
 	HappinessManager.reset_happiness()
+	
 	# load and instantiate next level if there is more
 	_current_lvl_idx += 1
 	if _current_lvl_idx <= _levels.size():
@@ -50,13 +65,25 @@ func _replace_level_with_next():
 		_load_level("WinScreen")
 
 
-func _change_level_if_happiness_reached_threshold(happiness_value):
-	if happiness_value >= HappinessManager.MAX_HAPPINESS:
+func _check_level_time_is_up():
+	_current_level_duration -= 1
+	if _current_level_duration <= 0:
+		_current_level_duration = 0
+		NodeFinder.get_level_timer().stop()
+		_go_next_level_or_game_over()
+
+
+func _go_next_level_or_game_over():
+	if HappinessManager.is_happiness_threshold_reached():
 		_replace_level_with_next()
-	elif happiness_value <= 0:
+	else:
 		_remove_ui_and_level()
 		_load_level("GameOver")
 
 
 func get_rng():
 	return _rng
+
+
+func get_current_level_duration():
+	return _current_level_duration
