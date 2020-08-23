@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/ui/play_button.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Node"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 371.886
+margin_top = 220.866
+margin_right = 743.886
+margin_bottom = 351.866
+text = "Play"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

@@ -12,7 +12,7 @@ func get_main():
 
 func get_level_timer():
 	return _level_timer
-
+	
 
 func update_player_camera(level_name):
 	_camera = _main.get_node(level_name + "/Camera")

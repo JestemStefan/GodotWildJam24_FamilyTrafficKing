@@ -17,9 +17,13 @@ var _current_level_duration = 0
 
 func _ready():
 	_rng.randomize()
-	NodeFinder.get_level_timer().connect("timeout", self, "_check_level_time_is_up")
-	# TODO: load main menu instead
+	_load_level("MainMenu")
+
+
+func load_first_level():
+	_main.get_node("MainMenu").queue_free()
 	_load_current_level_and_UI()
+	NodeFinder.get_level_timer().connect("timeout", self, "_check_level_time_is_up")	
 
 
 func _load_current_level_and_UI():
