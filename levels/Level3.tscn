@@ -50,7 +50,7 @@ extents = Vector3( 0.530398, 0.87263, 0.522564 )
 [node name="Level3" type="Node"]
 script = ExtResource( 5 )
 timer_duration = 120
-happiness_threshold = 250
+happiness_threshold = 400
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 8.824, 0, 0.028 )
@@ -117,7 +117,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6883, 0, -15.0971 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.551, 0, -16.3434 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 17.1445, 25.4832, 33.0963 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 25.483, 33.096 )
 
 [node name="Grassplane" parent="." instance=ExtResource( 6 )]
 

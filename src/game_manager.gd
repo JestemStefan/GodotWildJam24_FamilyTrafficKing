@@ -66,6 +66,7 @@ func _replace_level_with_next():
 	if _current_lvl_idx <= _levels.size():
 		_load_current_level_and_UI()
 	else:
+		_remove_ui_and_level()
 		_load_level("WinScreen")
 
 
