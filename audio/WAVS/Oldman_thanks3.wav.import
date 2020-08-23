@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Oldman_thanks3.wav-c894fd9f3df551bc0716bd5952f99c65.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Oldman_thanks3.wav"
+dest_files=[ "res://.import/Oldman_thanks3.wav-c894fd9f3df551bc0716bd5952f99c65.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

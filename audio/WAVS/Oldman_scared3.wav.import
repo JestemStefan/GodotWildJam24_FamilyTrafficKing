@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Oldman_scared3.wav-2165f22bc00cbe3ffc73a03394f7d0de.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Oldman_scared3.wav"
+dest_files=[ "res://.import/Oldman_scared3.wav-2165f22bc00cbe3ffc73a03394f7d0de.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

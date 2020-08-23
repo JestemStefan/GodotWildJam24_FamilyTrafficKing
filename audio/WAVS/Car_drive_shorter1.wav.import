@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Car_drive_shorter1.wav-3ad6d6ff3eb31220a9ad2ef5682257bb.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Car_drive_shorter1.wav"
+dest_files=[ "res://.import/Car_drive_shorter1.wav-3ad6d6ff3eb31220a9ad2ef5682257bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

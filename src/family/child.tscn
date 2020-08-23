@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/family/child.gd" type="Script" id=1]
 [ext_resource path="res://src/family/car_detector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/Humans/MaleChild/M_ChildMaterial.tres" type="Material" id=3]
+[ext_resource path="res://audio/WAVS/Human_walk_road.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/WAVS/man_scared2.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 1.94602
@@ -592,10 +594,33 @@ tracks/32/loop_wrap = true
 tracks/32/imported = true
 tracks/32/enabled = true
 tracks/32/keys = PoolRealArray( 0, 1, 0.0196075, 0.14817, 0.55529, 0, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0.018589, 0.14817, 0.526446, 0, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0.0129101, 0.14817, 0.365617, 0, 0, 0, 1, 1, 1, 1, 0.2, 1, 0.00588045, 0.14817, 0.166535, 0, 0, 0, 1, 1, 1, 1, 0.266667, 1, 0.00200084, 0.14817, 0.0566642, 0, 0, 0, 1, 1, 1, 1, 0.333333, 1, 0.000325382, 0.14817, 0.00921369, 0, 0, 0, 1, 1, 1, 1, 0.4, 1, 1.62721e-05, 0.14817, 0.000460744, 0, 0, 0, 1, 1, 1, 1, 0.466667, 1, 0.000122041, 0.14817, 0.00345516, 0, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0.00101671, 0.14817, 0.0287929, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0.00363684, 0.14817, 0.102996, 0, 0, 0, 1, 1, 1, 1, 0.666667, 1, 0.00847629, 0.14817, 0.24005, 0, 0, 0, 1, 1, 1, 1, 0.733333, 1, 0.0144695, 0.14817, 0.409779, 0, 0, 0, 1, 1, 1, 1, 0.8, 1, 0.0187756, 0.14817, 0.531729, 0, -1.86265e-09, 0, 1, 1, 1, 1, 0.866667, 1, 0.0187386, 0.14817, 0.530682, 0, 0, 0, 1, 1, 1, 1, 0.933333, 1, 0.0141883, 0.14817, 0.401816, 0, 0, 0, 1, 1, 1, 1, 1.06667, 1, 0.00220659, 0.14817, 0.0624902, 0, 0, 0, 1, 1, 1, 1, 1.13333, 1, 7.29561e-05, 0.14817, 0.00206542, 0, 0, 0, 1, 1, 1, 1, 1.2, 1, 0.00116551, 0.14817, 0.0330071, 0, 0, 0, 1, 1, 1, 1, 1.26667, 1, 0.00360656, 0.14817, 0.102139, 0, 0, 0, 1, 1, 1, 1, 1.53333, 1, 0.0167319, 0.14817, 0.47385, 0, 0, 0, 1, 1, 1, 1, 1.6, 1, 0.0187672, 0.14817, 0.53149, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0.0196075, 0.14817, 0.55529, 0, 0, 0, 1, 1, 1, 1 )
+tracks/33/type = "value"
+tracks/33/path = NodePath("../Sounds/ChildMovementSound1:playing")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0.17, 0.39 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("../Sounds/ChildMovementSound2:playing")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0.85, 1.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 0.875
-loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("HumanArmature/Skeleton:elbow_pole_l")
 tracks/0/interp = 1
@@ -827,6 +852,18 @@ tracks/32/loop_wrap = true
 tracks/32/imported = true
 tracks/32/enabled = true
 tracks/32/keys = PoolRealArray( 0, 1, 0, 1.19209e-07, 0, 0, 0, 0, 1, 1, 1, 1, 0.875, 1, 0, 1.19209e-07, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/33/type = "value"
+tracks/33/path = NodePath("../Sounds/ChildStunSound1:playing")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 1.66667
@@ -1260,3 +1297,24 @@ anims/Idle = SubResource( 4 )
 anims/Skip = SubResource( 5 )
 anims/Stun = SubResource( 6 )
 anims/Walk = SubResource( 7 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="ChildMovementSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 4 )
+pitch_scale = 2.0
+bus = "VolumeFootsteps"
+attenuation_filter_db = -6.0
+
+[node name="ChildMovementSound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 4 )
+pitch_scale = 1.8
+bus = "VolumeFootsteps"
+attenuation_filter_db = -6.0
+
+[node name="ChildStunSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 5 )
+unit_db = 12.0
+pitch_scale = 1.11
+bus = "VolumeVocal"
+attenuation_filter_db = -6.0

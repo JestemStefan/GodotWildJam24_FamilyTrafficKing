@@ -1,9 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/objects/car.gd" type="Script" id=1]
 [ext_resource path="res://models/Car/Car_Red.jpg" type="Texture" id=2]
 [ext_resource path="res://models/Car/Car_AO.jpg" type="Texture" id=3]
 [ext_resource path="res://models/Car/Car_Roughness.jpg" type="Texture" id=4]
+[ext_resource path="res://audio/WAVS/Car_drive_shorter1.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/WAVS/Horn1.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/WAVS/Horn3.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/WAVS/Tyres_screech4.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/WAVS/Tyres_screech3.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/WAVS/Horn5.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/WAVS/Car_idle.wav" type="AudioStream" id=11]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Car"
@@ -54,10 +61,47 @@ tracks/1/loop_wrap = true
 tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.70833, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sounds/CarHonkSound3:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Sounds/CarBrakingSound1:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4, 1.0823 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Sounds/CarBrakingSound2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 1.375
 loop = true
+step = 0.025
 tracks/0/type = "transform"
 tracks/0/path = NodePath("CarArmature/Skeleton:car")
 tracks/0/interp = 1
@@ -72,10 +116,35 @@ tracks/1/loop_wrap = true
 tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.375, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sounds/CarDrivingSound1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.55 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Sounds/CarDrivingSound2:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.55, 1.375 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 1.04167
 loop = true
+step = 0.05
 tracks/0/type = "transform"
 tracks/0/path = NodePath("CarArmature/Skeleton:car")
 tracks/0/interp = 1
@@ -90,6 +159,30 @@ tracks/1/loop_wrap = true
 tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sounds/CarHonkSound1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Sounds/CarIdleSound1:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 1.04167
@@ -108,9 +201,22 @@ tracks/1/loop_wrap = true
 tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sounds/CarHonkSound2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=8]
 length = 1.04167
+step = 0.05
 tracks/0/type = "transform"
 tracks/0/path = NodePath("CarArmature/Skeleton:car")
 tracks/0/interp = 1
@@ -125,6 +231,18 @@ tracks/1/loop_wrap = true
 tracks/1/imported = true
 tracks/1/enabled = true
 tracks/1/keys = PoolRealArray( 0, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1, 1.04167, 1, 0, -5.96046e-08, -2.27374e-13, 5.30831e-23, -2.27374e-13, 2.3262e-10, 1, 1, 1, 1 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Sounds/CarSpeedUpSound1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="BoxShape" id=9]
 extents = Vector3( 1.52331, 2.36602, 3.04907 )
@@ -185,6 +303,70 @@ shape = SubResource( 10 )
 process_mode = 0
 wait_time = 5.0
 one_shot = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="CarDrivingSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 5 )
+unit_db = 2.0
+bus = "VolumeGeneral"
+attenuation_filter_db = -12.0
+
+[node name="CarDrivingSound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 5 )
+unit_db = 2.0
+bus = "VolumeGeneral"
+attenuation_filter_db = -12.0
+
+[node name="CarHonkSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 6 )
+unit_db = 2.0
+pitch_scale = 0.85
+bus = "VolumeGeneral"
+attenuation_filter_cutoff_hz = 6000.0
+attenuation_filter_db = -6.0
+
+[node name="CarHonkSound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 7 )
+unit_db = 3.0
+pitch_scale = 0.85
+bus = "VolumeGeneral"
+attenuation_filter_cutoff_hz = 6000.0
+attenuation_filter_db = -6.0
+
+[node name="CarHonkSound3" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 10 )
+unit_db = 2.0
+pitch_scale = 0.85
+bus = "VolumeGeneral"
+attenuation_filter_cutoff_hz = 6000.0
+attenuation_filter_db = -6.0
+
+[node name="CarBrakingSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 9 )
+unit_db = 12.0
+pitch_scale = 1.85
+bus = "VolumeGeneral"
+attenuation_filter_db = -6.0
+
+[node name="CarBrakingSound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 8 )
+unit_db = 6.0
+pitch_scale = 1.44
+bus = "VolumeGeneral"
+attenuation_filter_db = -12.0
+
+[node name="CarIdleSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 11 )
+bus = "VolumeGeneral"
+attenuation_filter_db = -12.0
+
+[node name="CarSpeedUpSound1" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 5 )
+unit_db = 1.0
+pitch_scale = 0.8
+bus = "VolumeGeneral"
+attenuation_filter_db = -12.0
 [connection signal="animation_finished" from="Car/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="PeopleDetector" to="." method="_on_PeopleDetector_body_entered"]
 [connection signal="body_exited" from="PeopleDetector" to="." method="_on_PeopleDetector_body_exited"]

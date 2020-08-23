@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bark7.wav-f7ef1b6295d4409712075df6e2f9b486.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Bark7.wav"
+dest_files=[ "res://.import/Bark7.wav-f7ef1b6295d4409712075df6e2f9b486.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
