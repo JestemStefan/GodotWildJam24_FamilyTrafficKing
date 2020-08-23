@@ -8,6 +8,7 @@ onready var _path : PathFollow = get_parent()
 onready var _car_animplayer: AnimationPlayer = $Car/AnimationPlayer
 onready var _wait_time: Timer = $WaitTime
 onready var mesh = $Car/CarArmature/Skeleton/Car
+onready var _honk_label = $HonkLabel
 
 const texture_Black = preload("res://models/Car/Car_Black.jpg")
 const texture_Blue = preload("res://models/Car/Car_Blue.jpg")
@@ -76,6 +77,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _honk():
 	_car_animplayer.play("Honking")
+	_honk_label.display(global_transform.origin, HAPPINESS_LOST_ON_HONK)
 
 
 

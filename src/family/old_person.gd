@@ -1,14 +1,14 @@
 extends FamilyMember
 class_name OldPerson
 
-export var _speed: float = 4
+export var _speed: float = 6
 
 export var _animationSpeed: float = 1.0
 
 var total_speed: float
 
 # the speed_boost will be added to speed 
-export var _speed_boost: float = 2
+export var _speed_boost: float = 1.8
 var _speed_boost_duration: float = 1.2
 
 onready var _speed_boost_timer: Timer = $SpeedTimer

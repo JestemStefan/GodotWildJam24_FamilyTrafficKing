@@ -27,6 +27,7 @@ func _add_person(is_old: bool):
 	var new_person = OldPerson.instance() if is_old else Child.instance()
 	
 	var path_follow = PathFollow.new()
+	path_follow.set_translation(_path.curve.get_point_position(0))
 	path_follow.add_child(new_person)
 	
 	_path.add_child(path_follow)
