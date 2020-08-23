@@ -1600,33 +1600,33 @@ radius = 4.0
 size = 28
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpatialMaterial" id=21]
+[sub_resource type="SpatialMaterial" id=18]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="Gradient" id=22]
+[sub_resource type="Gradient" id=19]
 offsets = PoolRealArray( 0.385159, 1 )
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=23]
-gradient = SubResource( 22 )
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
 
-[sub_resource type="Curve" id=19]
+[sub_resource type="Curve" id=21]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.553409 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=20]
-curve = SubResource( 19 )
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
 
-[sub_resource type="ParticlesMaterial" id=18]
+[sub_resource type="ParticlesMaterial" id=23]
 flag_rotate_y = true
 direction = Vector3( 0, 1, 0 )
 gravity = Vector3( 0, 9, 0 )
 initial_velocity = 2.0
 angular_velocity = 20.0
 linear_accel = 5.0
-scale_curve = SubResource( 20 )
-color_ramp = SubResource( 23 )
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 20 )
 
 [node name="Dog" type="KinematicBody"]
 collision_mask = 7
@@ -1639,6 +1639,7 @@ shape = SubResource( 1 )
 
 [node name="BarkArea" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19506, 0 )
+visible = true
 
 [node name="DogAnimated" type="Spatial" parent="."]
 transform = Transform( -1.5, 0, -4.88762e-07, 0, 1.5, 0, 4.88762e-07, 0, -1.5, 0, 0, 0 )
@@ -1939,8 +1940,7 @@ shape = SubResource( 16 )
 [node name="PetTimer" type="Timer" parent="PetArea"]
 
 [node name="PetLabel" type="Label" parent="PetArea"]
-modulate = Color( 1, 1, 1, 0.285714 )
-anchor_top = 0.0285714
+modulate = Color( 1, 1, 1, 0 )
 anchor_bottom = 0.1
 margin_top = -72.0
 margin_right = 230.0
@@ -1958,13 +1958,13 @@ anims/text_slide_up_fade = ExtResource( 5 )
 
 [node name="HeartParticles" type="Particles" parent="PetArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29419, -1.71233 )
-material_override = SubResource( 21 )
+material_override = SubResource( 18 )
 emitting = false
 amount = 4
 lifetime = 0.55
 one_shot = true
 local_coords = false
-process_material = SubResource( 18 )
+process_material = SubResource( 23 )
 draw_pass_1 = ExtResource( 10 )
 
 [node name="Sounds" type="Node" parent="."]

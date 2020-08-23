@@ -61,3 +61,4 @@ func _physics_process(_delta):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Bark":
 		isBarking = false
+		
