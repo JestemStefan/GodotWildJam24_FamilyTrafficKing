@@ -1,4 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 1 )
 
 [node name="GameOver" type="Node"]
 
@@ -7,9 +13,11 @@ margin_left = 336.0
 margin_top = 166.0
 margin_right = 515.0
 margin_bottom = 256.0
-text = "LOSER! 
-PRESS ALT F4 TO RAGE QUIT,
-YOU NOOB!
+custom_fonts/font = SubResource( 1 )
+text = "I'm sorry but you lost. 
+You might have missed
+ the second level. 
+Restart the game to try again?
 "
 __meta__ = {
 "_edit_use_anchors_": false

@@ -41,8 +41,7 @@ _data = {
 
 [node name="Level2" type="Node"]
 script = ExtResource( 5 )
-timer_duration = 90
-happiness_threshold = 150
+happiness_threshold = 200
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.625, 0, 0.028 )
@@ -69,7 +68,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85681e-06, 0, 35.9489 )
 curve = SubResource( 2 )
 
 [node name="BiggerPathway2" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, 18.629 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -4.4784, -0.05, 18.629 )
 spawn_frequency_seconds = 6
 spawn_limit_simultaneously = 2
 
@@ -81,7 +80,7 @@ curve = SubResource( 3 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766045, 0.642788, 10, 30, 30 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766045, 0.642788, 0, 30, 30 )
 
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -105,7 +104,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2207, 0, -9.55526 )
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.4007, 0, 16.8843 )
 
 [node name="House4" parent="Houses" instance=ExtResource( 12 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 49.85, 0, 16.8843 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 44.2879, 0, 16.8843 )
 
 [node name="Pavement Top" parent="." instance=ExtResource( 19 )]
 
@@ -113,6 +112,7 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 49.85, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2911, 0, 18.6514 )
 
 [node name="PavementRight" parent="Pavement Bot" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89848, 0, 0 )
 
 [node name="Pavement_Square2" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
@@ -128,9 +128,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
 
 [node name="Pavement_Square6" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
-
-[node name="Pavement_Square7" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9159, 0, 0 )
 
 [node name="PavementLeft" parent="Pavement Bot" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9123, 0, 0 )
