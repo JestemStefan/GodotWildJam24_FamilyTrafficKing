@@ -1605,7 +1605,7 @@ gravity = Vector3( 0, 9, 0 )
 initial_velocity = 2.0
 linear_accel = 5.0
 
-[sub_resource type="SphereMesh" id=20]
+[sub_resource type="SphereMesh" id=19]
 radius = 0.2
 height = 0.4
 
@@ -1944,12 +1944,13 @@ amount = 4
 lifetime = 0.55
 one_shot = true
 process_material = SubResource( 18 )
-draw_pass_1 = SubResource( 20 )
+draw_pass_1 = SubResource( 19 )
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="DogMovementSound" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 8 )
-unit_db = 2.0
+unit_db = 20.0
 max_db = 5.0
 pitch_scale = 2.0
 bus = "VolumeGeneral"
@@ -1957,8 +1958,8 @@ attenuation_filter_db = -6.0
 
 [node name="DogBarkSound" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 9 )
-unit_db = 12.0
-pitch_scale = 2.4
+unit_db = 30.0
+pitch_scale = 2.0
 bus = "VolumeBark"
 attenuation_filter_db = -2.0
 [connection signal="animation_finished" from="DogAnimated/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
