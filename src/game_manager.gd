@@ -1,6 +1,6 @@
 extends Node
 
-const _levels = ["Level2"]
+const _levels = ["Level2", "Level3"]
 
 const GUI = preload("res://src/ui/GUI.tscn")
 
