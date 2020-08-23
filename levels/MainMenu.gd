@@ -20,12 +20,7 @@ func _on_Quit_pressed():
 
 
 func _on_HSlider_value_changed(value):
-	#change sound volume
-	print(Settings.masterVolume)
-	
 	Settings.masterVolume = value
-	
-	print(Settings.masterVolume)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
