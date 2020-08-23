@@ -4,6 +4,7 @@
 [ext_resource path="res://src/dog/woof_text.gd" type="Script" id=2]
 [ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=3]
 [ext_resource path="res://models/environment/Particles/Wave.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://src/ui/animations/text_animation.tres" type="Animation" id=5]
 
 [sub_resource type="SphereShape" id=1]
 radius = 3.0
@@ -12,46 +13,9 @@ radius = 3.0
 points = PoolVector3Array( 0, 0, 0, -6, -1, -10, -6, 4, -10, 6, 4, -10, 6, -1, -10 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 28
+use_filter = true
 font_data = ExtResource( 3 )
-
-[sub_resource type="Animation" id=4]
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:anchor_top")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.1, 0.0 ]
-}
 
 [sub_resource type="SpatialMaterial" id=5]
 flags_transparent = true
@@ -79,31 +43,31 @@ initial_velocity = 60.0
 scale_curve = SubResource( 9 )
 color_ramp = SubResource( 7 )
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=18]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=12]
 offsets = PoolRealArray( 0, 0.512367, 1 )
 colors = PoolColorArray( 1, 0, 0, 0.415686, 1, 0.513726, 0.513726, 0.427451, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
 
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=14]
 max_value = 4.0
 _data = [ Vector2( 0, 0 ), 0.0, 2.33182, 0, 0, Vector2( 0.493464, 2.19091 ), 5.56364, 5.56364, 0, 0, Vector2( 1, 4 ), -0.0794805, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=16]
 gravity = Vector3( 0, 0, 0 )
-scale_curve = SubResource( 12 )
-color_ramp = SubResource( 17 )
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 13 )
 
-[sub_resource type="SphereMesh" id=14]
+[sub_resource type="SphereMesh" id=17]
 radial_segments = 8
 
 [node name="BarkArea" type="Area"]
@@ -123,19 +87,24 @@ shape = SubResource( 2 )
 one_shot = true
 
 [node name="WoofText" type="Label" parent="."]
+visible = false
 anchor_top = 0.1
 anchor_bottom = 0.1
-margin_top = -71.0
-margin_right = 58.0
-margin_bottom = -45.0
+margin_top = -72.0
+margin_right = 78.0
+margin_bottom = -33.0
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.568627, 0, 0, 1 )
 text = "Woof!"
 align = 1
 valign = 1
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WoofText"]
-anims/slide_up_n_fade = SubResource( 4 )
+anims/slide_up_n_fade = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": "WOOF"
 }
@@ -153,13 +122,13 @@ process_material = SubResource( 10 )
 draw_pass_1 = ExtResource( 4 )
 
 [node name="SoundSphere" type="Particles" parent="."]
-material_override = SubResource( 15 )
+material_override = SubResource( 18 )
 cast_shadow = 0
 emitting = false
 amount = 2
 lifetime = 0.2
 one_shot = true
-process_material = SubResource( 13 )
-draw_pass_1 = SubResource( 14 )
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 17 )
 [connection signal="body_entered" from="." to="." method="_on_BarkArea_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_BarkArea_body_exited"]

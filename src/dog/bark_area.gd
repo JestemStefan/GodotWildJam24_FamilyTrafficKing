@@ -13,7 +13,6 @@ func bark():
 	if not _timer.is_stopped():
 		return
 	
-	# TODO: play sound
 	for fam in detected_fams:
 		fam.hears_bark()
 	_woof_text.display(get_global_transform().origin)
@@ -22,9 +21,7 @@ func bark():
 
 func _on_BarkArea_body_entered(body):
 	detected_fams.append(body)
-	print("%s detected" % body)
 
 
 func _on_BarkArea_body_exited(body):
 	detected_fams.erase(body)
-	print("%s undetected" % body)

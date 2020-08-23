@@ -1,6 +1,6 @@
 extends Node
 
-const _levels = ["TestLevelNewPavedPaths", "TutorialLevel1", "Level2", "Level3"]
+const _levels = ["TestPetTheDog", "TutorialLevel1", "Level2", "Level3"]
 
 const GUI = preload("res://src/ui/GUI.tscn")
 

@@ -1,8 +1,12 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/dog/dog.gd" type="Script" id=1]
 [ext_resource path="res://src/dog/bark_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/Dog/DogTextureHD.jpg" type="Texture" id=3]
+[ext_resource path="res://src/dog/pet_area.gd" type="Script" id=4]
+[ext_resource path="res://src/ui/animations/text_animation.tres" type="Animation" id=5]
+[ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=6]
+[ext_resource path="res://src/dog/pet_label.gd" type="Script" id=7]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.66258, 2.09948 )
@@ -1533,33 +1537,50 @@ tracks/47/keys = PoolRealArray( 0, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012
 flags_transparent = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0.374558, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=15]
-gradient = SubResource( 14 )
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
 
-[sub_resource type="Curve" id=11]
+[sub_resource type="Curve" id=12]
 max_value = 2.0
 _data = [ Vector2( 0.00326797, 1.02045 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 2 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=14]
 lifetime_randomness = 1.0
 direction = Vector3( 0, 0, -1 )
 spread = 20.0
 gravity = Vector3( 0, 10, 0 )
-scale_curve = SubResource( 12 )
-color_ramp = SubResource( 15 )
+scale_curve = SubResource( 13 )
+color_ramp = SubResource( 11 )
 
-[sub_resource type="SphereMesh" id=10]
+[sub_resource type="SphereMesh" id=15]
 radius = 0.5
 height = 1.0
 radial_segments = 8
 rings = 4
+
+[sub_resource type="SphereShape" id=16]
+radius = 4.0
+
+[sub_resource type="DynamicFont" id=17]
+size = 28
+font_data = ExtResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=18]
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 9, 0 )
+initial_velocity = 2.0
+linear_accel = 5.0
+
+[sub_resource type="SphereMesh" id=20]
+radius = 0.2
+height = 0.4
 
 [node name="Dog" type="KinematicBody"]
 collision_mask = 7
@@ -1844,8 +1865,8 @@ lifetime = 0.5
 randomness = 1.0
 visibility_aabb = AABB( -1.5017, -1.99919, -2.17368, 3.0034, 3.99838, 4.34735 )
 local_coords = false
-process_material = SubResource( 13 )
-draw_pass_1 = SubResource( 10 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 15 )
 
 [node name="Dust2" type="Particles" parent="Particles"]
 transform = Transform( -1.5, 0, -4.88762e-07, 0, 1.5, 0, 4.88762e-07, 0, -1.5, 0.417001, 0.33, -0.157031 )
@@ -1857,6 +1878,47 @@ lifetime = 0.5
 randomness = 1.0
 visibility_aabb = AABB( -1.5017, -1.99919, -2.17368, 3.0034, 3.99838, 4.34735 )
 local_coords = false
-process_material = SubResource( 13 )
-draw_pass_1 = SubResource( 10 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 15 )
+
+[node name="PetArea" type="Area" parent="."]
+monitorable = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PetArea"]
+shape = SubResource( 16 )
+
+[node name="PetTimer" type="Timer" parent="PetArea"]
+
+[node name="PetLabel" type="Label" parent="PetArea"]
+modulate = Color( 1, 1, 1, 0.285714 )
+anchor_top = 0.0285714
+anchor_bottom = 0.1
+margin_top = -72.0
+margin_right = 230.0
+margin_bottom = -33.0
+custom_fonts/font = SubResource( 17 )
+custom_colors/font_color = Color( 1, 0.831373, 0, 1 )
+text = "Pet! +3 happiness"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PetArea/PetLabel"]
+anims/text_slide_up_fade = ExtResource( 5 )
+
+[node name="HeartParticles" type="Particles" parent="PetArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29419, -1.71233 )
+emitting = false
+amount = 4
+lifetime = 0.55
+one_shot = true
+process_material = SubResource( 18 )
+draw_pass_1 = SubResource( 20 )
 [connection signal="animation_finished" from="DogAnimated/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="PetArea" to="PetArea" method="_on_PetArea_body_entered"]
+[connection signal="body_exited" from="PetArea" to="PetArea" method="_on_PetArea_body_exited"]
+[connection signal="timeout" from="PetArea/PetTimer" to="PetArea" method="_on_PetTimer_timeout"]

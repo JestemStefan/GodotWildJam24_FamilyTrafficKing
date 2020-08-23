@@ -57,10 +57,6 @@ func _physics_process(_delta):
 		
 	move_and_slide(direction.normalized() * speed)
 
-func pet_the_dog():
-	# TODO
-	pass
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Bark":
