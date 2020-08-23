@@ -318,3 +318,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
 [node name="Pavement3" parent="Spatial/PavementBot/PavementMiddle/Additional Line 2/Pavement2" instance=ExtResource( 15 )]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0163, 33.5118, -105.598 )
+light_color = Color( 0.796078, 0.670588, 0.670588, 1 )
+light_indirect_energy = 6.33
+light_specular = 0.66
+shadow_enabled = true
+shadow_color = Color( 0.231373, 0.239216, 0.313726, 1 )
+directional_shadow_split_1 = 0.202
+directional_shadow_split_2 = 1.0
+directional_shadow_split_3 = 0.747
+directional_shadow_bias_split_scale = 0.34
+directional_shadow_max_distance = 4821.5
