@@ -7,7 +7,7 @@
 [ext_resource path="res://src/level_settings.gd" type="Script" id=5]
 [ext_resource path="res://models/environment/Grassplane/Grassplane.tscn" type="PackedScene" id=6]
 [ext_resource path="res://audio/OGGS/Background_Ambience.ogg" type="AudioStream" id=7]
-[ext_resource path="res://audio/OGGS/TUTORIAL_MUSIC_2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/OGGS/LEVEL_3.ogg" type="AudioStream" id=8]
 [ext_resource path="res://models/environment/Buildings/House1/House1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/environment/Buildings/House2/House2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/environment/Buildings/House3/House3.tscn" type="PackedScene" id=11]
@@ -50,7 +50,7 @@ extents = Vector3( 0.530398, 0.87263, 0.522564 )
 [node name="Level3" type="Node"]
 script = ExtResource( 5 )
 timer_duration = 120
-happiness_threshold = 400
+happiness_threshold = 250
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 8.824, 0, 0.028 )
@@ -124,15 +124,19 @@ transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+bus = "Ambient"
 
 [node name="Level3Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -7.0
 autoplay = true
+bus = "Music"
 
 [node name="Rock2" parent="." instance=ExtResource( 16 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 1.6973, 0, 6.35435 )
 
 [node name="StaticBody" type="StaticBody" parent="Rock2"]
+collision_layer = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Rock2/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480149, 0, 0 )
@@ -142,6 +146,7 @@ shape = SubResource( 5 )
 transform = Transform( -8.14603e-07, 0, 5, 0, 5, 0, -5, 0, -8.14603e-07, -7.16075, 0, 6.35435 )
 
 [node name="StaticBody" type="StaticBody" parent="Rock3"]
+collision_layer = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Rock3/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480149, 0, 0 )

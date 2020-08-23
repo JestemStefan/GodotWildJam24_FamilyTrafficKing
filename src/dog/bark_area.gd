@@ -33,4 +33,4 @@ func _on_BarkArea_body_exited(body):
 	detected_fams.erase(body)
 
 func bubble():
-	barkBubble.look_at(camera.global_transform.origin,Vector3(0,1,0))
+	barkBubble.look_at(NodeFinder.get_player_camera().global_transform.origin,Vector3(0,1,0))

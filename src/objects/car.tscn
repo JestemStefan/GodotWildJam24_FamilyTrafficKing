@@ -314,18 +314,21 @@ one_shot = true
 
 [node name="CarDrivingSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
-unit_db = 2.0
+unit_db = 3.0
+bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarDrivingSound2" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
-unit_db = 2.0
+unit_db = 3.0
+bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarHonkSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 6 )
-unit_db = 2.0
+unit_db = 3.0
 pitch_scale = 0.85
+bus = "VolumeGeneral"
 attenuation_filter_cutoff_hz = 6000.0
 attenuation_filter_db = -6.0
 
@@ -333,6 +336,7 @@ attenuation_filter_db = -6.0
 stream = ExtResource( 7 )
 unit_db = 3.0
 pitch_scale = 0.85
+bus = "VolumeGeneral"
 attenuation_filter_cutoff_hz = 6000.0
 attenuation_filter_db = -6.0
 
@@ -340,6 +344,7 @@ attenuation_filter_db = -6.0
 stream = ExtResource( 10 )
 unit_db = 2.0
 pitch_scale = 0.85
+bus = "VolumeGeneral"
 attenuation_filter_cutoff_hz = 6000.0
 attenuation_filter_db = -6.0
 
@@ -347,22 +352,27 @@ attenuation_filter_db = -6.0
 stream = ExtResource( 9 )
 unit_db = 12.0
 pitch_scale = 1.85
+bus = "VolumeGeneral"
 attenuation_filter_db = -6.0
 
 [node name="CarBrakingSound2" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 8 )
 unit_db = 6.0
 pitch_scale = 1.44
+bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarIdleSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 11 )
+unit_db = 2.0
+bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarSpeedUpSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
-unit_db = 1.0
+unit_db = 2.0
 pitch_scale = 0.8
+bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="HonkLabel" type="Label" parent="."]

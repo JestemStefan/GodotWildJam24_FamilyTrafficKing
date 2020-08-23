@@ -296,8 +296,9 @@ texture = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -9.0
+volume_db = -2.0
 autoplay = true
+bus = "Music"
 [connection signal="animation_finished" from="Paws/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
