@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/ui/GUI.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Alata_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/ui/happiness_bar.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=4]
 [ext_resource path="res://src/ui/level_timer_label.gd" type="Script" id=5]
+[ext_resource path="res://src/ui/happiness_label.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -61,7 +62,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Bottom/MarginContainer/CenterContainer/HappinessContainer"]
+[node name="HappinessLabel" type="Label" parent="Bottom/MarginContainer/CenterContainer/HappinessContainer"]
 margin_right = 200.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 150, 50 )
@@ -70,6 +71,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "Happiness"
 align = 1
 valign = 1
+script = ExtResource( 6 )
 
 [node name="HappinessBar" type="ProgressBar" parent="Bottom/MarginContainer/CenterContainer/HappinessContainer"]
 margin_top = 60.0

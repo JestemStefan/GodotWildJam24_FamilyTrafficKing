@@ -5,6 +5,7 @@ export(float) var bark_duration = 0.25
 onready var _timer: Timer = $Timer
 onready var _woof_text: Label = $WoofText
 
+
 var detected_fams = []
 
 

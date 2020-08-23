@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/dog/dog.gd" type="Script" id=1]
 [ext_resource path="res://src/dog/bark_area.tscn" type="PackedScene" id=2]
@@ -1529,6 +1529,38 @@ tracks/47/imported = true
 tracks/47/enabled = true
 tracks/47/keys = PoolRealArray( 0, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.666667, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.791667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.916667, 1, 0.000324756, 0.475563, 0.105162, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.04167, 1, 0.000478193, 0.512224, 0.154848, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.16667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.29167, 1, 6.50883e-05, 0.413522, 0.0210802, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.54167, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1 )
 
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id=14]
+offsets = PoolRealArray( 0.374558, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
+
+[sub_resource type="Curve" id=11]
+max_value = 2.0
+_data = [ Vector2( 0.00326797, 1.02045 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 2 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+lifetime_randomness = 1.0
+direction = Vector3( 0, 0, -1 )
+spread = 20.0
+gravity = Vector3( 0, 10, 0 )
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 15 )
+
+[sub_resource type="SphereMesh" id=10]
+radius = 0.5
+height = 1.0
+radial_segments = 8
+rings = 4
+
 [node name="Dog" type="KinematicBody"]
 collision_mask = 7
 script = ExtResource( 1 )
@@ -1799,4 +1831,32 @@ anims/ArmatureAction001 = SubResource( 5 )
 anims/Bark = SubResource( 6 )
 anims/Idle = SubResource( 7 )
 anims/RunCycle = SubResource( 8 )
+
+[node name="Particles" type="Spatial" parent="."]
+
+[node name="Dust1" type="Particles" parent="Particles"]
+transform = Transform( -1.5, 0, -4.88762e-07, 0, 1.5, 0, 4.88762e-07, 0, -1.5, -0.417017, 0.330694, -0.156539 )
+material_override = SubResource( 9 )
+cast_shadow = 0
+emitting = false
+amount = 4
+lifetime = 0.5
+randomness = 1.0
+visibility_aabb = AABB( -1.5017, -1.99919, -2.17368, 3.0034, 3.99838, 4.34735 )
+local_coords = false
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 10 )
+
+[node name="Dust2" type="Particles" parent="Particles"]
+transform = Transform( -1.5, 0, -4.88762e-07, 0, 1.5, 0, 4.88762e-07, 0, -1.5, 0.417001, 0.33, -0.157031 )
+material_override = SubResource( 9 )
+cast_shadow = 0
+emitting = false
+amount = 4
+lifetime = 0.5
+randomness = 1.0
+visibility_aabb = AABB( -1.5017, -1.99919, -2.17368, 3.0034, 3.99838, 4.34735 )
+local_coords = false
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 10 )
 [connection signal="animation_finished" from="DogAnimated/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

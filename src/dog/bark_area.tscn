@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/dog/bark_area.gd" type="Script" id=1]
 [ext_resource path="res://src/dog/woof_text.gd" type="Script" id=2]
 [ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=3]
+[ext_resource path="res://models/environment/Particles/Wave.mesh" type="ArrayMesh" id=4]
 
 [sub_resource type="SphereShape" id=1]
 radius = 3.0
@@ -10,11 +11,10 @@ radius = 3.0
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, 0, 0, -6, -1, -10, -6, 4, -10, 6, 4, -10, 6, -1, -10 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "slide_up_n_fade"
+[sub_resource type="Animation" id=4]
 length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -53,6 +53,59 @@ tracks/2/keys = {
 "values": [ 0.1, 0.0 ]
 }
 
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.169611, 1 )
+colors = PoolColorArray( 1, 0.32549, 0.32549, 0.658824, 1, 0.460938, 0.460938, 1, 1, 0.341176, 0.341176, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0.00326797, 0 ), 0.0, 1.21705, 0, 0, Vector2( 0.993464, 0.794318 ), 2.08636, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+direction = Vector3( 0, 0, -10 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id=16]
+offsets = PoolRealArray( 0, 0.512367, 1 )
+colors = PoolColorArray( 1, 0, 0, 0.415686, 1, 0.513726, 0.513726, 0.427451, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
+[sub_resource type="Curve" id=11]
+max_value = 4.0
+_data = [ Vector2( 0, 0 ), 0.0, 2.33182, 0, 0, Vector2( 0.493464, 2.19091 ), 5.56364, 5.56364, 0, 0, Vector2( 1, 4 ), -0.0794805, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 17 )
+
+[sub_resource type="SphereMesh" id=14]
+radial_segments = 8
+
 [node name="BarkArea" type="Area"]
 input_ray_pickable = false
 monitorable = false
@@ -75,16 +128,38 @@ anchor_bottom = 0.1
 margin_top = -71.0
 margin_right = 58.0
 margin_bottom = -45.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Woof!"
 align = 1
 valign = 1
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WoofText"]
-anims/slide_up_n_fade = SubResource( 3 )
+anims/slide_up_n_fade = SubResource( 4 )
 __meta__ = {
 "_editor_description_": "WOOF"
 }
+
+[node name="SoundWave" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.230037, 0.0540555 )
+material_override = SubResource( 5 )
+cast_shadow = 0
+emitting = false
+amount = 2
+lifetime = 0.2
+one_shot = true
+visibility_aabb = AABB( -4, -3.70857, -10.7664, 8, 7.41715, 20.569 )
+process_material = SubResource( 10 )
+draw_pass_1 = ExtResource( 4 )
+
+[node name="SoundSphere" type="Particles" parent="."]
+material_override = SubResource( 15 )
+cast_shadow = 0
+emitting = false
+amount = 2
+lifetime = 0.2
+one_shot = true
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )
 [connection signal="body_entered" from="." to="." method="_on_BarkArea_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_BarkArea_body_exited"]
