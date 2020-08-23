@@ -53,6 +53,7 @@ config/icon="res://sprites/icon.png"
 NodeFinder="*res://src/node_finder.gd"
 HappinessManager="*res://src/happiness_manager.gd"
 GameManager="*res://src/game_manager.gd"
+Settings="*res://src/Settings.gd"
 
 [display]
 

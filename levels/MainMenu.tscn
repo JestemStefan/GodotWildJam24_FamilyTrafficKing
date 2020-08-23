@@ -1,17 +1,84 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://src/ui/play_button.gd" type="Script" id=1]
+[ext_resource path="res://levels/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Pressed.png" type="Texture" id=2]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Normal.png" type="Texture" id=3]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Hover.png" type="Texture" id=4]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Normal.png" type="Texture" id=5]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Hover.png" type="Texture" id=6]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Pressed.png" type="Texture" id=7]
+[ext_resource path="res://sprites/MainMenu/Volume/Slider_M.png" type="Texture" id=8]
+[ext_resource path="res://sprites/MainMenu/Volume/Slider_M_DARK.png" type="Texture" id=9]
+[ext_resource path="res://sprites/MainMenu/Volume/SliderBar_64_full.png" type="Texture" id=10]
+[ext_resource path="res://sprites/MainMenu/Volume/SliderBar_64.png" type="Texture" id=11]
+[ext_resource path="res://sprites/MainMenu/Volume/SoundIcon.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 547, 64 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 547, 64 )
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 547, 64 )
+axis_stretch_vertical = 1
 
 [node name="MainMenu" type="Node"]
-
-[node name="Button" type="Button" parent="."]
-margin_left = 371.886
-margin_top = 220.866
-margin_right = 743.886
-margin_bottom = 351.866
-text = "Play"
 script = ExtResource( 1 )
+
+[node name="Start" type="TextureButton" parent="."]
+margin_left = 34.2168
+margin_top = 224.124
+margin_right = 834.217
+margin_bottom = 624.124
+rect_scale = Vector2( 0.75, 0.75 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+
+[node name="Quit" type="TextureButton" parent="."]
+margin_left = 167.374
+margin_top = 452.319
+margin_right = 967.375
+margin_bottom = 852.319
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 754.949
+margin_top = 562.555
+margin_right = 1954.95
+margin_bottom = 762.555
+rect_scale = Vector2( 0.4, 0.4 )
+custom_icons/grabber_highlight = ExtResource( 8 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 3 )
+min_value = -10.0
+max_value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundIcon" type="Sprite" parent="HSlider"]
+position = Vector2( 6.20227, 85.7668 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 12 )
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
