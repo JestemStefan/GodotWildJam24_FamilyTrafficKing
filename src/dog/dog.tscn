@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/dog/dog.gd" type="Script" id=1]
 [ext_resource path="res://src/dog/bark_area.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/dog/pet_label.gd" type="Script" id=7]
 [ext_resource path="res://audio/WAVS/Dog_walk_road_shorter_3.wav" type="AudioStream" id=8]
 [ext_resource path="res://audio/WAVS/Bark6.wav" type="AudioStream" id=9]
+[ext_resource path="res://models/Particle/HeartParticle.mesh" type="ArrayMesh" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.66258, 2.09948 )
@@ -1599,15 +1600,33 @@ radius = 4.0
 size = 28
 font_data = ExtResource( 6 )
 
+[sub_resource type="SpatialMaterial" id=21]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id=22]
+offsets = PoolRealArray( 0.385159, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=23]
+gradient = SubResource( 22 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.553409 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
 [sub_resource type="ParticlesMaterial" id=18]
+flag_rotate_y = true
 direction = Vector3( 0, 1, 0 )
 gravity = Vector3( 0, 9, 0 )
 initial_velocity = 2.0
+angular_velocity = 20.0
 linear_accel = 5.0
-
-[sub_resource type="SphereMesh" id=19]
-radius = 0.2
-height = 0.4
+scale_curve = SubResource( 20 )
+color_ramp = SubResource( 23 )
 
 [node name="Dog" type="KinematicBody"]
 collision_mask = 7
@@ -1939,12 +1958,14 @@ anims/text_slide_up_fade = ExtResource( 5 )
 
 [node name="HeartParticles" type="Particles" parent="PetArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29419, -1.71233 )
+material_override = SubResource( 21 )
 emitting = false
 amount = 4
 lifetime = 0.55
 one_shot = true
+local_coords = false
 process_material = SubResource( 18 )
-draw_pass_1 = SubResource( 19 )
+draw_pass_1 = ExtResource( 10 )
 
 [node name="Sounds" type="Node" parent="."]
 
