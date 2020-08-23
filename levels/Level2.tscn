@@ -41,7 +41,7 @@ _data = {
 
 [node name="Level2" type="Node"]
 script = ExtResource( 5 )
-happiness_threshold = 200
+happiness_threshold = 120
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.625, 0, 0.028 )
