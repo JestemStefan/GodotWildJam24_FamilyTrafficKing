@@ -46,7 +46,7 @@ ao_on_uv2 = false
 ao_texture_channel = 0
 
 [sub_resource type="Animation" id=4]
-length = 1.70833
+length = 1.3
 tracks/0/type = "transform"
 tracks/0/path = NodePath("CarArmature/Skeleton:car")
 tracks/0/interp = 1

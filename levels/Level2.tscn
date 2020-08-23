@@ -61,8 +61,8 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0
 
 [node name="BiggerPathway" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, 0 )
-spawn_frequency_seconds = 4
-spawn_limit_simultaneously = 1
+spawn_frequency_seconds = 5
+spawn_limit_simultaneously = 2
 
 [node name="Path" type="Path" parent="BiggerPathway"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85681e-06, 0, 35.9489 )
@@ -70,8 +70,8 @@ curve = SubResource( 2 )
 
 [node name="BiggerPathway2" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, 18.629 )
-spawn_frequency_seconds = 7
-spawn_limit_simultaneously = 1
+spawn_frequency_seconds = 6
+spawn_limit_simultaneously = 2
 
 [node name="Path" type="Path" parent="BiggerPathway2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.26051 )

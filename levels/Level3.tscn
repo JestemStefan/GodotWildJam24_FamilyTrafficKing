@@ -83,8 +83,8 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0
 
 [node name="BiggerPathway" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, -5.107 )
-spawn_frequency_seconds = 8
-spawn_limit_simultaneously = 1
+spawn_frequency_seconds = 6
+spawn_limit_simultaneously = 2
 
 [node name="Path" type="Path" parent="BiggerPathway"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85681e-06, 0, 35.9489 )
@@ -92,8 +92,8 @@ curve = SubResource( 3 )
 
 [node name="BiggerPathway2" parent="." instance=ExtResource( 4 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, 14.959 )
-spawn_frequency_seconds = 2
-spawn_limit_simultaneously = 2
+spawn_frequency_seconds = 4
+spawn_limit_simultaneously = 3
 
 [node name="Path" type="Path" parent="BiggerPathway2"]
 curve = SubResource( 4 )
@@ -117,7 +117,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6883, 0, -15.0971 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.551, 0, -16.3434 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.984808, -0.133022, 0.111619, 0, 0.642788, 0.766044, -0.173648, -0.754407, 0.633022, 17.1445, 25.4832, 33.0963 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 17.1445, 25.4832, 33.0963 )
 
 [node name="Grassplane" parent="." instance=ExtResource( 6 )]
 
