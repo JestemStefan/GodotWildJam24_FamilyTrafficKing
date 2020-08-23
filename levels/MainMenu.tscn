@@ -1,17 +1,297 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://src/ui/play_button.gd" type="Script" id=1]
+[ext_resource path="res://levels/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Pressed.png" type="Texture" id=2]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Normal.png" type="Texture" id=3]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Hover.png" type="Texture" id=4]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Normal.png" type="Texture" id=5]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Hover.png" type="Texture" id=6]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Pressed.png" type="Texture" id=7]
+[ext_resource path="res://sprites/MainMenu/Volume/Slider_M.png" type="Texture" id=8]
+[ext_resource path="res://sprites/MainMenu/Volume/Slider_M_DARK.png" type="Texture" id=9]
+[ext_resource path="res://sprites/MainMenu/Volume/SliderBar_64_full.png" type="Texture" id=10]
+[ext_resource path="res://sprites/MainMenu/Volume/SliderBar_64.png" type="Texture" id=11]
+[ext_resource path="res://sprites/MainMenu/Volume/SoundIcon.png" type="Texture" id=12]
+[ext_resource path="res://sprites/MainMenu/Volume/Paw.png" type="Texture" id=13]
+[ext_resource path="res://sprites/MainMenu/Volume/Title_wo_Paws.png" type="Texture" id=14]
+
+[sub_resource type="Animation" id=5]
+resource_name = "TitleScrren"
+length = 2.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Paw:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Paw2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Paw3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Paw4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.85 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Paw5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Paw6:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Paw:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.35, 1.35, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Paw2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.5, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Paw3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.75, 1.75, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Paw4:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.85, 1.85, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Paw5:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.1, 2.1, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Paw6:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.25, 2.25, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 547, 64 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 547, 64 )
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 547, 64 )
+axis_stretch_vertical = 1
 
 [node name="MainMenu" type="Node"]
-
-[node name="Button" type="Button" parent="."]
-margin_left = 371.886
-margin_top = 220.866
-margin_right = 743.886
-margin_bottom = 351.866
-text = "Play"
 script = ExtResource( 1 )
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 723.483, 128.122 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 14 )
+
+[node name="Paws" type="Control" parent="."]
+margin_left = 131.851
+margin_top = 62.9289
+margin_right = 1131.85
+margin_bottom = 662.929
+rect_rotation = -384.5
+rect_pivot_offset = Vector2( 500, 300 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+
+[node name="Paw" type="Sprite" parent="Paws"]
+modulate = Color( 1, 1, 1, 0.05 )
+position = Vector2( 61.1061, 342.006 )
+rotation = 0.10472
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Paw2" type="Sprite" parent="Paws"]
+modulate = Color( 1, 1, 1, 0.2 )
+position = Vector2( 228.671, 354.758 )
+rotation = 0.10472
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Paw3" type="Sprite" parent="Paws"]
+modulate = Color( 1, 1, 1, 0.45 )
+position = Vector2( 330.093, 164.825 )
+rotation = 0.10472
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Paw4" type="Sprite" parent="Paws"]
+modulate = Color( 1, 1, 1, 0.55 )
+position = Vector2( 521.971, 228.104 )
+rotation = 0.10472
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Paw5" type="Sprite" parent="Paws"]
+modulate = Color( 1, 1, 1, 0.8 )
+position = Vector2( 643.731, 63.8695 )
+rotation = 0.10472
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Paw6" type="Sprite" parent="Paws"]
+modulate = Color( 1, 1, 1, 0.95 )
+position = Vector2( 853.271, 89.3541 )
+rotation = 0.10472
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paws"]
+anims/TitleScrren = SubResource( 5 )
+
+[node name="Start" type="TextureButton" parent="."]
+margin_left = 46.0609
+margin_top = 352.997
+margin_right = 846.061
+margin_bottom = 752.997
+rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="."]
+margin_left = 177.525
+margin_top = 531.729
+margin_right = 977.525
+margin_bottom = 931.729
+rect_scale = Vector2( 0.4, 0.4 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 795.404
+margin_top = 638.969
+margin_right = 1995.4
+margin_bottom = 838.969
+rect_scale = Vector2( 0.4, 0.4 )
+custom_icons/grabber_highlight = ExtResource( 8 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 3 )
+min_value = -10.0
+max_value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundIcon" type="Sprite" parent="HSlider"]
+position = Vector2( 6.20227, 85.7668 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 12 )
+[connection signal="animation_finished" from="Paws/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
