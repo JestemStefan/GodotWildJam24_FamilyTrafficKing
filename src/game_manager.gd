@@ -1,6 +1,6 @@
 extends Node
 
-const _levels = ["Level2", "Level3"]
+const _levels = ["Level2"]
 
 const GUI = preload("res://src/ui/GUI.tscn")
 
@@ -63,10 +63,9 @@ func _replace_level_with_next():
 	
 	# load and instantiate next level if there is more
 	_current_lvl_idx += 1
-	if _current_lvl_idx <= _levels.size():
+	if _current_lvl_idx < _levels.size():
 		_load_current_level_and_UI()
 	else:
-		_remove_ui_and_level()
 		_load_level("WinScreen")
 
 

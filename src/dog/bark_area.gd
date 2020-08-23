@@ -3,7 +3,6 @@ extends Area
 export(float) var bark_duration = 0.25
 
 onready var _timer: Timer = $Timer
-onready var _woof_text: Label = $WoofText
 
 onready var barkBubble: Spatial = $BarkBubble
 onready var _animplayer: AnimationPlayer = $AnimationPlayer
