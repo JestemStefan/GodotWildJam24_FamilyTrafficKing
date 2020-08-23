@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Tyres_screech4.wav-c0bbb59e6b4690e5a83348811ad3b779.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Tyres_screech4.wav"
+dest_files=[ "res://.import/Tyres_screech4.wav-c0bbb59e6b4690e5a83348811ad3b779.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

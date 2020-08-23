@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/dog/dog.gd" type="Script" id=1]
 [ext_resource path="res://src/dog/bark_area.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/ui/animations/text_animation.tres" type="Animation" id=5]
 [ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=6]
 [ext_resource path="res://src/dog/pet_label.gd" type="Script" id=7]
+[ext_resource path="res://audio/WAVS/Dog_walk_road_shorter_3.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/WAVS/Bark6.wav" type="AudioStream" id=9]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.66258, 2.09948 )
@@ -852,6 +854,18 @@ tracks/47/loop_wrap = true
 tracks/47/imported = true
 tracks/47/enabled = true
 tracks/47/keys = PoolRealArray( 0, 1, -1.49012e-08, 0, 0, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.458333, 1, -1.49012e-08, 0, 0, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1 )
+tracks/48/type = "value"
+tracks/48/path = NodePath("../Sounds/DogBarkSound:playing")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0.04, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 1.54167
@@ -1196,6 +1210,7 @@ tracks/47/keys = PoolRealArray( 0, 1, -1.49012e-08, 0, 0, -1.49012e-08, 8.67362e
 [sub_resource type="Animation" id=8]
 length = 1.54167
 loop = true
+step = 0.025
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:back_foot_control_l")
 tracks/0/interp = 1
@@ -1532,6 +1547,18 @@ tracks/47/loop_wrap = true
 tracks/47/imported = true
 tracks/47/enabled = true
 tracks/47/keys = PoolRealArray( 0, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.666667, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.791667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 0.916667, 1, 0.000324756, 0.475563, 0.105162, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.04167, 1, 0.000478193, 0.512224, 0.154848, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.16667, 1, 0.000242129, 0.455823, 0.078409, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.29167, 1, 6.50883e-05, 0.413522, 0.0210802, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1, 1.54167, 1, 6.50883e-05, 0.413522, 0.0210801, -1.49012e-08, 8.67362e-19, -5.82077e-11, 1, 1, 1, 1 )
+tracks/48/type = "value"
+tracks/48/path = NodePath("../Sounds/DogMovementSound:playing")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/keys = {
+"times": PoolRealArray( 0.175, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
@@ -1918,6 +1945,22 @@ lifetime = 0.55
 one_shot = true
 process_material = SubResource( 18 )
 draw_pass_1 = SubResource( 20 )
+[node name="Sounds" type="Node" parent="."]
+
+[node name="DogMovementSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 8 )
+unit_db = 2.0
+max_db = 5.0
+pitch_scale = 2.0
+bus = "VolumeGeneral"
+attenuation_filter_db = -6.0
+
+[node name="DogBarkSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 9 )
+unit_db = 12.0
+pitch_scale = 2.4
+bus = "VolumeBark"
+attenuation_filter_db = -2.0
 [connection signal="animation_finished" from="DogAnimated/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="PetArea" to="PetArea" method="_on_PetArea_body_entered"]
 [connection signal="body_exited" from="PetArea" to="PetArea" method="_on_PetArea_body_exited"]

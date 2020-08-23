@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bark5.wav-263e0b48858b23982ff305956860c9c8.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/Bark5.wav"
+dest_files=[ "res://.import/Bark5.wav-263e0b48858b23982ff305956860c9c8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

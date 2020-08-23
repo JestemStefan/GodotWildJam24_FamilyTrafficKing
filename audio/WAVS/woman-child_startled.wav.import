@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/woman-child_startled.wav-c21c346f4c9316e6c3d51495b1c52e89.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/woman-child_startled.wav"
+dest_files=[ "res://.import/woman-child_startled.wav-c21c346f4c9316e6c3d51495b1c52e89.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

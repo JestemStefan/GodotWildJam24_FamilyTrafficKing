@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/family/old_person.gd" type="Script" id=1]
 [ext_resource path="res://src/family/car_detector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/Humans/Male_Old/MaleOld_Material.tres" type="Material" id=3]
+[ext_resource path="res://audio/WAVS/Human_walk_road.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/WAVS/Oldman_scared4.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/WAVS/Human_run_road.wav" type="AudioStream" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.92403
@@ -371,6 +374,7 @@ tracks/33/keys = PoolRealArray( 0, 1, 2.38419e-07, 0, 7.15256e-07, 1.42109e-14, 
 [sub_resource type="Animation" id=5]
 length = 1.641
 loop = true
+step = 0.025
 tracks/0/type = "transform"
 tracks/0/path = NodePath("HumanArmature/Skeleton:elbow_pole_l")
 tracks/0/interp = 1
@@ -609,6 +613,42 @@ tracks/33/loop_wrap = true
 tracks/33/imported = true
 tracks/33/enabled = true
 tracks/33/keys = PoolRealArray( 0, 1, 2.38419e-07, 0, 7.15256e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.0416667, 1, 2.38419e-07, 0, 7.15256e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.0833333, 1, -0.000602722, 0.0137737, 5.96046e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.125, 1, -0.00232339, 0.053091, 3.57628e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.166667, 1, -0.00503063, 0.114947, 5.96046e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.25, 1, -0.0128779, 0.294254, 4.76837e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.791667, 1, -0.0745749, 1.70392, 8.34465e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1, 0.833333, 1, -0.0751777, 1.71769, 9.53674e-07, 2.98023e-08, -8.9407e-08, 5.93718e-08, 1, 1, 1, 1, 0.875, 1, -0.0746326, 1.70524, 9.53674e-07, 2.98023e-08, -8.9407e-08, 5.93718e-08, 1, 1, 1, 1, 0.916667, 1, -0.0730727, 1.6696, 8.34465e-07, 2.98023e-08, -8.9407e-08, 5.93718e-08, 1, 1, 1, 1, 0.958333, 1, -0.0706103, 1.61334, 9.53674e-07, 2.98023e-08, -8.9407e-08, 5.93718e-08, 1, 1, 1, 1, 1.04167, 1, -0.0634313, 1.4493, 8.34465e-07, 2.98023e-08, -8.9407e-08, 5.93718e-08, 1, 1, 1, 1, 1.625, 1, -0.000544786, 0.0124538, 4.76837e-07, 2.98023e-08, -8.9407e-08, 5.93718e-08, 1, 1, 1, 1, 1.66667, 1, 2.38419e-07, 0, 7.15256e-07, 1.42109e-14, -1.11022e-15, 0, 1, 1, 1, 1 )
+tracks/34/type = "value"
+tracks/34/path = NodePath("../Sounds/OldManRunSound:playing")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0.05, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("../Sounds/OldManRunSound2:playing")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0.725, 1.125 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("../Sounds/OldManYelpSound:playing")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0.05, 1.025 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 1.655
@@ -863,6 +903,30 @@ tracks/34/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 1.0, 1.0, 0.0, 0.0 ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("../Sounds/OldManWalkSound:playing")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 0.23 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("../Sounds/OldManWalkSound2:playing")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0.67, 0.87 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -1310,3 +1374,37 @@ anims/Idle = SubResource( 4 )
 anims/OldManRun = SubResource( 5 )
 anims/OldManWalk = SubResource( 6 )
 anims/Walk = SubResource( 7 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="OldManWalkSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 4 )
+unit_db = 1.0
+pitch_scale = 1.2
+bus = "VolumeFootsteps"
+attenuation_filter_db = -6.0
+
+[node name="OldManWalkSound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 4 )
+pitch_scale = 0.81
+bus = "VolumeFootsteps"
+attenuation_filter_db = -6.0
+
+[node name="OldManRunSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 6 )
+pitch_scale = 1.25
+bus = "VolumeFootsteps"
+attenuation_filter_db = -6.0
+
+[node name="OldManRunSound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 6 )
+pitch_scale = 1.1
+bus = "VolumeFootsteps"
+attenuation_filter_db = -6.0
+
+[node name="OldManYelpSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource( 5 )
+unit_db = 6.0
+pitch_scale = 1.05
+bus = "VolumeVocal"
+attenuation_filter_db = -6.0

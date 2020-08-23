@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/man_scared.wav-59448e30aad03336a4b240c54244f72a.sample"
+
+[deps]
+
+source_file="res://audio/WAVS/man_scared.wav"
+dest_files=[ "res://.import/man_scared.wav-59448e30aad03336a4b240c54244f72a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
