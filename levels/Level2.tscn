@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/objects/lane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/car.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://src/level_settings.gd" type="Script" id=5]
 [ext_resource path="res://audio/OGGS/Background_Ambience.ogg" type="AudioStream" id=6]
 [ext_resource path="res://audio/OGGS/LEVEL_2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://models/environment/Grassplane/Grassplane.tscn" type="PackedScene" id=8]
+[ext_resource path="res://models/environment/Buildings/House1/House1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/environment/Buildings/House2/House2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://models/environment/Buildings/House3/House3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://models/environment/Buildings/House4/House4.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Curve3D" id=1]
 bake_interval = 1.0
@@ -31,6 +36,8 @@ _data = {
 script = ExtResource( 5 )
 timer_duration = 90
 happiness_threshold = 150
+
+[node name="Grassplane" parent="." instance=ExtResource( 8 )]
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.625, 0, 0.028 )
@@ -62,20 +69,31 @@ spawn_frequency_seconds = 7
 spawn_limit_simultaneously = 1
 
 [node name="Path" type="Path" parent="BiggerPathway2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.26051 )
 curve = SubResource( 3 )
 
 [node name="Dog" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.984808, -0.122788, 0.122788, 0, 0.707107, 0.707107, -0.173648, -0.696365, 0.696364, 17.1445, 25.4832, 33.0963 )
+transform = Transform( 0.984808, -0.133022, 0.111619, 0, 0.642788, 0.766044, -0.173648, -0.754407, 0.633022, 17.1445, 25.4832, 33.0963 )
 
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-bus = "Ambient"
 
 [node name="Level2Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
-bus = "Music"
+
+[node name="House1" parent="." instance=ExtResource( 9 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 46.0192, 0, -0.106064 )
+
+[node name="House2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2207, 0, -9.55526 )
+
+[node name="House3" parent="." instance=ExtResource( 11 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.4007, 0, 16.8843 )
+
+[node name="House4" parent="." instance=ExtResource( 12 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 49.85, 0, 16.8843 )

@@ -248,7 +248,7 @@ tracks/2/keys = {
 extents = Vector3( 1.52331, 2.36602, 3.04907 )
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 4.5102, 0.966596, 3.56054 )
+extents = Vector3( 3.5, 0.967, 3.561 )
 
 [node name="Car" type="KinematicBody"]
 collision_layer = 4
@@ -309,20 +309,17 @@ one_shot = true
 [node name="CarDrivingSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
 unit_db = 2.0
-bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarDrivingSound2" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
 unit_db = 2.0
-bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarHonkSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 6 )
 unit_db = 2.0
 pitch_scale = 0.85
-bus = "VolumeGeneral"
 attenuation_filter_cutoff_hz = 6000.0
 attenuation_filter_db = -6.0
 
@@ -330,7 +327,6 @@ attenuation_filter_db = -6.0
 stream = ExtResource( 7 )
 unit_db = 3.0
 pitch_scale = 0.85
-bus = "VolumeGeneral"
 attenuation_filter_cutoff_hz = 6000.0
 attenuation_filter_db = -6.0
 
@@ -338,7 +334,6 @@ attenuation_filter_db = -6.0
 stream = ExtResource( 10 )
 unit_db = 2.0
 pitch_scale = 0.85
-bus = "VolumeGeneral"
 attenuation_filter_cutoff_hz = 6000.0
 attenuation_filter_db = -6.0
 
@@ -346,26 +341,22 @@ attenuation_filter_db = -6.0
 stream = ExtResource( 9 )
 unit_db = 12.0
 pitch_scale = 1.85
-bus = "VolumeGeneral"
 attenuation_filter_db = -6.0
 
 [node name="CarBrakingSound2" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 8 )
 unit_db = 6.0
 pitch_scale = 1.44
-bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarIdleSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 11 )
-bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 
 [node name="CarSpeedUpSound1" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 5 )
 unit_db = 1.0
 pitch_scale = 0.8
-bus = "VolumeGeneral"
 attenuation_filter_db = -12.0
 [connection signal="animation_finished" from="Car/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="Car/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
