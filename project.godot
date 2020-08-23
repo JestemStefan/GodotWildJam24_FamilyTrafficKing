@@ -44,7 +44,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GWJ 24"
+config/name="Family TrafficKing"
 run/main_scene="res://levels/main.tscn"
 config/icon="res://sprites/icon.png"
 
