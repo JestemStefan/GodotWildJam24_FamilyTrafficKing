@@ -21,6 +21,7 @@ func _on_Quit_pressed():
 
 func _on_HSlider_value_changed(value):
 	Settings.masterVolume = value
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(value))
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

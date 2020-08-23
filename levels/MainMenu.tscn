@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://levels/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Pressed.png" type="Texture" id=2]
@@ -14,8 +14,9 @@
 [ext_resource path="res://sprites/MainMenu/Volume/SoundIcon.png" type="Texture" id=12]
 [ext_resource path="res://sprites/MainMenu/Volume/Paw.png" type="Texture" id=13]
 [ext_resource path="res://sprites/MainMenu/Volume/Title_wo_Paws.png" type="Texture" id=14]
+[ext_resource path="res://audio/OGGS/MENU_MUSIC.ogg" type="AudioStream" id=15]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "TitleScrren"
 length = 2.5
 step = 0.05
@@ -164,16 +165,16 @@ tracks/11/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 547, 64 )
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 547, 64 )
 axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 547, 64 )
 axis_stretch_vertical = 1
@@ -240,7 +241,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paws"]
-anims/TitleScrren = SubResource( 5 )
+anims/TitleScrren = SubResource( 1 )
 
 [node name="Start" type="TextureButton" parent="."]
 margin_left = 46.0609
@@ -278,11 +279,12 @@ margin_bottom = 838.969
 rect_scale = Vector2( 0.4, 0.4 )
 custom_icons/grabber_highlight = ExtResource( 8 )
 custom_icons/grabber = ExtResource( 9 )
-custom_styles/slider = SubResource( 1 )
-custom_styles/grabber_area_highlight = SubResource( 4 )
-custom_styles/grabber_area = SubResource( 3 )
-min_value = -10.0
-max_value = 10.0
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 4 )
+max_value = 1.0
+step = 0.1
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -291,6 +293,10 @@ __meta__ = {
 position = Vector2( 6.20227, 85.7668 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 12 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+autoplay = true
 [connection signal="animation_finished" from="Paws/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
