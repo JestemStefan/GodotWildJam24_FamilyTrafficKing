@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/objects/lane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/car.tscn" type="PackedScene" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://models/environment/Buildings/House2/House2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/environment/Buildings/House3/House3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://models/environment/Buildings/House4/House4.tscn" type="PackedScene" id=12]
+[ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=13]
+[ext_resource path="res://models/environment/Pavement/Pavement1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://models/environment/Pavement/Pavement3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://models/environment/Decorations/Stones/Rock2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://models/environment/Decorations/Trees/Tree1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://models/environment/Decorations/Trees/Tree2.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Curve3D" id=1]
 bake_interval = 1.0
@@ -37,6 +43,9 @@ _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.108047, 0, 38.1745, 0, 0, 0, 0, 0, 0, 0.0115175, 0.0800505, -39.4629 ),
 "tilts": PoolRealArray( 0, 0 )
 }
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.530398, 0.87263, 0.522564 )
 
 [node name="Level3" type="Node"]
 script = ExtResource( 5 )
@@ -73,7 +82,7 @@ curve = SubResource( 2 )
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
 
 [node name="BiggerPathway" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, -5.10675 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, -5.107 )
 spawn_frequency_seconds = 8
 spawn_limit_simultaneously = 1
 
@@ -82,7 +91,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85681e-06, 0, 35.9489 )
 curve = SubResource( 3 )
 
 [node name="BiggerPathway2" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 14.9594 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, -0.05, 14.959 )
 spawn_frequency_seconds = 2
 spawn_limit_simultaneously = 2
 
@@ -97,6 +106,9 @@ transform = Transform( 4.88762e-07, 0, -1, 0, 1, 0, 1, 0, 4.88762e-07, 46.1216, 
 
 [node name="House2" parent="." instance=ExtResource( 10 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.3354, 0, 14.9594 )
+
+[node name="House5" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.3354, 0, 33.8155 )
 
 [node name="House3" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6883, 0, -15.0971 )
@@ -116,3 +128,188 @@ autoplay = true
 [node name="Level3Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="Rock2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 1.6973, 0, 6.35435 )
+
+[node name="StaticBody" type="StaticBody" parent="Rock2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rock2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480149, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="Rock3" parent="." instance=ExtResource( 16 )]
+transform = Transform( -8.14603e-07, 0, 5, 0, 5, 0, -5, 0, -8.14603e-07, -7.16075, 0, 6.35435 )
+
+[node name="StaticBody" type="StaticBody" parent="Rock3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Rock3/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480149, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="Tree2" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.3085, 0, -30.2999 )
+
+[node name="Tree3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2.958, 0, -30.2999 )
+
+[node name="Tree4" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -23.291, 0, -30.2999 )
+
+[node name="Tree5" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -3.60451, 0, -15.2197 )
+
+[node name="Tree6" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 18.1018, 0, -15.2197 )
+
+[node name="Tree1" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.7455, 0, 6.19704 )
+
+[node name="Tree8" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.291, 0, 26.5018 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -5 )
+
+[node name="PavementTop" type="Spatial" parent="Spatial"]
+
+[node name="Left" type="Spatial" parent="Spatial/PavementTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 0 )
+
+[node name="Pavement_Square" parent="Spatial/PavementTop/Left" instance=ExtResource( 13 )]
+
+[node name="Pavement_Square2" parent="Spatial/PavementTop/Left" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Pavement_Square3" parent="Spatial/PavementTop/Left" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+
+[node name="Additional Line3" parent="Spatial/PavementTop/Left" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99371, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementTop/Left/Additional Line3" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementTop/Left/Additional Line3/Pavement2" instance=ExtResource( 15 )]
+
+[node name="Right" type="Spatial" parent="Spatial/PavementTop"]
+
+[node name="Pavement_Square" parent="Spatial/PavementTop/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226738, 0, 0 )
+
+[node name="Pavement_Square2" parent="Spatial/PavementTop/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22674, 0, 0 )
+
+[node name="Pavement_Square3" parent="Spatial/PavementTop/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2267, 0, 0 )
+
+[node name="Pavement_Square4" parent="Spatial/PavementTop/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2267, 0, 0 )
+
+[node name="Additional Line3" parent="Spatial/PavementTop/Right" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1704, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementTop/Right/Additional Line3" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementTop/Right/Additional Line3/Pavement2" instance=ExtResource( 15 )]
+
+[node name="Mid" type="Spatial" parent="Spatial/PavementTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 0 )
+
+[node name="Pavement_Square" parent="Spatial/PavementTop/Mid" instance=ExtResource( 13 )]
+
+[node name="Pavement_Square2" parent="Spatial/PavementTop/Mid" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Pavement1" parent="Spatial/PavementTop/Mid" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.85, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementTop/Mid/Pavement1" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementTop/Mid/Pavement1/Pavement2" instance=ExtResource( 15 )]
+
+[node name="Pavement2" parent="Spatial/PavementTop/Mid" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementTop/Mid/Pavement2" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementTop/Mid/Pavement2/Pavement2" instance=ExtResource( 15 )]
+
+[node name="PavementBot" type="Spatial" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+
+[node name="Right" type="Spatial" parent="Spatial/PavementBot"]
+
+[node name="Pavement_Square" parent="Spatial/PavementBot/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226738, 0, 0 )
+
+[node name="Pavement_Square2" parent="Spatial/PavementBot/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.22674, 0, 0 )
+
+[node name="Pavement_Square3" parent="Spatial/PavementBot/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2267, 0, 0 )
+
+[node name="Pavement_Square4" parent="Spatial/PavementBot/Right" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2267, 0, 0 )
+
+[node name="Additional Line3" parent="Spatial/PavementBot/Right" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1704, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementBot/Right/Additional Line3" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementBot/Right/Additional Line3/Pavement2" instance=ExtResource( 15 )]
+
+[node name="Left" type="Spatial" parent="Spatial/PavementBot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.6101, 0, 0 )
+
+[node name="Pavement_Square" parent="Spatial/PavementBot/Left" instance=ExtResource( 13 )]
+
+[node name="Pavement_Square2" parent="Spatial/PavementBot/Left" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Pavement_Square3" parent="Spatial/PavementBot/Left" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+
+[node name="Additional Line2" parent="Spatial/PavementBot/Left" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65304, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementBot/Left/Additional Line2" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementBot/Left/Additional Line2/Pavement2" instance=ExtResource( 15 )]
+
+[node name="Additional Line3" parent="Spatial/PavementBot/Left" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65304, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementBot/Left/Additional Line3" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementBot/Left/Additional Line3/Pavement2" instance=ExtResource( 15 )]
+
+[node name="PavementMiddle" type="Spatial" parent="Spatial/PavementBot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9948, 0, 0 )
+
+[node name="Pavement_Square" parent="Spatial/PavementBot/PavementMiddle" instance=ExtResource( 13 )]
+
+[node name="Pavement_Square2" parent="Spatial/PavementBot/PavementMiddle" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Additional Line" parent="Spatial/PavementBot/PavementMiddle" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.85, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementBot/PavementMiddle/Additional Line" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementBot/PavementMiddle/Additional Line/Pavement2" instance=ExtResource( 15 )]
+
+[node name="Additional Line 2" parent="Spatial/PavementBot/PavementMiddle" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -2 )
+
+[node name="Pavement2" parent="Spatial/PavementBot/PavementMiddle/Additional Line 2" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Pavement3" parent="Spatial/PavementBot/PavementMiddle/Additional Line 2/Pavement2" instance=ExtResource( 15 )]

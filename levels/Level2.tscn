@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/objects/lane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/car.tscn" type="PackedScene" id=2]
@@ -12,6 +12,13 @@
 [ext_resource path="res://models/environment/Buildings/House2/House2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/environment/Buildings/House3/House3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://models/environment/Buildings/House4/House4.tscn" type="PackedScene" id=12]
+[ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=13]
+[ext_resource path="res://models/environment/Decorations/Bush/Bush1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://models/environment/Decorations/Bush/Bush4.tscn" type="PackedScene" id=15]
+[ext_resource path="res://models/environment/Decorations/Bush/Bush2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://models/environment/Decorations/Trees/Tree3.tscn" type="PackedScene" id=17]
+[ext_resource path="res://models/environment/Decorations/Trees/Tree2.tscn" type="PackedScene" id=18]
+[ext_resource path="res://models/environment/Pavement/long_pavement.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Curve3D" id=1]
 bake_interval = 1.0
@@ -36,8 +43,6 @@ _data = {
 script = ExtResource( 5 )
 timer_duration = 90
 happiness_threshold = 150
-
-[node name="Grassplane" parent="." instance=ExtResource( 8 )]
 
 [node name="Lane" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -5.625, 0, 0.028 )
@@ -76,7 +81,7 @@ curve = SubResource( 3 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.984808, -0.133022, 0.111619, 0, 0.642788, 0.766044, -0.173648, -0.754407, 0.633022, 17.1445, 25.4832, 33.0963 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766045, 0.642788, 10, 30, 30 )
 
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -86,14 +91,88 @@ autoplay = true
 stream = ExtResource( 7 )
 autoplay = true
 
-[node name="House1" parent="." instance=ExtResource( 9 )]
+[node name="Grassplane" parent="." instance=ExtResource( 8 )]
+
+[node name="Houses" type="Node" parent="."]
+
+[node name="House1" parent="Houses" instance=ExtResource( 9 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 46.0192, 0, -0.106064 )
 
-[node name="House2" parent="." instance=ExtResource( 10 )]
+[node name="House2" parent="Houses" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.2207, 0, -9.55526 )
 
-[node name="House3" parent="." instance=ExtResource( 11 )]
+[node name="House3" parent="Houses" instance=ExtResource( 11 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.4007, 0, 16.8843 )
 
-[node name="House4" parent="." instance=ExtResource( 12 )]
+[node name="House4" parent="Houses" instance=ExtResource( 12 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 49.85, 0, 16.8843 )
+
+[node name="Pavement Top" parent="." instance=ExtResource( 19 )]
+
+[node name="Pavement Bot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2911, 0, 18.6514 )
+
+[node name="PavementRight" parent="Pavement Bot" instance=ExtResource( 13 )]
+
+[node name="Pavement_Square2" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Pavement_Square3" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+
+[node name="Pavement_Square4" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
+
+[node name="Pavement_Square5" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="Pavement_Square6" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
+
+[node name="Pavement_Square7" parent="Pavement Bot/PavementRight" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9159, 0, 0 )
+
+[node name="PavementLeft" parent="Pavement Bot" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9123, 0, 0 )
+
+[node name="Pavement_Square2" parent="Pavement Bot/PavementLeft" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
+
+[node name="Pavement_Square3" parent="Pavement Bot/PavementLeft" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
+
+[node name="Pavement_Square4" parent="Pavement Bot/PavementLeft" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
+
+[node name="Pavement_Square5" parent="Pavement Bot/PavementLeft" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
+
+[node name="Bush1" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5619, 0, -5.6439 )
+
+[node name="Bush2" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5619, 0, 5.85398 )
+
+[node name="Bush3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.81264, 0, 12.5357 )
+
+[node name="Bush4" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8025, 0, 23.8679 )
+
+[node name="Tree2" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -45.1347, 0, 33.5947 )
+
+[node name="Tree3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -15.6339, 0, -36.6126 )
+
+[node name="Tree4" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2.92946, 0, -29.7879 )
+
+[node name="Tree5" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4838, 0, -8.53045 )
+
+[node name="Tree6" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2261, 0, -8.22926 )
+
+[node name="Tree7" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3343, 0, -8.22926 )
