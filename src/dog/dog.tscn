@@ -1600,33 +1600,33 @@ radius = 4.0
 size = 28
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpatialMaterial" id=21]
+[sub_resource type="SpatialMaterial" id=18]
 flags_transparent = true
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="Gradient" id=22]
+[sub_resource type="Gradient" id=19]
 offsets = PoolRealArray( 0.385159, 1 )
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=23]
-gradient = SubResource( 22 )
+[sub_resource type="GradientTexture" id=20]
+gradient = SubResource( 19 )
 
-[sub_resource type="Curve" id=19]
+[sub_resource type="Curve" id=21]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.553409 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=20]
-curve = SubResource( 19 )
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 21 )
 
-[sub_resource type="ParticlesMaterial" id=18]
+[sub_resource type="ParticlesMaterial" id=23]
 flag_rotate_y = true
 direction = Vector3( 0, 1, 0 )
 gravity = Vector3( 0, 9, 0 )
 initial_velocity = 2.0
 angular_velocity = 20.0
 linear_accel = 5.0
-scale_curve = SubResource( 20 )
-color_ramp = SubResource( 23 )
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 20 )
 
 [node name="Dog" type="KinematicBody"]
 collision_mask = 7
@@ -1958,20 +1958,20 @@ anims/text_slide_up_fade = ExtResource( 5 )
 
 [node name="HeartParticles" type="Particles" parent="PetArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29419, -1.71233 )
-material_override = SubResource( 21 )
+material_override = SubResource( 18 )
 emitting = false
 amount = 4
 lifetime = 0.55
 one_shot = true
 local_coords = false
-process_material = SubResource( 18 )
+process_material = SubResource( 23 )
 draw_pass_1 = ExtResource( 10 )
 
 [node name="Sounds" type="Node" parent="."]
 
 [node name="DogMovementSound" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 8 )
-unit_db = 20.0
+unit_db = 10.0
 max_db = 5.0
 pitch_scale = 2.0
 bus = "VolumeGeneral"
@@ -1979,7 +1979,7 @@ attenuation_filter_db = -6.0
 
 [node name="DogBarkSound" type="AudioStreamPlayer3D" parent="Sounds"]
 stream = ExtResource( 9 )
-unit_db = 30.0
+unit_db = 18.0
 pitch_scale = 2.0
 bus = "VolumeBark"
 attenuation_filter_db = -2.0

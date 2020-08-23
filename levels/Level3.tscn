@@ -7,7 +7,7 @@
 [ext_resource path="res://src/level_settings.gd" type="Script" id=5]
 [ext_resource path="res://models/environment/Grassplane/Grassplane.tscn" type="PackedScene" id=6]
 [ext_resource path="res://audio/OGGS/Background_Ambience.ogg" type="AudioStream" id=7]
-[ext_resource path="res://audio/OGGS/TUTORIAL_MUSIC_2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/OGGS/LEVEL_3.ogg" type="AudioStream" id=8]
 [ext_resource path="res://models/environment/Buildings/House1/House1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/environment/Buildings/House2/House2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/environment/Buildings/House3/House3.tscn" type="PackedScene" id=11]
@@ -124,10 +124,13 @@ transform = Transform( 1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0
 [node name="AmbientSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+bus = "Ambient"
 
 [node name="Level3Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -7.0
 autoplay = true
+bus = "Music"
 
 [node name="Rock2" parent="." instance=ExtResource( 16 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 1.6973, 0, 6.35435 )
