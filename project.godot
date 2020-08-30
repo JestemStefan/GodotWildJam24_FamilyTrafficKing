@@ -45,15 +45,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Family TrafficKing"
-run/main_scene="res://levels/main.tscn"
+run/main_scene="res://src/levels/main.tscn"
 config/icon="res://sprites/icon.png"
 
 [autoload]
 
 NodeFinder="*res://src/node_finder.gd"
 HappinessManager="*res://src/happiness_manager.gd"
+TimerManager="*res://src/timer_manager.gd"
 GameManager="*res://src/game_manager.gd"
-Settings="*res://src/Settings.gd"
 
 [display]
 

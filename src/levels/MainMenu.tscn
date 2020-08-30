@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://levels/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Pressed.png" type="Texture" id=2]
 [ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Normal.png" type="Texture" id=3]
 [ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Hover.png" type="Texture" id=4]
@@ -289,7 +289,7 @@ custom_styles/grabber_area_highlight = SubResource( 3 )
 custom_styles/grabber_area = SubResource( 4 )
 max_value = 1.0
 step = 0.1
-value = 1.0
+value = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }

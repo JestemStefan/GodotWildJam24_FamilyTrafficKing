@@ -13,17 +13,19 @@ var _gui = null
 
 var _rng = RandomNumberGenerator.new() setget, get_rng
 
-var _current_level_duration = 0
-
 func _ready():
 	_rng.randomize()
-	_load_level("MainMenu")
+	_load_and_add_level("MainMenu")
 
 
 func load_first_level():
 	_main.get_node("MainMenu").queue_free()
 	_load_current_level_and_UI()
-	NodeFinder.get_level_timer().connect("timeout", self, "_check_level_time_is_up")	
+	TimerManager.connect("time_is_up", self, "_go_next_level_or_game_over")
+
+
+func get_rng():
+	return _rng
 
 
 func _load_current_level_and_UI():
@@ -31,21 +33,23 @@ func _load_current_level_and_UI():
 	var level = _load_level(_current_level_name)
 	
 	HappinessManager.set_happiness_threshold(level.happiness_threshold)
-	_current_level_duration = level.timer_duration
+	TimerManager.start_timer(level.timer_duration)
+	
+	
+	_main.add_child(level)
 	
 	_gui = GUI.instance()
 	_main.add_child(_gui)
 	
 	NodeFinder.update_player_camera(_current_level_name)
 	
-	NodeFinder.get_level_timer().start()
 
 
 func _load_level(level_name) -> LevelSettings:
-	var new_level = load("res://levels/%s.tscn" % level_name).instance()
-	_main.add_child(new_level)
-	return new_level
+	return load("res://src/levels/%s.tscn" % level_name).instance()
 
+func _load_and_add_level(level_name):
+	_main.add_child(_load_level(level_name))
 
 func _get_current_level_name():
 	return _levels[_current_lvl_idx]
@@ -66,15 +70,7 @@ func _replace_level_with_next():
 	if _current_lvl_idx < _levels.size():
 		_load_current_level_and_UI()
 	else:
-		_load_level("WinScreen")
-
-
-func _check_level_time_is_up():
-	_current_level_duration -= 1
-	if _current_level_duration <= 0:
-		_current_level_duration = 0
-		NodeFinder.get_level_timer().stop()
-		_go_next_level_or_game_over()
+		_load_and_add_level("WinScreen")
 
 
 func _go_next_level_or_game_over():
@@ -82,12 +78,4 @@ func _go_next_level_or_game_over():
 		_replace_level_with_next()
 	else:
 		_remove_ui_and_level()
-		_load_level("GameOver")
-
-
-func get_rng():
-	return _rng
-
-
-func get_current_level_duration():
-	return _current_level_duration
+		_load_and_add_level("GameOver")

@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/Alata_dynamic_font_data.tres" type="DynamicFontData" id=1]
-[ext_resource path="res://sprites/MainMenu/Background/Background2.png" type="Texture" id=2]
-[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Hover.png" type="Texture" id=2]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Normal.png" type="Texture" id=3]
 [ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Hover.png" type="Texture" id=4]
-[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Pressed.png" type="Texture" id=5]
-[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Normal.png" type="Texture" id=6]
-[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Normal.png" type="Texture" id=7]
-[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Hover.png" type="Texture" id=8]
-[ext_resource path="res://levels/GameOver.gd" type="Script" id=9]
+[ext_resource path="res://sprites/MainMenu/Background/Background2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Normal.png" type="Texture" id=6]
+[ext_resource path="res://sprites/MainMenu/QuitGame/QuitGame_Pressed.png" type="Texture" id=7]
+[ext_resource path="res://sprites/MainMenu/Start Game/StartGame_Pressed.png" type="Texture" id=8]
+[ext_resource path="res://src/levels/game_over.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -19,7 +19,7 @@ script = ExtResource( 9 )
 
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 388.384
@@ -43,9 +43,9 @@ margin_top = 327.599
 margin_right = 1200.05
 margin_bottom = 727.599
 rect_scale = Vector2( 0.6, 0.6 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 8 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 2 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,8 +57,8 @@ margin_top = 501.568
 margin_right = 1283.89
 margin_bottom = 901.568
 rect_scale = Vector2( 0.4, 0.4 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 4 )
 stretch_mode = 4
 __meta__ = {

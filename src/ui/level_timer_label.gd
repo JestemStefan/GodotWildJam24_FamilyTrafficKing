@@ -5,10 +5,14 @@ var _seconds = 0
 
 
 func _ready():
-	var total_time_seconds = GameManager.get_current_level_duration()
-	_minutes = total_time_seconds / 60
-	_seconds = total_time_seconds - _minutes * 60
-	NodeFinder.get_level_timer().connect("timeout", self, "_update_time")
+	var total_time_seconds = TimerManager.get_remaining_time()
+	if total_time_seconds > 60:
+		_minutes = total_time_seconds / 60
+		_seconds = total_time_seconds - _minutes * 60
+	else:
+		_minutes = 0
+		_seconds = total_time_seconds
+	TimerManager.get_timer().connect("timeout", self, "_update_time")
 	_update_display()
 
 
