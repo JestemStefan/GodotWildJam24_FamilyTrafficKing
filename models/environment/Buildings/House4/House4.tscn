@@ -20,5 +20,6 @@ surfaces/0 = {
 
 [node name="House4" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )

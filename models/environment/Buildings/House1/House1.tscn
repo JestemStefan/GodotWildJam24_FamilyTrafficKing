@@ -19,5 +19,6 @@ surfaces/0 = {
 [node name="House1" type="Spatial"]
 
 [node name="House1" type="MeshInstance" parent="."]
+use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )

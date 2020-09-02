@@ -17,12 +17,13 @@ surfaces/0 = {
 }
 
 [sub_resource type="CylinderShape" id=2]
-radius = 3.36969
-height = 4.28564
+radius = 4.93533
+height = 5.23948
 
 [node name="Tree2" type="Spatial"]
 
 [node name="Tree2" type="MeshInstance" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
 

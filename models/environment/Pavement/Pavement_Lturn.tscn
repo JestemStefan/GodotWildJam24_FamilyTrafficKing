@@ -19,5 +19,7 @@ surfaces/0 = {
 [node name="Pavement_Lturn" type="Spatial"]
 
 [node name="Pavemnet_Lturn" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
