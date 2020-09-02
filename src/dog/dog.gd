@@ -8,7 +8,7 @@ var direction: Vector3 = Vector3()
 
 
 onready var _anim_player: AnimationPlayer = $DogAnimated/AnimationPlayer
-onready var _bark_area = $BarkArea
+onready var _bark_area: BarkArea = $BarkArea
 onready var _waveParticle: Particles = $BarkArea/SoundWave
 onready var _soundSphere: Particles = $BarkArea/SoundSphere
 onready var _dust1: Particles = $Particles/Dust1

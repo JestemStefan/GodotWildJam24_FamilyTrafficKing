@@ -1,7 +1,7 @@
 extends KinematicBody
 class_name FamilyMember
 
-const HAPPINESS_LOST_ON_BARK = 5
+signal heard_bark
 
 onready var _path : PathFollow = get_parent()
 
@@ -27,4 +27,4 @@ func _undetect_car(body):
 
 
 func hears_bark():
-	HappinessManager.lose_happiness(HAPPINESS_LOST_ON_BARK)
+	emit_signal("heard_bark")

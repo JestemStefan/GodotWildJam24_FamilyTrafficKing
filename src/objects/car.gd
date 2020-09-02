@@ -1,8 +1,9 @@
 extends KinematicBody
+class_name Car
+
+signal honked
 
 export var speed: int = 10
-
-const HAPPINESS_LOST_ON_HONK = 20
 
 onready var _path : PathFollow = get_parent()
 onready var _car_animplayer: AnimationPlayer = $Car/AnimationPlayer
@@ -66,7 +67,7 @@ func _on_PeopleDetector_body_exited(body):
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "Honking":
-		HappinessManager.lose_happiness(HAPPINESS_LOST_ON_HONK)
+		emit_signal("honked")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print("Animation " + anim_name + " finished")
@@ -77,7 +78,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _honk():
 	_car_animplayer.play("Honking")
-	_honk_label.display(global_transform.origin, HAPPINESS_LOST_ON_HONK)
-
-
-
+	_honk_label.display(global_transform.origin, HappinessManager.HAPPINESS_LOST_HONK)

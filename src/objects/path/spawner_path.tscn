@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.011002, 0, 2.27692, 0, 0, 0, 0, 0, 0, 0.0172887, 0, -8.86919 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.51684e-06, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, -38.887 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -19,5 +19,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05605, 1, -7.81307 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
-[connection signal="body_entered" from="Goal" to="." method="_on_Goal_body_entered"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

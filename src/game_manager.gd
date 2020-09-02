@@ -15,7 +15,7 @@ var _rng = RandomNumberGenerator.new() setget, get_rng
 
 func _ready():
 	_rng.randomize()
-	_load_and_add_level("MainMenu")
+	# _load_and_add_level("MainMenu")
 
 
 func load_first_level():
@@ -35,8 +35,10 @@ func _load_current_level_and_UI():
 	HappinessManager.set_happiness_threshold(level.happiness_threshold)
 	TimerManager.start_timer(level.timer_duration)
 	
-	
 	_main.add_child(level)
+	var tree = get_tree()
+	HappinessManager.init_happiness_system(tree.get_nodes_in_group("people_paths"),
+	tree.get_nodes_in_group("car_paths"))
 	
 	_gui = GUI.instance()
 	_main.add_child(_gui)

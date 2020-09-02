@@ -1,9 +1,12 @@
 extends Node
 
-onready var _main = get_tree().get_root().get_node("Main")
+onready var _main = null
 
 
 var _camera = null setget , get_player_camera
+
+func _ready():
+	_camera = get_tree().get_nodes_in_group("camera")[0]
 
 
 func get_main():

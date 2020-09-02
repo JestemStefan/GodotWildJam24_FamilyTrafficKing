@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area",
+"class": "BarkArea",
+"language": "GDScript",
+"path": "res://src/dog/bark_area.gd"
+}, {
+"base": "KinematicBody",
+"class": "Car",
+"language": "GDScript",
+"path": "res://src/objects/car.gd"
+}, {
 "base": "FamilyMember",
 "class": "Child",
 "language": "GDScript",
@@ -33,13 +43,21 @@ _global_script_classes=[ {
 "class": "OldPerson",
 "language": "GDScript",
 "path": "res://src/family/old_person.gd"
+}, {
+"base": "Path",
+"class": "SpawnerPath",
+"language": "GDScript",
+"path": "res://src/objects/path/spawner_path.gd"
 } ]
 _global_script_class_icons={
+"BarkArea": "",
+"Car": "",
 "Child": "",
 "Dog": "",
 "FamilyMember": "",
 "LevelSettings": "",
-"OldPerson": ""
+"OldPerson": "",
+"SpawnerPath": ""
 }
 
 [application]
