@@ -23,3 +23,51 @@ transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 0, -0.1, 0 )
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
+
+[node name="Grassplane2" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 499.585, -0.1, 0 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane3" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 0, -0.1, -496.041 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane4" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 499.585, -0.1, -496.041 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane5" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 0, -0.1, 496.041 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane6" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, 499.585, -0.1, 496.041 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane7" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, -500.018, -0.1, 0 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane8" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, -500.018, -0.1, -496.041 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="Grassplane9" type="MeshInstance" parent="."]
+transform = Transform( 250, 0, 0, 0, 250, 0, 0, 0, 250, -500.018, -0.1, 496.041 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )

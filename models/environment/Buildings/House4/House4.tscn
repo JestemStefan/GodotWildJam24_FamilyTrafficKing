@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://models/environment/Buildings/House4/House4Material.tres" type="Material" id=1]
 
@@ -16,10 +16,17 @@ surfaces/0 = {
 "vertex_count": 1234
 }
 
-[node name="House4" type="Spatial"]
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 7.47139, 3.40678, 7.27474 )
+
+[node name="House4" type="StaticBody"]
 
 [node name="House4" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01162, 3.3919, 0 )
+shape = SubResource( 2 )
