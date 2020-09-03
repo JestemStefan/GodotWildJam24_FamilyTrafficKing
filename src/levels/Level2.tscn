@@ -1,18 +1,16 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/level_settings.gd" type="Script" id=1]
 [ext_resource path="res://models/environment/Grassplane/Grassplane.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/environment/Buildings/House4/House4.tscn" type="PackedScene" id=3]
 [ext_resource path="res://models/environment/Decorations/Bush/Bush2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/lane.tscn" type="PackedScene" id=5]
-[ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=6]
 [ext_resource path="res://models/environment/Buildings/House3/House3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/car.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/dog/dog.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/environment/Buildings/House2/House2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://models/environment/Decorations/Bush/Bush1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://models/environment/Decorations/Bush/Bush4.tscn" type="PackedScene" id=12]
-[ext_resource path="res://models/environment/Pavement/long_pavement.tscn" type="PackedScene" id=13]
 [ext_resource path="res://models/environment/Decorations/Trees/Tree2.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/objects/biggerpathway.tscn" type="PackedScene" id=15]
 [ext_resource path="res://models/environment/Buildings/House1/House1.tscn" type="PackedScene" id=16]
@@ -108,44 +106,6 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.400
 [node name="House4" parent="Houses" instance=ExtResource( 3 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 44.2879, 0, 16.8843 )
 
-[node name="Pavement Top" parent="." instance=ExtResource( 13 )]
-
-[node name="Pavement Bot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2911, 0, 18.6514 )
-
-[node name="PavementRight" parent="Pavement Bot" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89848, 0, 0 )
-
-[node name="Pavement_Square2" parent="Pavement Bot/PavementRight" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
-
-[node name="Pavement_Square3" parent="Pavement Bot/PavementRight" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
-
-[node name="Pavement_Square4" parent="Pavement Bot/PavementRight" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
-
-[node name="Pavement_Square5" parent="Pavement Bot/PavementRight" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
-
-[node name="Pavement_Square6" parent="Pavement Bot/PavementRight" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0 )
-
-[node name="PavementLeft" parent="Pavement Bot" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9123, 0, 0 )
-
-[node name="Pavement_Square2" parent="Pavement Bot/PavementLeft" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
-
-[node name="Pavement_Square3" parent="Pavement Bot/PavementLeft" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0 )
-
-[node name="Pavement_Square4" parent="Pavement Bot/PavementLeft" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
-
-[node name="Pavement_Square5" parent="Pavement Bot/PavementLeft" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 0 )
-
 [node name="Bush1" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5619, 0, -5.6439 )
 
@@ -177,7 +137,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2261, 0, -8.22926 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3343, 0, -8.22926 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.3273, 52.3124, 62.062 )
+transform = Transform( 0.891655, 0.272186, -0.361754, 0, 0.799076, 0.601229, 0.452715, -0.536089, 0.712501, -12.7045, 13.1377, 48.5408 )
 light_color = Color( 0.964706, 0.929412, 0.8, 1 )
 light_energy = 1.26
 light_indirect_energy = 0.98

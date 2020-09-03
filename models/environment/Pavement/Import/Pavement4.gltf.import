@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Pavement4.gltf-009141ff23a9c7011be695fdb1f4960f.scn"
+path="res://.import/Pavement4.gltf-daea1a178122f280df325192c9b4ec42.scn"
 
 [deps]
 
-source_file="res://models/environment/Pavement/Pavement4.gltf"
-dest_files=[ "res://.import/Pavement4.gltf-009141ff23a9c7011be695fdb1f4960f.scn" ]
+source_file="res://models/environment/Pavement/Import/Pavement4.gltf"
+dest_files=[ "res://.import/Pavement4.gltf-daea1a178122f280df325192c9b4ec42.scn" ]
 
 [params]
 

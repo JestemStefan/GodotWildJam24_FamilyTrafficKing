@@ -5,3 +5,11 @@
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+ambient_light_color = Color( 0, 0.431373, 0.580392, 1 )
+ambient_light_sky_contribution = 0.5
+fog_enabled = true
+fog_depth_begin = 50.7
+fog_depth_end = 172.1
+fog_depth_curve = 2.63902
+tonemap_mode = 2
+ssao_enabled = true
