@@ -7,17 +7,16 @@ var _bark_stun_duration: float = 1.1
 onready var _stun_timer: Timer = $StunTimer
 onready var _anim_player: AnimationPlayer = $BOI/AnimationPlayer
 
-var TextureRandomizer = preload("res://src/texture_randomizer.gd").new([
+const _textures = [
 	preload("res://models/Humans/MaleChild/M_ChildTexture_BlackRed.jpg"),
 	preload("res://models/Humans/MaleChild/M_ChildTexture_Blue.jpg"),
 	preload("res://models/Humans/MaleChild/M_ChildTexture_BlueYellow.jpg"),
 	preload("res://models/Humans/MaleChild/M_ChildTexture_GreenRed.jpg"),
 	preload("res://models/Humans/MaleChild/M_ChildTexture_PinkBrown.jpg")
-	]
-)
+]
 
 func _ready():
-	TextureRandomizer.apply_random_texture($BOI/HumanArmature/Skeleton/Human)
+	TextureRandomizer.apply_random_texture($BOI/HumanArmature/Skeleton/Human, _textures)
 
 
 func _physics_process(delta: float):

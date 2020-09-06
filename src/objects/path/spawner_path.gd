@@ -38,8 +38,6 @@ func _spawn():
 	
 	add_child(path_follow)
 	
-	path_follow.set_offset(0)
-	
 	_current_spawn_count += 1
 	_spawn_timer.start(spawn_frequency_seconds)
 	

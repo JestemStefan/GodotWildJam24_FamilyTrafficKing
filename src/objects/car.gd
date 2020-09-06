@@ -15,18 +15,17 @@ var driveSpeed: int = 0
 
 var canDrive : int = 1
 
-var TextureRandomizer = preload("res://src/texture_randomizer.gd").new([
+const _textures = [
 	preload("res://models/Car/Car_Black.jpg"),
 	preload("res://models/Car/Car_Blue.jpg"),
 	preload("res://models/Car/Car_Green.jpg"),
 	preload("res://models/Car/Car_Purple.jpg"),
 	preload("res://models/Car/Car_Red.jpg"),
 	preload("res://models/Car/Car_Yellow.jpg")
-	]
-)
+]
 
 func _ready():
-	TextureRandomizer.apply_random_texture($Car/CarArmature/Skeleton/Car)
+	TextureRandomizer.apply_random_texture($Car/CarArmature/Skeleton/Car, _textures)
 
 	_car_animplayer.play("Driving")
 
