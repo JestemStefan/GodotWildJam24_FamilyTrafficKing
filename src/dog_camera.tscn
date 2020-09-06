@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/dog_camera.gd" type="Script" id=1]
+
+[node name="DogCamera" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="." groups=[
+"camera",
+]]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.7653, 27.1984 )
+far = 200.0

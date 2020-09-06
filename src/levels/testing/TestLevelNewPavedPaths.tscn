@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/level_settings.gd" type="Script" id=1]
 [ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/objects/path/car_path.gd" type="Script" id=5]
 [ext_resource path="res://models/environment/Road/Road.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/path/people_path.gd" type="Script" id=7]
+[ext_resource path="res://src/dog_camera.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -64,12 +65,9 @@ spawn_limit_simultaneously = 2
 [node name="Goal" parent="CarPath" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -55.5375 )
 
-[node name="Camera" type="Camera" parent="." groups=[
-"camera",
-]]
-transform = Transform( 1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 20, 15 )
-
 [node name="Dog" parent="." instance=ExtResource( 4 )]
+
+[node name="DogCamera" parent="." instance=ExtResource( 8 )]
 
 [editable path="PeoplePath"]
 

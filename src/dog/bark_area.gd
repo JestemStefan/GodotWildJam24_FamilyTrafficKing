@@ -11,8 +11,6 @@ onready var camera: Camera = get_tree().get_root().get_camera()
 
 var detected_fams = []
 
-func _process(delta):
-	bubble()
 	
 func bark():
 	if not _timer.is_stopped():
@@ -21,6 +19,7 @@ func bark():
 	for fam in detected_fams:
 		fam.hears_bark()
 	
+	barkBubble.look_at(NodeFinder.get_player_camera().global_transform.origin,Vector3(0,1,0))
 	_animplayer.play("BarkAnimation")
 	_timer.start(bark_duration)
 
@@ -31,7 +30,3 @@ func _on_BarkArea_body_entered(body):
 
 func _on_BarkArea_body_exited(body):
 	detected_fams.erase(body)
-
-
-func bubble():
-	barkBubble.look_at(NodeFinder.get_player_camera().global_transform.origin,Vector3(0,1,0))

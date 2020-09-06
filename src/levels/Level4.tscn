@@ -29,7 +29,7 @@
 [ext_resource path="res://models/environment/Decorations/Stones/Rock2.tscn" type="PackedScene" id=27]
 [ext_resource path="res://models/environment/Decorations/Stones/Rock1.tscn" type="PackedScene" id=28]
 [ext_resource path="res://models/environment/Fence/Fence.tscn" type="PackedScene" id=29]
-[ext_resource path="res://src/Camera.gd" type="Script" id=30]
+[ext_resource path="res://src/dog_camera.tscn" type="PackedScene" id=30]
 
 [node name="TestLevelNewPavedPaths" type="Node"]
 script = ExtResource( 1 )
@@ -324,11 +324,4 @@ transform = Transform( -0.601676, 0, -0.79874, 0, 1, 0, 0.79874, 0, -0.601676, 3
 [node name="Fence4" parent="Decorations" instance=ExtResource( 29 )]
 transform = Transform( 0.763018, 0, -0.646377, 0, 1, 0, 0.646377, 0, 0.763018, -7.02048, 0, -45.9131 )
 
-[node name="CameraAttachment" type="Spatial" parent="."]
-script = ExtResource( 30 )
-
-[node name="Camera" type="Camera" parent="CameraAttachment" groups=[
-"camera",
-]]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 25.7653, 27.1984 )
-far = 200.0
+[node name="DogCamera" parent="." instance=ExtResource( 30 )]

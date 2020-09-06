@@ -14,7 +14,8 @@ onready var _soundSphere: Particles = $BarkArea/SoundSphere
 onready var _dust1: Particles = $Particles/Dust1
 onready var _dust2: Particles = $Particles/Dust2
 
-
+func _ready():
+	NodeFinder.set_dog(self)
 
 func _input(event):
 	if event is InputEventKey and Input.is_action_just_pressed("bark"):

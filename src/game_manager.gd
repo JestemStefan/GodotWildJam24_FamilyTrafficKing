@@ -35,8 +35,6 @@ func setup_level(level: LevelSettings):
 	HappinessManager.init_happiness_system(tree.get_nodes_in_group("people_paths"),
 	tree.get_nodes_in_group("car_paths"), tree.get_nodes_in_group("dog")[0])
 	
-	NodeFinder.update_player_camera(level.get_node("Camera"))
-	
 	_gui = GUI.instance()
 	_root.call_deferred("add_child", _gui)
 
