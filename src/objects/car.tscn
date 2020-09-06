@@ -299,7 +299,7 @@ shape = SubResource( 9 )
 [node name="PeopleDetector" type="Area" parent="."]
 monitorable = false
 collision_layer = 0
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape" type="CollisionShape" parent="PeopleDetector"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82382, -8.8379 )

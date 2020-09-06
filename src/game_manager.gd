@@ -19,12 +19,10 @@ func _ready():
 
 
 func load_first_level():
-	var main_menu: LevelSettings = _root.get_node("MainMenu")
-	_load_next_level(main_menu.next_level)
+	_load_next_level(load("res://src/levels/testing/TestLevelNewPavedPaths.tscn"))
 
 
 func get_rng():
-	return _rng
 	return _rng
 
 
@@ -36,6 +34,8 @@ func setup_level(level: LevelSettings):
 	var tree = get_tree()
 	HappinessManager.init_happiness_system(tree.get_nodes_in_group("people_paths"),
 	tree.get_nodes_in_group("car_paths"), tree.get_nodes_in_group("dog")[0])
+	
+	NodeFinder.update_player_camera(level.get_node("Camera"))
 	
 	_gui = GUI.instance()
 	_root.call_deferred("add_child", _gui)
@@ -50,7 +50,6 @@ func _load_next_level(next_level: PackedScene):
 	_gui = GUI.instance()
 	_root.add_child(_gui)
 	
-	NodeFinder.update_player_camera(level.get_node("Camera"))
 	_current_level = level
 
 

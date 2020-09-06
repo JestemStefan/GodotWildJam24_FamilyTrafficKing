@@ -72,7 +72,6 @@ band_db/8000_hz = -2.5
 band_db/16000_hz = -21.1
 
 [resource]
-bus/0/volume_db = 6.02
 bus/1/name = "BarkReverb"
 bus/1/solo = false
 bus/1/mute = false

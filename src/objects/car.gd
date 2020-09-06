@@ -23,7 +23,7 @@ var detected_fams_or_dog: Array = []
 var driveSpeed: int = 0
 
 var canDrive : int = 1
-var isWaiting:bool = false
+
 
 
 func _ready():
@@ -40,16 +40,14 @@ func _physics_process(delta):
 		canDrive = 1
 	else:
 		canDrive = 0
-	if isWaiting == false:
-		driveSpeed = lerp(driveSpeed, canDrive * speed, 0.075)
+
+	driveSpeed = lerp(driveSpeed, canDrive * speed, 0.075)
 		
-		_path.set_offset(_path.get_offset() + 0.1 * driveSpeed * delta)	
+	_path.set_offset(_path.get_offset() + 0.1 * driveSpeed * delta)
 
 
 func _on_PeopleDetector_body_entered(body):
 	if detected_fams_or_dog.size() <= 0:
-		if driveSpeed <= 0:
-			isWaiting = true
 		_car_animplayer.play("Braking")
 	
 	# should not be needed but why not 
@@ -65,9 +63,11 @@ func _on_PeopleDetector_body_exited(body):
 	if detected_fams_or_dog.size()  <= 0:
 		_car_animplayer.play("SpeedingUp")
 
+
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "Honking":
 		emit_signal("honked")
+
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	print("Animation " + anim_name + " finished")

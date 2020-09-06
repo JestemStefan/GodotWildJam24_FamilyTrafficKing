@@ -10,12 +10,15 @@ func _ready():
 	randRot = rand_range(-3, 3)
 	_set_volume(0.5)
 
+
 func _set_volume(volume_level: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 
 		linear2db(volume_level))
-	
+
+
 func _on_Start_pressed():
 	GameManager.load_first_level()
+	self.queue_free()
 
 
 func _on_Quit_pressed():

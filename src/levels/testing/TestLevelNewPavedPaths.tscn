@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/level_settings.gd" type="Script" id=1]
 [ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/objects/path/car_path.gd" type="Script" id=5]
 [ext_resource path="res://models/environment/Road/Road.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/path/people_path.gd" type="Script" id=7]
+[ext_resource path="res://audio/OGGS/MENU_MUSIC.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -16,7 +17,7 @@ _data = {
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.00603962, 0, 11.2076, 0, 0, 0, 0, 0, 0, 0.00603962, 0, -35.8818 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0, 0, 35.113, 0, 0, 0, 0, 0, 0, 0, 0, -57.887 ),
 "tilts": PoolRealArray( 0, 0 )
 }
 
@@ -25,13 +26,14 @@ script = ExtResource( 1 )
 timer_duration = 10
 happiness_threshold = 20
 
-[node name="PeoplePath" type="Path" parent="." groups=[
+[node name="PeoplePath" parent="." groups=[
 "people_paths",
 ] instance=ExtResource( 3 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
 curve = SubResource( 1 )
 script = ExtResource( 7 )
-spawn_frequency_seconds = 2
+spawn_frequency_seconds = 5
+spawn_limit_simultaneously = 1
 
 [node name="Pavement" type="Spatial" parent="PeoplePath"]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -2.13569e-06, 0, 13.1088 )
@@ -45,12 +47,14 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 1.1248e
 [node name="Pavement_Square2" parent="PeoplePath/Pavement2" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23654, 0, 0 )
 
-[node name="CarPath" type="Path" parent="." groups=[
+[node name="CarPath" parent="." groups=[
 "car_paths",
 ] instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.887 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00377655, 3.8147e-06, 11.779 )
 curve = SubResource( 2 )
 script = ExtResource( 5 )
+spawn_frequency_seconds = 5
+spawn_limit_simultaneously = 2
 
 [node name="Road" parent="CarPath" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -61,3 +65,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 20, 15 )
 
 [node name="Dog" parent="." instance=ExtResource( 4 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+bus = "Music"

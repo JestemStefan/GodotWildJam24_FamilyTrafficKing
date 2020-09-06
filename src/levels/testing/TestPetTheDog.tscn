@@ -7,9 +7,7 @@
 [node name="TestPetTheDog" type="Node"]
 script = ExtResource( 3 )
 
-[node name="Dog" parent="." groups=[
-"dog",
-] instance=ExtResource( 2 )]
+[node name="Dog" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.98706 )
 
 [node name="PathFollow" type="PathFollow" parent="."]
