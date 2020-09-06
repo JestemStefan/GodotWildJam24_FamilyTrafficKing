@@ -18,14 +18,15 @@ func _post_spawn(spawnee: Node):
 	pass
 
 
-func _post_despawn(spawnee: Node):
+func _post_despawn():
 	pass
 #################
 
 func _ready():
 	$SpawnTimer.connect("timeout", self, "_on_SpawnTimer_timeout")
 	$Goal.connect("body_entered", self, "_on_Goal_body_entered")
-
+	var points = curve.get_baked_points()
+	print(points)
 
 func _spawn():
 	if _current_spawn_count >= spawn_limit_simultaneously:
@@ -46,7 +47,7 @@ func _spawn():
 
 func _despawn(spawnee):
 	_current_spawn_count -= 1
-	_post_despawn(spawnee)
+	_post_despawn()
 	# delete the PathFollow which is the parent of spawnee	
 	spawnee.get_parent().queue_free()
 

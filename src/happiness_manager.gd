@@ -14,7 +14,7 @@ var _current_happiness = 0
 func init_happiness_system(people_paths: Array, car_paths: Array):
 	for spawner_path in people_paths:
 		spawner_path.connect("spawned_person", self, "_connect_bark_loss")
-		spawner_path.connect("person_reached_goal", self, "_gain_happiness", HAPPINESS_GAIN_ON_GOAL)
+		spawner_path.connect("person_reached_goal", self, "_gain_happiness", [HAPPINESS_GAIN_ON_GOAL])
 	
 	for car_path in car_paths:
 		car_path.connect("spawned_car", self, "_connect_honk_loss")
@@ -44,7 +44,7 @@ func is_happiness_threshold_reached():
 	return _current_happiness >= _happiness_threshold
 
 
-func gain_happiness(amount):
+func _gain_happiness(amount):
 	_current_happiness = _current_happiness + amount
 	_emit_happiness_signal()
 
