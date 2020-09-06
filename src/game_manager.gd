@@ -70,6 +70,7 @@ func _replace_level_with_next():
 
 
 func _load_and_add_level(level: PackedScene):
+	_remove_ui_and_level()
 	_root.add_child(level.instance())
 
 
@@ -77,5 +78,4 @@ func _go_next_level_or_game_over():
 	if HappinessManager.is_happiness_threshold_reached():
 		_replace_level_with_next()
 	else:
-		_remove_ui_and_level()
 		_load_and_add_level(_game_over)
