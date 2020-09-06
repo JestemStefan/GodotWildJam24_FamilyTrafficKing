@@ -63,8 +63,6 @@ func _on_AnimationPlayer_animation_started(anim_name):
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	print("Animation " + anim_name + " finished")
-
 	match anim_name:
 		"SpeedingUp": _car_animplayer.play("Driving")
 		"Braking": _honk()

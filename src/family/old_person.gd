@@ -27,7 +27,7 @@ func _physics_process(delta: float):
 	if _speed_boost_timer.is_stopped():
 		total_speed = _speed  * _animationSpeed
 		animplayer.play("OldManWalk")
-		animplayer.set_speed_scale(_speed/1.5)
+		animplayer.set_speed_scale(_speed / 1.5)
 		
 	else:
 		 total_speed = _speed * _speed_boost
