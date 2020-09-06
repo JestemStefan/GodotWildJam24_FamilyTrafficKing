@@ -1,4 +1,5 @@
 extends SpawnerPath
+class_name PeoplePath
 
 signal spawned_person
 signal person_reached_goal

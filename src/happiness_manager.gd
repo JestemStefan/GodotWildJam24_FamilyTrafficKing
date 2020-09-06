@@ -4,20 +4,23 @@ signal happiness_updated
 
 const HAPPINESS_LOST_BARK = 5
 const HAPPINESS_LOST_HONK = 20
-const HAPPINESS_GAIN_ON_GOAL = 30
+const HAPPINESS_GAIN_GOAL = 30
+const HAPPINESS_GAIN_PET = 2
 
 var _happiness_threshold = 128
 
 var _current_happiness = 0
 
 
-func init_happiness_system(people_paths: Array, car_paths: Array):
+func init_happiness_system(people_paths: Array, car_paths: Array, dog: Dog):
 	for spawner_path in people_paths:
 		spawner_path.connect("spawned_person", self, "_connect_bark_loss")
-		spawner_path.connect("person_reached_goal", self, "_gain_happiness", [HAPPINESS_GAIN_ON_GOAL])
+		spawner_path.connect("person_reached_goal", self, "_gain_happiness", [HAPPINESS_GAIN_GOAL])
 	
 	for car_path in car_paths:
 		car_path.connect("spawned_car", self, "_connect_honk_loss")
+	
+	dog.get_node("PetArea").connect("pet", self, "_gain_happiness", [HAPPINESS_GAIN_PET])
 
 
 func _connect_bark_loss(person: FamilyMember):
@@ -56,6 +59,7 @@ func reset_happiness():
 func _lose_happiness(amount: int):
 	_current_happiness = max(0, _current_happiness - amount)
 	_emit_happiness_signal()
+
 
 func _emit_happiness_signal():
 	emit_signal("happiness_updated", _current_happiness)

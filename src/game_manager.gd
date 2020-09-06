@@ -12,6 +12,7 @@ var _gui = null
 
 var _rng = RandomNumberGenerator.new() setget, get_rng
 
+
 func _ready():
 	_rng.randomize()
 	TimerManager.connect("time_is_up", self, "_go_next_level_or_game_over")
@@ -24,6 +25,7 @@ func load_first_level():
 
 func get_rng():
 	return _rng
+	return _rng
 
 
 func setup_level(level: LevelSettings):
@@ -33,7 +35,7 @@ func setup_level(level: LevelSettings):
 	
 	var tree = get_tree()
 	HappinessManager.init_happiness_system(tree.get_nodes_in_group("people_paths"),
-	tree.get_nodes_in_group("car_paths"))
+	tree.get_nodes_in_group("car_paths"), tree.get_nodes_in_group("dog")[0])
 	
 	_gui = GUI.instance()
 	_root.call_deferred("add_child", _gui)

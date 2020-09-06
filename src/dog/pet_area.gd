@@ -1,7 +1,9 @@
 extends Area
 
-const HAPPINESS_GAIN = 2
+signal pet
+
 const HAPPINESS_FREQUENCY = 2 # seconds
+
 
 onready var _timer: Timer = $PetTimer
 onready var _pet_label = $PetLabel
@@ -25,6 +27,6 @@ func _on_PetArea_body_exited(body):
 
 func _on_PetTimer_timeout():
 	if detected_fams.size() > 0:
-		HappinessManager.gain_happiness(HAPPINESS_GAIN)
+		emit_signal("pet")
 		_heart_particles.set_emitting(true)
-		_pet_label.display(get_global_transform().origin, HAPPINESS_GAIN)
+		_pet_label.display(get_global_transform().origin, HappinessManager.HAPPINESS_GAIN_PET)

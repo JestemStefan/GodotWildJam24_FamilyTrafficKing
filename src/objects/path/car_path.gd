@@ -1,4 +1,5 @@
 extends SpawnerPath
+class_name CarPath
 
 signal spawned_car
 

@@ -22,11 +22,13 @@ func _post_despawn():
 	pass
 #################
 
+
 func _ready():
 	$SpawnTimer.connect("timeout", self, "_on_SpawnTimer_timeout")
 	$Goal.connect("body_entered", self, "_on_Goal_body_entered")
 	var points = curve.get_baked_points()
 	print(points)
+
 
 func _spawn():
 	if _current_spawn_count >= spawn_limit_simultaneously:

@@ -1628,7 +1628,9 @@ linear_accel = 5.0
 scale_curve = SubResource( 22 )
 color_ramp = SubResource( 20 )
 
-[node name="Dog" type="KinematicBody"]
+[node name="Dog" type="KinematicBody" groups=[
+"dog",
+]]
 collision_mask = 7
 script = ExtResource( 1 )
 speed = 15
