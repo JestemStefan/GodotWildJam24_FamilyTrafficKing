@@ -3,7 +3,7 @@ extends Node
 onready var _main = null
 
 
-var _camera = null setget , get_player_camera
+var _camera: Camera = null setget , get_player_camera
 
 func _ready():
 	_camera = get_tree().get_nodes_in_group("camera")[0]
@@ -13,8 +13,8 @@ func get_main():
 	return _main
 
 
-func update_player_camera(level_name):
-	_camera = _main.get_node(level_name + "/Camera")
+func update_player_camera(camera: Camera):
+	_camera = camera
 
 
 func get_player_camera():

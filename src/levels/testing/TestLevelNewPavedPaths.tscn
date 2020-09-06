@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/level_settings.gd" type="Script" id=1]
 [ext_resource path="res://models/environment/Pavement/Pavement_Square.tscn" type="PackedScene" id=2]
@@ -7,18 +7,35 @@
 [ext_resource path="res://src/objects/path/car_path.gd" type="Script" id=5]
 [ext_resource path="res://models/environment/Road/Road.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/objects/path/people_path.gd" type="Script" id=7]
+[ext_resource path="res://src/levels/TutorialLevel1.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0414549, 0, 14.061, 0, 0, 0, 0, 0, 0, 2.28089e-06, 0, -14 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.00603962, 0, 11.2076, 0, 0, 0, 0, 0, 0, 0.00603962, 0, -35.8818 ),
+"tilts": PoolRealArray( 0, 0 )
+}
 
 [node name="TestLevelNewPavedPaths" type="Node"]
 script = ExtResource( 1 )
-timer_duration = 100
-happiness_threshold = 500
+timer_duration = 10
+happiness_threshold = 20
+next_level = ExtResource( 8 )
 
 [node name="SpawnerPath" parent="." groups=[
 "people_paths",
 ] instance=ExtResource( 3 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+curve = SubResource( 1 )
 script = ExtResource( 7 )
-spawn_frequency_seconds = 10
+
+[node name="Goal" parent="SpawnerPath" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020681, 1, -14.3182 )
 
 [node name="Pavement" type="Spatial" parent="SpawnerPath"]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -2.13569e-06, 0, 13.1088 )
@@ -40,8 +57,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
 "car_paths",
 ] instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.887 )
+curve = SubResource( 2 )
 script = ExtResource( 5 )
 spawn_frequency_seconds = 10
+
+[node name="Goal" parent="SpawnerPath2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -50.5003 )
 
 [node name="Road" parent="SpawnerPath2" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -49,6 +70,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 [node name="Camera" type="Camera" parent="." groups=[
 "camera",
 ]]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 15, 15 )
+transform = Transform( 1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 20, 15 )
 
 [node name="Dog" parent="." instance=ExtResource( 4 )]
+
+[editable path="SpawnerPath"]
+
+[editable path="SpawnerPath2"]

@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Family TrafficKing"
-run/main_scene="res://src/levels/main.tscn"
+run/main_scene="res://src/levels/MainMenu.tscn"
 config/icon="res://sprites/icon.png"
 
 [autoload]

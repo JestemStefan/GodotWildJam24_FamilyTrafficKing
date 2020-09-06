@@ -18,5 +18,5 @@ func _post_spawn(new_person):
 	print("spawned person %s " % new_person)
 
 
-func _post_despawn(person):
-	emit_signal("person_reached_goal", person)
+func _post_despawn():
+	emit_signal("person_reached_goal")
