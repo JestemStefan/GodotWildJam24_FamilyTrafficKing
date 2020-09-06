@@ -1,7 +1,6 @@
 extends Path
 class_name SpawnerPath
 
-
 export var spawn_frequency_seconds = 10
 export var spawn_limit_simultaneously = 5
 
@@ -34,10 +33,12 @@ func _spawn():
 
 	var spawnee = _get_new_spawn()
 
-	var path_follow = PathFollow.new()
+	var path_follow: PathFollow = PathFollow.new()
 	path_follow.add_child(spawnee)
 	
 	add_child(path_follow)
+	
+	path_follow.set_offset(0)
 	
 	_current_spawn_count += 1
 	_spawn_timer.start(spawn_frequency_seconds)

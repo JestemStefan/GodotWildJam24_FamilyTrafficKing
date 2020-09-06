@@ -293,7 +293,7 @@ anims/Honking2 = SubResource( 7 )
 anims/SpeedingUp = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 2.15492, 0, 0, 0, 1, 0, 0, 0, 1.16428, 0, 2.68653, 0.0597323 )
+transform = Transform( 2.15492, 0, 0, 0, 1, 0, 0, 0, 1.40134, 0, 2.68653, 0.0597323 )
 shape = SubResource( 9 )
 
 [node name="PeopleDetector" type="Area" parent="."]

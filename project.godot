@@ -58,6 +58,11 @@ _global_script_classes=[ {
 "class": "SpawnerPath",
 "language": "GDScript",
 "path": "res://src/objects/path/spawner_path.gd"
+}, {
+"base": "Reference",
+"class": "TextureRandomizer",
+"language": "GDScript",
+"path": "res://src/texture_randomizer.gd"
 } ]
 _global_script_class_icons={
 "BarkArea": "",
@@ -69,7 +74,8 @@ _global_script_class_icons={
 "LevelSettings": "",
 "OldPerson": "",
 "PeoplePath": "",
-"SpawnerPath": ""
+"SpawnerPath": "",
+"TextureRandomizer": ""
 }
 
 [application]
