@@ -1,12 +1,11 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/level_settings.gd" type="Script" id=1]
 [ext_resource path="res://models/environment/Buildings/House1/House1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/objects/path/spawner_path.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/objects/path/car_path.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/dog/dog.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/objects/path/car_path.gd" type="Script" id=5]
+[ext_resource path="res://models/environment/Road/Road_45_Turn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://models/environment/Road/Road.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/objects/path/people_path.gd" type="Script" id=7]
 [ext_resource path="res://models/environment/Pavement/Pavement_Lturn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://models/environment/Pavement/Pavement_Cross.tscn" type="PackedScene" id=9]
 [ext_resource path="res://models/environment/Pavement/Pavement4.tscn" type="PackedScene" id=10]
@@ -31,34 +30,25 @@
 [ext_resource path="res://models/environment/Fence/Fence.tscn" type="PackedScene" id=29]
 [ext_resource path="res://src/dog_camera.tscn" type="PackedScene" id=30]
 
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0569105, 0, 118.615, 0, 0, 0, 0, 0, 0, 0.157686, 0, -119.197 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.230663, 0, 126.756, 0, 0, 0, 0, 0, 0, 0.0833054, 0, 6.15023, 0, 0, 0, 0, 0, 0, 0.00893784, 0, -16.775, 0, 0, 0, 0, 0, 0, -0.0847473, 0, -25.5395, 0, 0, 0, 0, 0, 0, -1.00955, 0, -33.1901, 0, 0, 0, 0, 0, 0, -2.69101, 0, -40.2522, 0, 0, 0, 0, 0, 0, -5.04505, 0, -47.6506, 0, 0, 0, 0, 0, 0, -8.15685, 0, -54.2861, 0, 0, 0, 0, 0, 0, -11.9454, 0, -60.9351, 0, 0, 0, 0, 0, 0, -16.4013, 0, -67.0724, 0, 0, 0, 0, 0, 0, -21.4457, 0, -72.7894, 0, 0, 0, 0, 0, 0, -39.1342, 0, -89.8778 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="TestLevelNewPavedPaths" type="Node"]
 script = ExtResource( 1 )
 timer_duration = 100
 happiness_threshold = 500
 
-[node name="SpawnerPath" parent="." groups=[
-"people_paths",
-] instance=ExtResource( 3 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
-script = ExtResource( 7 )
-spawn_frequency_seconds = 10
-
-[node name="SpawnerPath2" parent="." groups=[
-"car_paths",
-] instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.887 )
-script = ExtResource( 5 )
-spawn_frequency_seconds = 10
-
-[node name="Road" parent="SpawnerPath2" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -56.0555 )
-
-[node name="Road2" type="Spatial" parent="."]
-
-[node name="Road" parent="Road2" instance=ExtResource( 6 )]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 47.497, 0.04, 0 )
-
 [node name="Dog" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.036, 0, 0 )
 
 [node name="PathwaysLeft" type="Spatial" parent="."]
 
@@ -289,22 +279,22 @@ transform = Transform( -0.999891, 0, 0.0147651, 0, 1, 0, -0.0147651, 0, -0.99989
 transform = Transform( -0.838946, 0, -0.544214, 0, 1, 0, 0.544214, 0, -0.838946, 75.911, 0, -15.5993 )
 
 [node name="Fence14" parent="Decorations" instance=ExtResource( 29 )]
-transform = Transform( -0.295858, 0, 0.955232, 0, 1, 0, -0.955232, 0, -0.295858, 54.0906, 0, 35.6458 )
+transform = Transform( -0.295858, 0, 0.955232, 0, 1, 0, -0.955232, 0, -0.295858, 57.1097, 0, 35.6458 )
 
 [node name="Fence15" parent="Decorations" instance=ExtResource( 29 )]
-transform = Transform( 0.0783027, 0, 0.99693, 0, 1, 0, -0.99693, 0, 0.0783027, 44.4791, 0, 36.6342 )
+transform = Transform( 0.0783027, 0, 0.99693, 0, 1, 0, -0.99693, 0, 0.0783027, 47.4982, 0, 36.6342 )
 
 [node name="Fence16" parent="Decorations" instance=ExtResource( 29 )]
-transform = Transform( -0.489778, 0, 0.871847, 0, 1, 0, -0.871847, 0, -0.489778, 63.1455, 0, 31.9148 )
+transform = Transform( -0.489778, 0, 0.871847, 0, 1, 0, -0.871847, 0, -0.489778, 66.1646, 0, 31.9148 )
 
 [node name="Fence17" parent="Decorations" instance=ExtResource( 29 )]
-transform = Transform( 0.233785, 0, 0.972288, 0, 1, 0, -0.972288, 0, 0.233785, 24.8394, 0, 34.0899 )
+transform = Transform( 0.233785, 0, 0.972288, 0, 1, 0, -0.972288, 0, 0.233785, 27.8585, 0, 34.0899 )
 
 [node name="Fence18" parent="Decorations" instance=ExtResource( 29 )]
-transform = Transform( 0.307955, 0, 0.951401, 0, 1, 0, -0.951401, 0, 0.307955, 8.5103, 0, 27.2297 )
+transform = Transform( 0.307955, 0, 0.951401, 0, 1, 0, -0.951401, 0, 0.307955, 10.5085, 0, 27.9479 )
 
 [node name="Fence19" parent="Decorations" instance=ExtResource( 29 )]
-transform = Transform( 0.0980868, 0, 0.995178, 0, 1, 0, -0.995178, 0, 0.0980868, 34.6217, 0, 35.748 )
+transform = Transform( 0.0980868, 0, 0.995178, 0, 1, 0, -0.995178, 0, 0.0980868, 37.6408, 0, 35.748 )
 
 [node name="Fence20" parent="Decorations" instance=ExtResource( 29 )]
 transform = Transform( -0.129418, 0, 0.99159, 0, 1, 0, -0.99159, 0, -0.129418, -9.03557, 0, 24.9701 )
@@ -325,3 +315,31 @@ transform = Transform( -0.601676, 0, -0.79874, 0, 1, 0, 0.79874, 0, -0.601676, 3
 transform = Transform( 0.763018, 0, -0.646377, 0, 1, 0, 0.646377, 0, 0.763018, -7.02048, 0, -45.9131 )
 
 [node name="DogCamera" parent="." instance=ExtResource( 30 )]
+
+[node name="CarPath" parent="." instance=ExtResource( 3 )]
+curve = SubResource( 1 )
+
+[node name="Goal" parent="CarPath" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -116.255 )
+
+[node name="Road" parent="CarPath" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0 )
+
+[node name="CarPath2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 45.3939, 0, 1.99059 )
+curve = SubResource( 2 )
+
+[node name="Goal" parent="CarPath2" index="0"]
+transform = Transform( 0.708537, 0, 0.705674, 0, 1, 0, -0.705674, 0, 0.708537, -24.2858, 1, -74.5714 )
+collision_mask = 6
+
+[node name="Road" parent="CarPath2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52588e-05, 0.05, 97.5689 )
+
+[node name="Road_45Turn" parent="CarPath2" instance=ExtResource( 5 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -5.81871, 0.045, -49.4042 )
+[connection signal="body_entered" from="CarPath2/Goal" to="CarPath" method="_on_Goal_body_entered"]
+
+[editable path="CarPath"]
+
+[editable path="CarPath2"]

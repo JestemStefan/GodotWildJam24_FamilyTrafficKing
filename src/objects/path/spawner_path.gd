@@ -30,10 +30,11 @@ func _ready():
 func _spawn():
 	if _current_spawn_count >= spawn_limit_simultaneously:
 		return 
-
-	var spawnee = _get_new_spawn()
-
+	
 	var path_follow: PathFollow = PathFollow.new()
+	path_follow.set_translation(curve.get_baked_points()[0])
+	
+	var spawnee = _get_new_spawn()
 	path_follow.add_child(spawnee)
 	
 	add_child(path_follow)

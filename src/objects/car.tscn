@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/objects/car.gd" type="Script" id=1]
 [ext_resource path="res://models/Car/Car_Red.jpg" type="Texture" id=2]
-[ext_resource path="res://models/Car/Car_AO.jpg" type="Texture" id=3]
 [ext_resource path="res://models/Car/Car_Roughness.jpg" type="Texture" id=4]
 [ext_resource path="res://audio/WAVS/Car_drive_shorter1.wav" type="AudioStream" id=5]
 [ext_resource path="res://audio/WAVS/Horn1.wav" type="AudioStream" id=6]
@@ -40,13 +39,9 @@ bind/1/bone = -1
 bind/1/pose = Transform( -0.00622501, 0.999981, -4.66546e-06, -0.999981, -0.00622487, 9.00453e-08, 5.98884e-08, 4.66732e-06, 1, 1.20161, 0.892304, 5.36768e-06 )
 
 [sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
 albedo_texture = ExtResource( 2 )
 roughness_texture = ExtResource( 4 )
-ao_enabled = true
-ao_light_affect = 0.0
-ao_texture = ExtResource( 3 )
-ao_on_uv2 = false
-ao_texture_channel = 0
 
 [sub_resource type="Animation" id=4]
 tracks/0/type = "transform"
